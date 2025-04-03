@@ -5,6 +5,10 @@ This dual-screen smart development kit allows anyone to easily experiment with A
 No programming experience required. Simply follow these easy steps to interact with your personal AI companion.
 With basic development skills, you can customize your own AI Toy interaction experience.
 
+## Quick Experience Guide
+For immediate testing, simply configure your phone's hotspot with name "AGORA_TOYBOX" and password "1234567890". The device will automatically connect and be ready for AI interaction! For complete network configuration options, including connecting to your existing WiFi network, please follow the detailed steps below.
+
+
 ## Getting Started
 
 ### Step 1: Power On
@@ -12,13 +16,7 @@ With basic development skills, you can customize your own AI Toy interaction exp
 - Release to see alternating red/green LED blinking (waiting for network configuration)
 - Release to see alternating red (waiting for network in Step2 connection)
 
-### Step 2: Rename Your WiFi
-- Change your mobile hotspot name to: AGORA_TOYBOX
-- Set hotspot password to: 1234567890
-[If Step 2 completed: Green blinking indicates auto-configuration complete - skip to Step 4]
-[If Step 2 not possible: Proceed to Step 3 "Network Configuration"]
-
-### Step 3: Network Setup
+### Step 2: Network Setup
 1. Download and install Convo AI APP
 2. Open Convo AI APP
 3. Tap ☰ menu (top-left)
@@ -31,19 +29,19 @@ With basic development skills, you can customize your own AI Toy interaction exp
 10. Enter WiFi password → Tap "Next"
 11. Wait 3-5 seconds for "Device Added" confirmation
 
-#### Step 3: Reference
+#### Step 2: Reference
    Video: [ideo: [URL_ADDRESS.youtube.com/watch?v=YOUR_VIDideo: [URL_ADDRESS.youtube.com/watch?v=YOUR_VIDEO_ID](URL_ADDRESSs://www.youtube.com/watch?v=YOUR_VIDEO_ID)
    APP Download Link: [URL_ADDRESS.com/app](URL_ADDRESS.com/app)
 
    
-### Step 4: Start Interaction
+### Step 3: Start Interaction
 1. Wake phrase: "Hi, AGORA" (wait 3-5 sec for eye screen activation, the red LED will stop blinking)
 2. Try these commands:
    - "Introduce AGORA company"
    - "Who is Bill Gates"
    - "What's today's weather"
 
-### Step 5: Power Off
+### Step 4: Power Off
 - Automatic standby after 30min inactivity (voice prompt: "AI Agent Disconnected")
 - Full shutdown: Long press "Middle Button" until red LED extinguishes and vibration stops
 
