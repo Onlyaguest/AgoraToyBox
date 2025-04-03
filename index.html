@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>AGORA AI ROBOTIC KIT | Executive Overview</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gray-50 text-gray-900 font-sans antialiased">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Navigation -->
+        <nav class="py-6 flex justify-between items-center border-b border-gray-100">
+            <div class="flex items-center">
+                <svg class="h-10 w-auto" viewBox="0 0 120 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M20 10L40 30H0L20 10Z" fill="#000"/>
+                    <text x="50" y="25" font-family="Arial" font-weight="bold" font-size="16">AGORA</text>
+                </svg>
+            </div>
+            <div class="hidden md:flex space-x-8 items-center">
+                <a href="#overview" class="text-sm font-medium hover:text-gray-600 transition">Overview</a>
+                <a href="#features" class="text-sm font-medium hover:text-gray-600 transition">Features</a>
+                <a href="#value" class="text-sm font-medium hover:text-gray-600 transition">Enterprise Value</a>
+                <a href="#guide" class="text-sm font-medium hover:text-gray-600 transition">Quick Start</a>
+                <button class="bg-black text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-gray-800 transition">Request Demo</button>
+            </div>
+            <button class="md:hidden" id="mobile-menu-button">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+        </nav>
+
+        <!-- Mobile menu -->
+        <div class="hidden md:hidden py-4 border-b border-gray-100" id="mobile-menu">
+            <div class="flex flex-col space-y-4">
+                <a href="#overview" class="text-sm font-medium">Overview</a>
+                <a href="#features" class="text-sm font-medium">Features</a>
+                <a href="#value" class="text-sm font-medium">Enterprise Value</a>
+                <a href="#guide" class="text-sm font-medium">Quick Start</a>
+                <button class="bg-black text-white px-4 py-2 rounded-md text-sm font-medium w-full mt-2">Request Demo</button>
+            </div>
+        </div>
+
+        <!-- Hero Section -->
+        <section class="pt-16 pb-16">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h1 class="font-geist-mono text-4xl sm:text-5xl font-bold leading-tight">
+                        AGORA AI ROBOTIC KIT
+                    </h1>
+                    <p class="mt-6 text-xl text-gray-600 leading-relaxed">
+                        The dual-screen AI development platform that transforms experimentation into enterprise value.
+                    </p>
+                    <div class="mt-10 flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                        <button class="bg-black text-white px-6 py-3 rounded-md font-medium hover:bg-gray-800 transition">
+                            Request Executive Demo
+                        </button>
+                        <button class="border border-gray-300 px-6 py-3 rounded-md font-medium hover:bg-gray-50 transition">
+                            View Technical Specs
+                        </button>
+                    </div>
+                    <div class="mt-8 flex items-center">
+                        <div class="flex -space-x-2">
+                            <div class="h-8 w-8 rounded-full bg-gray-400"></div>
+                            <div class="h-8 w-8 rounded-full bg-gray-500"></div>
+                            <div class="h-8 w-8 rounded-full bg-gray-600"></div>
+                        </div>
+                        <p class="ml-4 text-sm text-gray-500">Trusted by 200+ enterprise teams</p>
+                    </div>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
+                    <img src="pic/Toybox.png" alt="AGORA AI ROBOTIC KIT" class="w-full">
+                </div>
+            </div>
+        </section>
+
+    <main class="container mx-auto px-4 py-12">
+        <section class="quick-start mb-16">
+            <h2 class="text-4xl font-bold mb-12 pb-4 border-b-2 border-gray-200 flex items-center">
+                <span class="text-black">Getting Started</span>
+                <div class="ml-4 flex-1 border-b border-gray-200"></div>
+            </h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="space-y-8">
+                    <div class="bg-white p-8 rounded-lg border border-gray-100">
+                        <div class="flex items-start">
+                            <div class="h-8 w-8 rounded-full bg-blue-100 flex items-center justify-center mr-4 mt-1">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold mb-2">Step 1: Power On</h3>
+                                <ul class="text-gray-600 space-y-1">
+                                    <li>Long press the "Middle Button" until vibration completely stops</li>
+                                    <li>Release to see alternating red/green LED blinking (waiting for network configuration)</li>
+                                    <li>Release to see alternating red (waiting for network in Step2 connection)</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-8 rounded-lg border border-gray-100">
+                        <div class="flex items-start">
+                            <div class="h-8 w-8 rounded-full bg-green-100 flex items-center justify-center mr-4 mt-1">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.14 0M1.394 9.393c5.857-5.857 15.355-5.857 21.213 0" />
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold mb-2">Step 2: Rename Your WiFi</h3>
+                                <ul class="text-gray-600 space-y-1">
+                                    <li>Change your mobile hotspot name to: AGORA_ROBOTIC_KIT</li>
+                                    <li>Set hotspot password to: 1234567890</li>
+                                    <li>[If Step 2 completed: Green blinking indicates auto-configuration complete - skip to Step 4]</li>
+                                    <li>[If Step 2 not possible: Proceed to Step 3 "Network Configuration"]</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-8 rounded-lg border border-gray-100">
+                        <div class="flex items-start">
+                            <div class="h-8 w-8 rounded-full bg-purple-100 flex items-center justify-center mr-4 mt-1">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-purple-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold mb-2">Step 3: Network Setup</h3>
+                                <ol class="text-gray-600 space-y-1 list-decimal list-inside">
+                                    <li>Download and install Convo AI APP</li>
+                                    <li>Open Convo AI APP</li>
+                                    <li>Tap ☰ menu (top-left)</li>
+                                    <li>Under "Conversational AI Devices", tap +</li>
+                                    <li>Tap + in top-right</li>
+                                    <li>Tap "Next" to enter Scan mode</li>
+                                    <li>On your TOY BOX hardware: Long press "Left Button" 3+ seconds</li>
+                                    <li>When device appears in app, tap "Connect"</li>
+                                    <li>Confirm connected WiFi network name</li>
+                                    <li>Enter WiFi password → Tap "Next"</li>
+                                    <li>Wait 3-5 seconds for "Device Added" confirmation</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-8 rounded-lg border border-gray-100">
+                        <div class="flex items-start">
+                            <div class="h-8 w-8 rounded-full bg-amber-100 flex items-center justify-center mr-4 mt-1">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-amber-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold mb-2">Step 4: Start Interaction</h3>
+                                <ul class="text-gray-600 space-y-1">
+                                    <li>Wake phrase: "Hi, AGORA" (wait 3-5 sec for eye screen activation, the red LED will stop blinking)</li>
+                                    <li>Try these commands:
+                                        <ul class="ml-4 mt-1 space-y-1">
+                                            <li>"Introduce AGORA company"</li>
+                                            <li>"Who is Bill Gates"</li>
+                                            <li>"What's today's weather"</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-8 rounded-lg border border-gray-100">
+                        <div class="flex items-start">
+                            <div class="h-8 w-8 rounded-full bg-rose-100 flex items-center justify-center mr-4 mt-1">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-rose-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.636 5.636a9 9 0 1012.728 0M12 3v9" />
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold mb-2">Step 5: Power Off</h3>
+                                <ul class="text-gray-600 space-y-1">
+                                    <li>Automatic standby after 30min inactivity (voice prompt: "AI Agent Disconnected")</li>
+                                    <li>Full shutdown: Long press "Middle Button" until red LED extinguishes and vibration stops</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="space-y-8">
+                    <div class="bg-white p-8 rounded-lg border border-gray-100">
+                        <h3 class="text-xl font-semibold mb-4">Download App</h3>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="text-center">
+                                <img src="pic/andriod.png" alt="Android QR Code" class="w-32 h-32 mx-auto mb-2">
+                                <p class="text-gray-600">Android</p>
+                            </div>
+                            <div class="text-center">
+                                <img src="pic/iOS.png" alt="iOS QR Code" class="w-32 h-32 mx-auto mb-2">
+                                <p class="text-gray-600">iOS</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-8 rounded-lg border border-gray-100">
+                        <h3 class="text-xl font-semibold mb-4">Tutorial Video</h3>
+                        <div class="aspect-w-16 aspect-h-9 bg-gray-100 rounded-lg">
+                            <!-- Video placeholder -->
+                            <div class="flex items-center justify-center h-full">
+                                <p class="text-gray-500">Video Coming Soon</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="faq mb-16">
+            <h2 class="text-4xl font-bold mb-12 pb-4 border-b-2 border-gray-200 flex items-center">
+                <span class="text-black">FAQ</span>
+                <div class="ml-4 flex-1 border-b border-gray-200"></div>
+            </h2>
+            <div class="bg-white p-8 rounded-lg border border-gray-100 space-y-8">
+                <div class="flex items-start">
+                    <div class="h-8 w-8 rounded-full bg-blue-100 flex items-center justify-center mr-4 mt-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072M12 18a6 6 0 100-12 6 6 0 000 12z" />
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold mb-2">Volume Control</h3>
+                        <ul class="text-gray-600 space-y-1">
+                            <li>Left button: Volume up</li>
+                            <li>Right button: Volume down</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="flex items-start">
+                    <div class="h-8 w-8 rounded-full bg-green-100 flex items-center justify-center mr-4 mt-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold mb-2">Charging</h3>
+                        <ul class="text-gray-600 space-y-1">
+                            <li>Use Type-C Port 2 for charging</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="flex items-start">
+                    <div class="h-8 w-8 rounded-full bg-purple-100 flex items-center justify-center mr-4 mt-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-purple-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.14 0M1.394 9.393c5.857-5.857 15.355-5.857 21.213 0" />
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold mb-2">Hotspot-Only Setup</h3>
+                        <ul class="text-gray-600 space-y-1">
+                            <li>Pre-configure hotspot to skip network setup:</li>
+                            <li>Name: AGORA_ROBOTIC_KIT</li>
+                            <li>Password: 1234567890</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="flex items-start">
+                    <div class="h-8 w-8 rounded-full bg-amber-100 flex items-center justify-center mr-4 mt-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-amber-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold mb-2">LED Status Indicators</h3>
+                        <ul class="text-gray-600 space-y-1">
+                            <li><strong>Alternating Red and Green blinking</strong>: Waiting for Network configuration</li>
+                            <li><strong>Red blinking</strong>: Waiting for Network Connection</li>
+                            <li><strong>Green blinking</strong>: Network Connected, AI Agent Disconnected, Waiting for Wakeup</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="flex items-start">
+                    <div class="h-8 w-8 rounded-full bg-rose-100 flex items-center justify-center mr-4 mt-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-rose-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold mb-2">Wakeup</h3>
+                        <ul class="text-gray-600 space-y-1">
+                            <li>Wake phrase: "Hi, AGORA"</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="flex items-start">
+                    <div class="h-8 w-8 rounded-full bg-indigo-100 flex items-center justify-center mr-4 mt-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold mb-2">Wakeup Timeout</h3>
+                        <ul class="text-gray-600 space-y-1">
+                            <li>AI Agent Disconnected: 3min</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="developer mb-16">
+            <h2 class="text-4xl font-bold mb-12 pb-4 border-b-2 border-gray-200 flex items-center">
+                <span class="text-black">Developer Guide</span>
+                <div class="ml-4 flex-1 border-b border-gray-200"></div>
+            </h2>
+            <div class="bg-white p-8 rounded-lg border border-gray-100">
+                <p class="text-lg text-gray-700 mb-6">Customize functionality with our developer tools:</p>
+                <div class="space-y-6">
+                    <div class="flex items-start">
+                        <div class="h-8 w-8 rounded-full bg-blue-100 flex items-center justify-center mr-4 mt-1">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold mb-2">SDK Download</h3>
+                            <p class="text-gray-600">Get beginner-friendly graphical programming tools from our official site</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <div class="h-8 w-8 rounded-full bg-green-100 flex items-center justify-center mr-4 mt-1">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold mb-2">Tutorials</h3>
+                            <p class="text-gray-600">Follow video guides to build custom applications</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <div class="h-8 w-8 rounded-full bg-purple-100 flex items-center justify-center mr-4 mt-1">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-purple-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold mb-2">Firmware Update</h3>
+                            <p class="text-gray-600">Use Type-C Port 1 for device programming</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <div class="h-8 w-8 rounded-full bg-amber-100 flex items-center justify-center mr-4 mt-1">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-amber-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold mb-2">Community</h3>
+                            <p class="text-gray-600">Share your creations in our developer forum</p>
+                        </div>
+                    </div>
+                </div>
+                <p class="mt-8 text-lg text-gray-700 font-medium">No coding experience required to start AI development!</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© 2025 AGORA AI Vision Kit Team</p>
+            <div class="support-links">
+                <a href="http://www.aikit.example.com">Official Website</a>
+                <a href="http://tutorial.aikit.example.com">Video Tutorials</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>
