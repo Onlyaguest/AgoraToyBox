@@ -76,47 +76,6 @@
         </section>
 
     <main class="container mx-auto px-4 py-12">
-        <section class="quick-experience mb-16">
-  <h2 class="text-4xl font-bold mb-12 pb-4 border-b-2 border-gray-200 flex items-center">
-    <span class="text-black">Quick Experience Guide</span>
-    <div class="ml-4 flex-1 border-b border-gray-200"></div>
-  </h2>
-  <div class="bg-white p-8 rounded-lg border border-gray-100">
-    <div class="space-y-6">
-      <div>
-        <h3 class="text-xl font-semibold mb-2">Power On</h3>
-        <p class="text-gray-600">Plug the battery into the connector, then long press the "Middle Button" until vibration completely stops.</p>
-      </div>
-
-      <div>
-        <h3 class="text-xl font-semibold mb-2">Quick Network Setup</h3>
-        <p class="text-gray-600">Configure your phone's hotspot with:</p>
-        <ul class="text-gray-600 ml-4 mt-2 space-y-1">
-          <li>Name: AGORA_AI_KIT</li>
-          <li>Password: 1234567890</li>
-        </ul>
-        <p class="text-gray-600 mt-2 italic">(Device will automatically connect to this WiFi)</p>
-        <p class="text-gray-600 mt-2 text-red-500">Note: If using phone hotspot, please enable "Maximum Compatibility Mode" for Personal Hotspot</p>
-      </div>
-
-      <div>
-        <h3 class="text-xl font-semibold mb-2">Start Interacting</h3>
-        <ol class="text-gray-600 ml-4 space-y-2">
-          <li>1. Say "Hi, AGORA"</li>
-          <li>2. Wait 3-5 seconds for eye screen activation (red LED will stop blinking)</li>
-          <li>3. Try these example commands:
-            <ul class="ml-4 mt-1 space-y-1">
-              <li>• "Introduce AGORA company"</li>
-              <li>• "Who is Bill Gates"</li>
-              <li>• "What's 15% off a $328 dress?"</li>
-            </ul>
-          </li>
-        </ol>
-      </div>
-    </div>
-    <p class="mt-6 text-gray-600">For complete network configuration options, including connecting to your existing WiFi network, please follow the detailed steps below.</p>
-  </div>
-</section>
 
 <section class="quick-start mb-16">
             <h2 class="text-4xl font-bold mb-12 pb-4 border-b-2 border-gray-200 flex items-center">
@@ -137,6 +96,7 @@
                                 <h3 class="text-xl font-semibold mb-2">Step 1: Power On</h3>
                                 <ul class="text-gray-600 space-y-1">
                                     <li>Plug the battery into the connector</li>
+                                    <li class="text-gray-500 italic">(Note: You can also power on the device by connecting any Type-C port with a USB cable, without using the battery)</li>
                                     <li>Long press the "Middle Button" until vibration completely stops</li>
                                     <li>Release to see red LED blinking and hear voice prompt "the network connection is failed, please check your network"</li>
                                 </ul>
@@ -169,12 +129,11 @@
                                 </svg>
                             </div>
                             <div>
-                                <h3 class="text-xl font-semibold mb-2">Step 3: Install and Register Convo AI APP</h3>
+                                <h3 class="text-xl font-semibold mb-2">Step 3: Install and Register Network Configuration APP</h3>
                                 <ol class="text-gray-600 space-y-1 list-decimal list-inside">
-                                    <li>Scan the QR code on the right to download and install Convo AI APP</li>
-                                    <li>Launch Convo AI APP</li>
-                                    <li>Tap "Call AI Engine" to access the login screen</li>
-                                    <li>Grant required permissions when prompted and complete login</li>
+                                    <li>Scan the QR code on the right to download and install the app</li>
+                                    <li>Login with your phone number</li>
+                                    <li>Tap the "+" button, then select "BK R1" to start network configuration</li>
                                 </ol>
                             </div>
                         </div>
@@ -190,14 +149,41 @@
                             <div>
                                 <h3 class="text-xl font-semibold mb-2">Step 4: Network Configuration</h3>
                                 <ol class="text-gray-600 space-y-1 list-decimal list-inside">
-                                    <li>Tap = menu (top-left)</li>
-                                    <li>Under "Conversational AI Devices", tap "+"</li>
-                                    <li>Tap "+" in top-right corner to add new device</li>
-                                    <li>Tap "Add Device" button to enter Scan mode</li>
-                                    <li>When device appears in app, tap "Connect"</li>
-                                    <li>Confirm your WiFi network name</li>
-                                    <li>Enter WiFi password and tap "Next"</li>
-                                    <li>Wait 3-5 seconds for "Device Added" confirmation</li>d" confirmation</li>
+                                    <li>Tap "Start Scanning" button at the bottom center of screen</li>
+                                    <li>Tap the detected device to connect</li>
+                                    <li>Enter WiFi information:
+                                        <ul class="ml-4 mt-1 space-y-1">
+                                            <li>• Enter WiFi name (SSID) manually</li>
+                                            <li>• Enter WiFi password manually</li>
+                                            <li class="text-red-500">Note: If using phone hotspot, please enable "Maximum Compatibility Mode" in hotspot settings</li>
+                                        </ul>
+                                    </li>
+                                    <li>Wait 3-5 seconds for connection confirmation</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-8 rounded-lg border border-gray-100">
+                        <div class="flex items-start">
+                            <div class="h-8 w-8 rounded-full bg-amber-100 flex items-center justify-center mr-4 mt-1">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-amber-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold mb-2">Step 5: Set/Switch Character</h3>
+                                <ol class="text-gray-600 space-y-1 list-decimal list-inside">
+                                    <li>Tap the "Discover" tab</li>
+                                    <li>Tap the search icon in the top right corner</li>
+                                    <li>Enter the character name you want to bind and tap the character card that appears in search results
+                                        <ul class="ml-4 mt-1 space-y-1">
+                                            <li class="text-gray-500">Note: You can also choose any character from the Discover page to bind</li>
+                                        </ul>
+                                    </li>
+                                    <li>Tap "Bind Character" in the bottom right corner</li>
+                                    <li>In the popup window, select the hardware device you just bound and confirm the update</li>
+                                    <li>After the character update success message appears, press reset on the hardware device to complete the character switch</li>
                                 </ol>
                             </div>
                         </div>
@@ -211,14 +197,14 @@
                                 </svg>
                             </div>
                             <div>
-                                <h3 class="text-xl font-semibold mb-2">Step 5: Start Interaction</h3>
+                                <h3 class="text-xl font-semibold mb-2">Step 6: Start Interaction</h3>
                                 <ul class="text-gray-600 space-y-1">
                                     <li>Wake phrase: "Hi, AGORA" (wait 3-5 sec for eye screen activation, the red LED will stop blinking)</li>
                                     <li>Try these commands:
                                         <ul class="ml-4 mt-1 space-y-1">
-                                            <li>"Introduce AGORA company"</li>
+                                            <li>"Tell me about AGORA company"</li>
                                             <li>"Who is Bill Gates"</li>
-                                            <li>"What's 15% off a $328 dress?"</li>
+                                            <li>"Calculate 15% off a $328 dress"</li>
                                         </ul>
                                     </li>
                                 </ul>
@@ -234,7 +220,7 @@
                                 </svg>
                             </div>
                             <div>
-                                <h3 class="text-xl font-semibold mb-2">Step 6: Power Off</h3>
+                                <h3 class="text-xl font-semibold mb-2">Step 7: Power Off</h3>
                                 <ul class="text-gray-600 space-y-1">
                                     <li>Automatic standby after 3min inactivity (voice prompt: "AI Agent Disconnected") </li>
                                     <li>Sleep mode: Long press "Middle Button" until red LED extinguishes and vibration stops</li>
@@ -311,22 +297,6 @@
                         <h3 class="text-xl font-semibold mb-2">Charging</h3>
                         <ul class="text-gray-600 space-y-1">
                             <li>Use any Type-C Port for charging</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="flex items-start">
-                    <div class="h-8 w-8 rounded-full bg-purple-100 flex items-center justify-center mr-4 mt-1">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-purple-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.14 0M1.394 9.393c5.857-5.857 15.355-5.857 21.213 0" />
-                        </svg>
-                    </div>
-                    <div>
-                        <h3 class="text-xl font-semibold mb-2">Hotspot-Only Setup</h3>
-                        <ul class="text-gray-600 space-y-1">
-                            <li>Pre-configure hotspot to skip network setup:</li>
-                            <li>Name: AGORA_AI_KIT</li>
-                            <li>Password: 1234567890</li>
                         </ul>
                     </div>
                 </div>
