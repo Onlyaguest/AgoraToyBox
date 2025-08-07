@@ -70,7 +70,7 @@
                     </div>
                 </div>
                 <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
-                    <img src="pic/Toybox.png" alt="Agora ConvoAI Device Kit" class="w-full">
+                    <img src="pic/hardware_components.png" alt="Agora ConvoAI Device Kit" class="w-full">
                 </div>
             </div>
         </section>
@@ -81,11 +81,20 @@
     <span class="text-black">Quick Start Guide</span>
     <div class="ml-4 flex-1 border-b border-gray-200"></div>
   </h2>
+     <!-- <p class="bg-yellow-100 px-2 py-1 rounded text-sm mt-4">  For detailed network configuration instructions, including connecting to your current Wi-Fi network, check the <strong>Getting Started</strong> section below.
+</p> -->
+        <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 mb-8 rounded-r-lg">
+                <p class="text-sm text-gray-700">
+                    For detailed network configuration instructions, including connecting to your current Wi-Fi network, 
+                    check the <a href="#getting-started" class="text-blue-600 font-semibold hover:text-blue-800 underline transition-colors">Getting Started</a> section below.
+                </p>
+            </div>
   <div class="bg-white p-8 rounded-lg border border-gray-100">
+     
     <div class="space-y-6">
       <div>
         <h3 class="text-xl font-semibold mb-2">Power On</h3>
-        <p class="text-gray-600">Plug the battery into the connector, then long press the "Middle Button" until vibration completely stops.</p>
+        <p class="text-gray-600">Plug the battery into the connector, then long press the "Middle Switch" until vibration completely stops.</p>
       </div>
 
       <!-- <div>
@@ -108,18 +117,19 @@
             <ul class="ml-4 mt-1 space-y-1">
               <li>• “Introuce me about Agora ConvoAl Device Kit”</li>
               <li>• "Introduce AGORA company"</li>
-              <li>• "Who is Bill Gates"</li>
+              <li>• "Who is Bill Gates?"</li>
               <li>• "What's 15% off a $328 dress?"</li>
             </ul>
           </li>
         </ol>
       </div>
     </div>
-    <p class="mt-6 text-gray-600">For complete network configuration options, including connecting to your existing WiFi network, please follow the detailed steps below.</p>
+ 
+
   </div>
 </section>
 
-<section class="quick-start mb-16">
+<section class="quick-start mb-16" id="getting-started">
             <h2 class="text-4xl font-bold mb-12 pb-4 border-b-2 border-gray-200 flex items-center">
                 <span class="text-black">Getting Started</span>
                 <div class="ml-4 flex-1 border-b border-gray-200"></div>
@@ -138,7 +148,7 @@
                                 <h3 class="text-xl font-semibold mb-2">Step 1: Power On</h3>
                                 <ul class="text-gray-600 space-y-1">
                                     <li>Plugin the battery cable into the connector</li>
-                                    <li>Long press the "Middle Button" until vibration completely stops</li>
+                                    <li>Long press the "Middle Switch" until vibration completely stops</li>
                                     <li>Release to see red LED blinking and hear voice prompt "the network connection is failed, please check your network"</li>
                                 </ul>
                             </div>
@@ -155,7 +165,7 @@
                             <div>
                                 <h3 class="text-xl font-semibold mb-2">Step 2: Enter Network Configuration Mode</h3>
                                 <ul class="text-gray-600 space-y-1">
-                                    <li>Long press "Left Button" 3+ seconds</li>
+                                    <li>Long press "Left Switch" 3+ seconds</li>
                                     <li>You will hear voice prompt "Please use bluetooth for network provisioning" </li>
                                 </ul>
                             </div>
@@ -238,7 +248,7 @@
                                 <h3 class="text-xl font-semibold mb-2">Step 6: Power Off</h3>
                                 <ul class="text-gray-600 space-y-1">
                                     <li>Automatically sleep after 3 minutes of inactivity (voice prompt: "AI Agent Disconnected") </li>
-                                    <li>Sleep mode: Long press "Middle Button" until red LED extinguishes and vibration stops</li>
+                                    <li>Sleep mode: Long press "Middle Switch" until red LED extinguishes and vibration stops</li>
                                     <li>Full shutdown: Disconnect the battery connector</li>
                                 </ul>
                             </div>
@@ -247,12 +257,23 @@
                 </div>
 
                 <div class="space-y-8">
+                    <!-- <div class="max-w-4xl mx-auto p-8"> -->
                     <div class="bg-white p-8 rounded-lg border border-gray-100">
+                        <h3 class="text-xl font-semibold mb-4">Hardware Components</h3>                    
+                        <div class="text-center mb-4">
+                            <div class="relative inline-block">
+                            <img src="pic/switch_img.png" alt="Switch Image" class="w-full mx-auto mb-2"/>    
+                                <img src="pic/battery_connector.png" alt="Battery Connector Image" class="w-full mx-auto mb-2">                   
+                            </div>                        
+                        </div>
+                    <!-- </div> -->
+                </div>
+                    <!-- <div class="bg-white p-8 rounded-lg border border-gray-100">
                         <h3 class="text-xl font-semibold mb-4">Battery connector</h3>
                         <div class="text-center">
                             <img src="pic/power_on.png" alt="Battery Connector" class="w-full mx-auto mb-2">
                         </div>
-                    </div>
+                    </div> -->
 
                     <div class="bg-white p-8 rounded-lg border border-gray-100">
                         <h3 class="text-xl font-semibold mb-4">Download App</h3>
@@ -267,11 +288,10 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="bg-white p-8 rounded-lg border border-gray-100">
                         <h3 class="text-xl font-semibold mb-4">Tutorial Video</h3>
-                        <div class="aspect-w-16 aspect-h-9 bg-gray-100 rounded-lg">
-                            <video class="w-full h-full rounded-lg" controls>
+                        <div class="bg-gray-100 rounded-lg">
+                            <video class="w-full h-[475px] rounded-lg" controls>
                                 <source src="pic/how_to_set_network.mp4" type="video/mp4">
                                 Your browser does not support the video tag.
                             </video>
@@ -296,8 +316,8 @@
                     <div>
                         <h3 class="text-xl font-semibold mb-2">Power Operations</h3>
                         <ul class="text-gray-600 space-y-1">
-                            <li>Power On: Long press Middle Button (S2) for 3+ seconds</li>
-                            <li>Power Off: When powered on, long press Middle Button (S2) for 3+ seconds</li>
+                            <li>Power On: Long press Middle Switch (S2) for 3+ seconds</li>
+                            <li>Power Off: When powered on, long press Middle Switch (S2) for 3+ seconds</li>
                         </ul>
                     </div>
                 </div>
@@ -311,7 +331,7 @@
                     <div>
                         <h3 class="text-xl font-semibold mb-2">Network Configuration</h3>
                         <ul class="text-gray-600 space-y-1">
-                            <li>Enter Network Configuration Mode: When powered on, long press Left Button (S1) for 3+ seconds</li>
+                            <li>Enter Network Configuration Mode: When powered on, long press Left Switch (S1) for 3+ seconds</li>
                             <li>Device will enter network configuration waiting state</li>
                         </ul>
                     </div>
@@ -326,8 +346,8 @@
                     <div>
                         <h3 class="text-xl font-semibold mb-2">Volume Control</h3>
                         <ul class="text-gray-600 space-y-1">
-                            <li>Volume Up: Single click Left Button (S1)</li>
-                            <li>Volume Down: Single click Right Button (S3)</li>
+                            <li>Volume Up: Single click Left Switch (S1)</li>
+                            <li>Volume Down: Single click Right Switch (S3)</li>
                         </ul>
                     </div>
                 </div>
@@ -343,7 +363,7 @@
                         <h3 class="text-xl font-semibold mb-2">Role Switching</h3>
                         <ul class="text-gray-600 space-y-1">
                             <li>1: Perform role switching through the APP</li>
-                            <li>2: Use the Reset Button (K1) on the right side of the device</li>
+                            <li>2: Use the Reset Switch (K1) on the right side of the device</li>
                             <li>Note: Wake up the device again after switching to complete the process</li>
                         </ul>
                     </div>
@@ -491,7 +511,7 @@
             <p>© 2025 AGORA ConvoAI Device Kit Team</p>
             <div class="support-links">
                 <a href="http://www.agora.io">Official Website</a>
-                <a href="http://tutorial.aikit.example.com">Video Tutorials</a>
+                <!-- <a href="http://tutorial.aikit.example.com">Video Tutorials</a> -->
             </div>
         </div>
     </footer>
