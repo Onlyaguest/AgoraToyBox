@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Agora ConvoAI Device Kit | Executive Overview</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="language.js"></script>
-    <link rel="stylesheet" href="styles.css">
+    <script src="../../language.js"></script>
+    <link rel="stylesheet" href="../../styles.css">
     
 </head>
 <body class="bg-gray-50 text-gray-900 font-sans antialiased">
@@ -15,7 +15,7 @@
 <header class="bg-white py-4 px-4 sm:px-6 lg:px-8 border-b border-gray-200 mb-8">
   <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-2">
     <div>
-      <h1 class="text-2xl font-bold text-gray-800">Agora ConvoAI Device Kit</h1>
+      <h1 class="text-2xl font-bold text-gray-800">ConvoAI Device Kit</h1>
     </div>        
     <div class="relative">
       <button 
@@ -41,7 +41,6 @@
             onclick="selectLanguage('en', 'English')" 
             class="flex items-center w-full px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-700 transition-colors duration-150"
           >
-   
             <div class="text-left">
               <div class="font-medium">English</div>
               
@@ -55,7 +54,6 @@
             onclick="selectLanguage('ko', '한국어')" 
             class="flex items-center w-full px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-700 transition-colors duration-150"
           >
-         
             <div class="text-left">
               <div class="font-medium">한국어</div>              
             </div>
@@ -112,7 +110,7 @@
                         Agora ConvoAI Device Kit
                     </h1>
                     <p data-i18n="section_main_description" class="mt-6 text-xl text-gray-600 leading-relaxed">
-                        The dual-screen AI development platform that transforms experimentation into enterprise value.
+                        실험 단계를 넘어, 엔터프라이즈 가치로 이어주는 듀얼 스크린 AI 개발 플랫폼
                     </p>
                     <!-- <div class="mt-10 flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
                         <button class="bg-black text-white px-6 py-3 rounded-md font-medium hover:bg-gray-800 transition">
@@ -132,7 +130,7 @@
                     </div>
                 </div>
                 <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
-                    <img src="pic/hardware_components.png" alt="Agora ConvoAI Device Kit" class="w-full">
+                    <img src="../../pic/hardware_components.png" alt="Agora ConvoAI Device Kit" class="w-full">
                 </div>
             </div>
         </section>
@@ -147,16 +145,18 @@
 </p> -->
         <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 mb-8 rounded-r-lg">
                 <p data-i18n="quick_start_configuration" class="text-sm text-gray-700">
-                    For detailed network configuration instructions, including connecting to your current Wi-Fi network, 
-                    please check the <a href="#getting-started" class="text-blue-600 font-semibold hover:text-blue-800 underline transition-colors">Getting Started</a> section below.
+                    현재 Wi-Fi에 연결하는 방법을 포함한 네트워크 설정은 아래 <a href="#getting-started" class="text-blue-600 font-semibold hover:text-blue-800 underline transition-colors">Getting Started</a>  섹션에서 쉽게 확인하실 수 있습니다. 
+                    
                 </p>
             </div>
   <div class="bg-white p-8 rounded-lg border border-gray-100">
      
     <div class="space-y-6">
       <div>
-        <h3 class="text-xl font-semibold mb-2">Power On</h3>
-        <p class="text-gray-600">Plug the battery into the connector, then long press the "Middle Switch" until vibration completely stops.</p>
+        <h3 class="text-xl font-semibold mb-2">전원 켜기
+</h3>
+        <p class="text-gray-600">먼저 배터리를 커넥터에 연결하고, 진동이 완전히 멈출 때까지 'Middle Switch'를 길게 눌러주세요.
+</p>
       </div>
 
       <!-- <div>
@@ -171,11 +171,12 @@
       </div> -->
 
       <div>
-        <h3 class="text-xl font-semibold mb-2">Start Interacting</h3>
+        <h3 class="text-xl font-semibold mb-2">대화 시작하기</h3>
         <ol class="text-gray-600 ml-4 space-y-2">
-          <li>1. Say "Hi, AGORA"</li>
-          <li>2. Wait 3-5 seconds for eye screen activation (red LED will stop blinking)</li>
-          <li>3. Try these conversations:
+          <li>1. "Hi, AGORA"라고 말하세요.</li>
+          <li>2. 눈이 활성화될 때까지 3~5초간 기다리세요. (빨간색 LED 깜박임이 멈춥니다.)
+</li>
+          <li>3. 이제 이렇게 한번 말해보세요:
             <ul class="ml-4 mt-1 space-y-1">
               <li>• “Introuce me about Agora ConvoAl Device Kit”</li>
               <li>• "Introduce AGORA company"</li>
@@ -207,11 +208,11 @@
                                 </svg>
                             </div>
                             <div>
-                                <h3 class="text-xl font-semibold mb-2">Step 1: Power On</h3>
+                                <h3 class="text-xl font-semibold mb-2">1단계: 전원 켜기</h3>
                                 <ul class="text-gray-600 space-y-1">
-                                    <li>Plugin the battery cable into the connector</li>
-                                    <li>Long press the "Middle Switch" until vibration completely stops</li>
-                                    <li>Release to see red LED blinking and hear voice prompt "the network connection is failed, please check your network"</li>
+                              <li>배터리 케이블을 커넥터에 꽂으세요.</li>
+<li>진동이 완전히 멈출 때까지 'Middle Switch'를 길게 누르세요.</li>
+<li>스위치에서 손을 떼면 빨간색 LED가 깜박이고, "네트워크 연결에 실패했습니다. 네트워크를 확인해 주세요."라는 음성 안내가 나옵니다.</li>
                                 </ul>
                             </div>
                         </div>
@@ -225,11 +226,11 @@
                                 </svg>
                             </div>
                             <div>
-                                <h3 class="text-xl font-semibold mb-2">Step 2: Enter Network Configuration Mode</h3>
-                                <ul class="text-gray-600 space-y-1">
-                                    <li>Long press "Left Switch" 3+ seconds</li>
-                                    <li>You will hear voice prompt "Please use bluetooth for network provisioning" </li>
-                                </ul>
+                                <h3 class="text-xl font-semibold mb-2">2단계: 네트워크 설정 모드 진입</h3>
+                            <ul class="text-gray-600 space-y-1">
+                                <li>Left Switch를 3초 이상 길게 눌러주세요.</li>
+                                <li>"Please use bluetooth for network provisioning" 라는 음성 안내가 나옵니다.</li>
+                            </ul>
                             </div>
                         </div>
                     </div>
@@ -241,15 +242,15 @@
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
                                 </svg>
                             </div>
-                            <div>
-                                <h3 class="text-xl font-semibold mb-2">Step 3: Install and Login Agora ConvoAl App</h3>
-                                <ol class="text-gray-600 space-y-1 list-decimal list-inside">
-                                    <li>Scan the QR code on the right to download and install ConvoAI APP</li>
-                                    <li>Launch ConvoAI APP</li>
-                                    <li>Tap "Call AI Engine" to access the login screen</li>
-                                    <li>Grant required permissions when prompted and complete login</li>
-                                </ol>
-                            </div>
+                        <div>
+                            <h3 class="text-xl font-semibold mb-2">3단계: Agora ConvoAl 앱 설치하고 로그인하기</h3>
+                            <ol class="text-gray-600 space-y-1 list-decimal list-inside">
+                                <li>오른쪽의 QR 코드를 스캔해서 ConvoAI 앱을 다운로드하고 설치해주세요.</li>
+                                <li>ConvoAI 앱을 열어주세요.</li>
+                                <li>'Call AI Engine'을 탭해서 로그인 화면으로 들어가세요.</li>
+                                <li>안내가 나오면 필요한 권한을 허용하고 로그인을 완료해주세요.</li>
+                            </ol>
+                        </div>
                         </div>
                     </div>
 
@@ -260,19 +261,19 @@
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
                                 </svg>
                             </div>
-                            <div>
-                                <h3 class="text-xl font-semibold mb-2">Step 4: Network Configuration</h3>
-                                <ol class="text-gray-600 space-y-1 list-decimal list-inside">
-                                    <li>Tap Menu button on top-left</li>
-                                    <li>Tap "+"under "Conversational Al Devices'</li>
-                                    <li>Tap "+" on top-right to add new deivce</li>
-                                    <li>Tap "Next" ...</li>
-                                    <li>When target device shows in app, tap the deivce name</li>
-                                    <li>Confirm your WiFi network name</li>
-                                    <li>Enter WiFi password and tap "Next"</li>
-                                    <li>Wait 3-5 seconds for "Device Added" confirmation</li>
-                                </ol>
-                            </div>
+                           <div>
+                            <h3 class="text-xl font-semibold mb-2">4단계: 네트워크 설정</h3>
+                            <ol class="text-gray-600 space-y-1 list-decimal list-inside">
+                                <li>왼쪽 상단의 메뉴 버튼을 탭하세요.</li>
+                                <li>'Conversational AI Devices' 아래의 '+'를 탭하세요.</li>
+                                <li>새 기기를 추가하려면 오른쪽 상단의 '+'를 탭하세요.</li>
+                                <li>'다음'을 탭하세요...</li>
+                                <li>앱에 대상 기기가 표시되면 기기 이름을 탭하세요.</li>
+                                <li>사용 중인 WiFi 네트워크 이름을 확인하세요.</li>
+                                <li>WiFi 비밀번호를 입력하고 '다음'을 탭하세요.</li>
+                                <li>'기기 추가됨' 확인 메시지가 표시될 때까지 3-5초간 기다리세요.</li>
+                            </ol>
+                        </div>
                         </div>
                     </div>
 
@@ -283,19 +284,19 @@
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
                                 </svg>
                             </div>
-                            <div>
-                                <h3 class="text-xl font-semibold mb-2">Step 5: Start your conversation</h3>
-                                <ul class="text-gray-600 space-y-1">
-                                    <li>Wake phrase: "Hi, AGORA" (wait 3-5 sec for eye screen activation, the red LED will stop blinking)</li>
-                                    <li>Try these commands:
-                                        <ul class="ml-4 mt-1 space-y-1">
-                                            <li>"Introduce AGORA company"</li>
-                                            <li>"Who is Bill Gates"</li>
-                                            <li>"What's 15% off a $328 dress?"</li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </div>
+                          <div>
+                            <h3 class="text-xl font-semibold mb-2">5단계: 대화 시작하기</h3>
+                            <ul class="text-gray-600 space-y-1">
+                                <li>호출어: "Hi, AGORA" (눈 모양 화면이 활성화되고 빨간색 LED 깜박임이 멈출 때까지 3-5초 기다리세요.)</li>
+                                <li>다음과 같은 명령어를 사용해 보세요:
+                                    <ul class="ml-4 mt-1 space-y-1">
+                                        <li>"Introduce AGORA company"</li>
+                                        <li>"Who is Bill Gates"</li>
+                                        <li>"What's 15% off a $328 dress?"</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
                         </div>
                     </div>
 
@@ -306,14 +307,14 @@
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.636 5.636a9 9 0 1012.728 0M12 3v9" />
                                 </svg>
                             </div>
-                            <div>
-                                <h3 class="text-xl font-semibold mb-2">Step 6: Power Off</h3>
-                                <ul class="text-gray-600 space-y-1">
-                                    <li>Automatically sleep after 3 minutes of inactivity (voice prompt: "AI Agent Disconnected") </li>
-                                    <li>Sleep mode: Long press "Middle Switch" until red LED extinguishes and vibration stops</li>
-                                    <li>Full shutdown: Disconnect the battery connector</li>
-                                </ul>
-                            </div>
+                          <div>
+                            <h3 class="text-xl font-semibold mb-2">6단계: 전원 끄기</h3>
+                            <ul class="text-gray-600 space-y-1">
+                                <li>3분 동안 사용하지 않으면 자동으로 절전 모드로 전환됩니다. (음성 안내: "AI 에이전트 연결이 끊어졌습니다.")</li>
+                                <li>절전 모드: 빨간색 LED가 꺼지고 진동이 멈출 때까지 'Middle Switch'를 길게 누르세요.</li>
+                                <li>완전 종료: 배터리 커넥터를 분리하세요.</li>
+                            </ul>
+                        </div>
                         </div>
                     </div>
                 </div>
@@ -324,8 +325,8 @@
                         <h3 class="text-xl font-semibold mb-4">Hardware Components</h3>                    
                         <div class="text-center mb-4">
                             <div class="relative inline-block">
-                            <img src="pic/battery_connector.png" alt="Battery Connector Image" class="w-full mx-auto mb-2">
-                            <img src="pic/switch_img.png" alt="Switch Image" class="w-full mx-auto mb-2"/>                                                       
+                          <img src="../../pic/battery_connector.png" alt="Battery Connector Image" class="w-full mx-auto mb-2">  
+                                                     <img src="../../pic/switch_img.png" alt="Switch Image" class="w-full mx-auto mb-2"/>    
                             </div>                        
                         </div>
                     <!-- </div> -->
@@ -341,11 +342,11 @@
                         <h3 class="text-xl font-semibold mb-4">Download App</h3>
                         <div class="grid grid-cols-2 gap-4">
                             <div class="text-center">
-                                <img src="pic/android_download.png" alt="Android QR Code" class="w-32 h-32 mx-auto mb-2">
+                                <img src="../../pic/android_download.png" alt="Android QR Code" class="w-32 h-32 mx-auto mb-2">
                                 <p class="text-gray-600">Android</p>
                             </div>
                             <div class="text-center">
-                                <img src="pic/ios_download.png" alt="iOS QR Code" class="w-32 h-32 mx-auto mb-2">
+                                <img src="../../pic/ios_download.png" alt="iOS QR Code" class="w-32 h-32 mx-auto mb-2">
                                 <p class="text-gray-600">iOS</p>
                             </div>
                         </div>
@@ -354,13 +355,13 @@
                         <h3 class="text-xl font-semibold mb-4">Tutorial Video</h3>
                         <div class="bg-gray-100 rounded-lg">
                             <video class="w-full h-[475px] rounded-lg" controls>
-                                <source src="pic/how_to_set_network.mp4" type="video/mp4">
+                                <source src="../../pic/how_to_set_network.mp4" type="video/mp4">
                                 Your browser does not support the video tag.
                             </video>
                         </div>
                     </div>
                     <!-- <img src="pic/battery_connector.png" alt="Battery Connector Image" class="w-full mx-auto mb-2"> -->
-                     
+                   
 
                 </div>
             </div>
@@ -378,13 +379,13 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
                         </svg>
                     </div>
-                    <div>
-                        <h3 class="text-xl font-semibold mb-2">Power Operations</h3>
-                        <ul class="text-gray-600 space-y-1">
-                            <li>Power On: Long press Middle Switch (S2) for 3+ seconds</li>
-                            <li>Power Off: When powered on, long press Middle Switch (S2) for 3+ seconds</li>
-                        </ul>
-                    </div>
+           <div>
+    <h3 class="text-xl font-semibold mb-2">전원 조작</h3>
+    <ul class="text-gray-600 space-y-1">
+        <li>전원 켜기: Middle Switch를 3초 이상 길게 누르세요.</li>
+        <li>전원 끄기: 전원이 켜진 상태에서 Middle Switch를 3초 이상 길게 누르세요.</li>
+    </ul>
+</div>
                 </div>
 
                 <div class="flex items-start">
@@ -393,13 +394,13 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.14 0M1.394 9.393c5.857-5.857 15.355-5.857 21.213 0" />
                         </svg>
                     </div>
-                    <div>
-                        <h3 class="text-xl font-semibold mb-2">Network Configuration</h3>
-                        <ul class="text-gray-600 space-y-1">
-                            <li>Enter Network Configuration Mode: When powered on, long press Left Switch (S1) for 3+ seconds</li>
-                            <li>Device will enter network configuration waiting state</li>
-                        </ul>
-                    </div>
+              <div>
+    <h3 class="text-xl font-semibold mb-2">네트워크 설정</h3>
+    <ul class="text-gray-600 space-y-1">
+        <li>네트워크 설정 모드 진입: 전원이 켜진 상태에서 Left Switch를 3초 이상 길게 누르세요.</li>
+        <li>기기가 네트워크 설정 대기 상태로 전환됩니다.</li>
+    </ul>
+</div>
                 </div>
 
                 <div class="flex items-start">
@@ -408,13 +409,13 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072M12 18a6 6 0 100-12 6 6 0 000 12z" />
                         </svg>
                     </div>
-                    <div>
-                        <h3 class="text-xl font-semibold mb-2">Volume Control</h3>
-                        <ul class="text-gray-600 space-y-1">
-                            <li>Volume Up: Single click Left Switch (S1)</li>
-                            <li>Volume Down: Single click Right Switch (S3)</li>
-                        </ul>
-                    </div>
+              <div>
+    <h3 class="text-xl font-semibold mb-2">볼륨 조절</h3>
+    <ul class="text-gray-600 space-y-1">
+        <li>볼륨 높이기: Left Switch를 한 번 클릭하세요.</li>
+        <li>볼륨 낮추기: Right Switch를 한 번 클릭하세요.</li>
+    </ul>
+</div>
                 </div>
 
 
@@ -424,14 +425,14 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
                         </svg>
                     </div>
-                    <div>
-                        <h3 class="text-xl font-semibold mb-2">Role Switching</h3>
-                        <ul class="text-gray-600 space-y-1">
-                            <li>1: Perform role switching through the APP</li>
-                            <li>2: Use the Reset Switch (K1) on the right side of the device</li>
-                            <li>Note: Wake up the device again after switching to complete the process</li>
-                        </ul>
-                    </div>
+              <div>
+    <h3 class="text-xl font-semibold mb-2">역할 전환</h3>
+    <ul class="text-gray-600 space-y-1">
+        <li>1: 앱(APP)을 통해 역할을 전환하세요.</li>
+        <li>2: 기기 오른쪽에 있는 Reset Switch를 사용하세요.</li>
+        <li>참고: 역할을 전환한 후 기기를 다시 호출해야 과정이 완료됩니다.</li>
+    </ul>
+</div>
                 </div>
 
                 <div class="flex items-start">
@@ -440,14 +441,13 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
                         </svg>
                     </div>
-                    <div>
-                        <h3 class="text-xl font-semibold mb-2">Charging</h3>
-                        <ul class="text-gray-600 space-y-1">
-                            <li>Use any Type-C Port for charging</li>
-                            <li>Note: Device can also be powered and used by directly connecting Type-C cable without battery</li>
-                        </ul>
-                        </ul>
-                    </div>
+              <div>
+    <h3 class="text-xl font-semibold mb-2">충전</h3>
+    <ul class="text-gray-600 space-y-1">
+        <li>Type-C 포트를 사용하여 충전하세요.</li>
+        <li>참고: 배터리 없이 Type-C 케이블을 직접 연결하여 전원을 공급하고 사용할 수도 있습니다.</li>
+    </ul>
+</div>
                 </div>
 
                 <div class="flex items-start">
@@ -456,14 +456,14 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.14 0M1.394 9.393c5.857-5.857 15.355-5.857 21.213 0" />
                         </svg>
                     </div>
-                    <div>
-                        <h3 class="text-xl font-semibold mb-2">Hotspot-Only Setup</h3>
-                        <ul class="text-gray-600 space-y-1">
-                            <li>Pre-configure hotspot to skip network setup:</li>
-                            <li>Name: AGORA_AI_KIT</li>
-                            <li>Password: 1234567890</li>
-                        </ul>
-                    </div>
+     <div>
+    <h3 class="text-xl font-semibold mb-2">핫스팟 전용 설정</h3>
+    <ul class="text-gray-600 space-y-1">
+        <li>네트워크 설정을 건너뛰려면 핫스팟을 미리 설정하세요:</li>
+        <li>이름: AGORA_AI_KIT</li>
+        <li>비밀번호: 1234567890</li>
+    </ul>
+</div>
                 </div>
 
                 <div class="flex items-start">
@@ -472,14 +472,14 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
                         </svg>
                     </div>
-                    <div>
-                        <h3 class="text-xl font-semibold mb-2">LED Status Indicators</h3>
-                        <ul class="text-gray-600 space-y-1">
-                            <li><strong>Alternating Red and Green blinking</strong>: Waiting for Network configuration</li>
-                            <li><strong>Red blinking</strong>: Waiting for Network Connection</li>
-                            <li><strong>Green blinking</strong>: Network Connected, AI Agent Disconnected, Waiting for Wakeup</li>
-                        </ul>
-                    </div>
+             <div>
+    <h3 class="text-xl font-semibold mb-2">LED 상태 표시등</h3>
+    <ul class="text-gray-600 space-y-1">
+        <li><strong>빨간색과 녹색 교차 깜박임</strong>: 네트워크 설정 대기 중</li>
+        <li><strong>빨간색 깜박임</strong>: 네트워크 연결 대기 중</li>
+        <li><strong>녹색 깜박임</strong>: 네트워크 연결됨, AI 에이전트 연결 끊김, 호출 대기 중</li>
+    </ul>
+</div>
                 </div>
 
                 <div class="flex items-start">
@@ -491,7 +491,7 @@
                     <div>
                         <h3 class="text-xl font-semibold mb-2">Wakeup</h3>
                         <ul class="text-gray-600 space-y-1">
-                            <li>Wake phrase: "Hi, AGORA"</li>
+                            <li>호출어: "Hi, AGORA"</li>
                         </ul>
                     </div>
                 </div>
@@ -505,7 +505,7 @@
                     <div>
                         <h3 class="text-xl font-semibold mb-2">Wakeup Timeout</h3>
                         <ul class="text-gray-600 space-y-1">
-                            <li>AI Agent Disconnected: 3min</li>
+                            <li>AI 에이전트 연결 끊김: 3분</li>
                         </ul>
                     </div>
                 </div>
@@ -518,7 +518,7 @@
                 <div class="ml-4 flex-1 border-b border-gray-200"></div>
             </h2>
             <div class="bg-white p-8 rounded-lg border border-gray-100">
-                <p class="text-lg text-gray-700 mb-6">Customize functionality with our developer tools:</p>
+<p class="text-lg text-gray-700 mb-6">개발자 도구를 사용하여 기능을 맞춤 설정하세요.</p>
                 <div class="space-y-6">
                     <div class="flex items-start">
                         <div class="h-8 w-8 rounded-full bg-blue-100 flex items-center justify-center mr-4 mt-1">
@@ -526,10 +526,10 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
                             </svg>
                         </div>
-                        <div>
-                            <h3 class="text-xl font-semibold mb-2">SDK Download</h3>
-                            <p class="text-gray-600">Get beginner-friendly graphical programming tools from our official site. Coming soon!</p>
-                        </div>
+                      <div>
+    <h3 class="text-xl font-semibold mb-2">SDK 다운로드</h3>
+    <p class="text-gray-600">공식 사이트에서 초보자 친화적인 그래픽 프로그래밍 도구를 받으세요. 곧 제공됩니다!</p>
+</div>
                     </div>
                     <div class="flex items-start">
                         <div class="h-8 w-8 rounded-full bg-green-100 flex items-center justify-center mr-4 mt-1">
@@ -538,8 +538,9 @@
                             </svg>
                         </div>
                         <div>
-                            <h3 class="text-xl font-semibold mb-2">Tutorials</h3>
-                            <p class="text-gray-600">Please contact us for additional tutorials and learning resources</p>
+                    
+<h3 class="text-xl font-semibold mb-2">튜토리얼</h3>
+<p class="text-gray-600">추가 튜토리얼 및 학습 자료는 저희에게 문의해 주세요.</p>
                         </div>
                     </div>
                     <div class="flex items-start">
@@ -548,11 +549,11 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
                             </svg>
                         </div>
-                        <div>
-                            <h3 class="text-xl font-semibold mb-2">Firmware Update</h3>
-                            <p class="text-gray-600">Type-C Port 1: Debug Mode</p>
-                            <p class="text-gray-600">Type-C Port 2: USB Drive Mode</p>
-                        </div>
+                    <div>
+    <h3 class="text-xl font-semibold mb-2">펌웨어 업데이트</h3>
+    <p class="text-gray-600">Type-C 포트 1: 디버그 모드</p>
+    <p class="text-gray-600">Type-C 포트 2: USB 드라이브 모드</p>
+</div>
                     </div>
                     <div class="flex items-start">
                         <div class="h-8 w-8 rounded-full bg-amber-100 flex items-center justify-center mr-4 mt-1">
@@ -560,13 +561,13 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
                             </svg>
                         </div>
-                        <div>
-                            <h3 class="text-xl font-semibold mb-2">Community</h3>
-                            <p class="text-gray-600">Share your creations in our developer forum</p>
-                        </div>
+                      <div>
+    <h3 class="text-xl font-semibold mb-2">커뮤니티</h3>
+    <p class="text-gray-600">개발자 포럼에서 여러분의 창작물을 공유하세요.</p>
                     </div>
                 </div>
-                <p class="mt-8 text-lg text-gray-700 font-medium">No coding experience required to start AI development!</p>
+            
+<p class="mt-8 text-lg text-gray-700 font-medium">코딩 경험 없이도 AI 개발을 시작할 수 있습니다!</p>
             </div>
         </section>
     </main>
@@ -581,6 +582,6 @@
         </div>
     </footer>
 
-    <script src="main.js"></script>
+    <script src="../../main.js"></script>
 </body>
 </html>
