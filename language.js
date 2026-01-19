@@ -1,41 +1,73 @@
-function selectLanguage(lang, langName) {
-  console.log("selectLanguage called with:", lang, langName);
+const LANGUAGE_CONFIG = {
+  en: { label: "English", checkId: "checkEn" },
+  zh: { label: "中文", checkId: "checkZh" },
+  ja: { label: "日本語", checkId: "checkJa" },
+  ko: { label: "한국어", checkId: "checkKo" },
+};
 
+const NON_EN_LANGS = ["zh", "ja", "ko"];
+
+function getCurrentLanguageFromPath(pathname) {
+  for (const lang of NON_EN_LANGS) {
+    if (pathname.includes(`/language/${lang}/`)) return lang;
+  }
+  return "en";
+}
+
+function getCurrentFileName(pathname) {
+  if (!pathname || pathname.endsWith("/")) return "index.html";
+  const parts = pathname.split("/");
+  const last = parts[parts.length - 1];
+  return last || "index.html";
+}
+
+function buildTargetPath(targetLang) {
+  const pathname = window.location.pathname;
+  const fileName = getCurrentFileName(pathname);
+  const isLanguagePage = /\/language\/(zh|ja|ko)\//.test(pathname);
+
+  if (targetLang === "en") {
+    if (!isLanguagePage) return pathname;
+    return pathname.replace(/\/language\/(zh|ja|ko)\//, "/");
+  }
+
+  if (isLanguagePage) {
+    return pathname.replace(/\/language\/(zh|ja|ko)\//, `/language/${targetLang}/`);
+  }
+
+  const prefix = pathname.endsWith(fileName) ? pathname.slice(0, -fileName.length) : pathname;
+  return `${prefix}language/${targetLang}/${fileName}`;
+}
+
+function updateLanguageUI(lang) {
   const dropdown = document.getElementById("languageDropdown");
   const selectedLanguage = document.getElementById("selectedLanguage");
-  const checkEn = document.getElementById("checkEn");
-  const checkKo = document.getElementById("checkKo");
 
-  if (dropdown) {
-    dropdown.classList.add("hidden");
+  if (dropdown) dropdown.classList.add("hidden");
+  if (selectedLanguage) selectedLanguage.textContent = LANGUAGE_CONFIG[lang]?.label ?? "English";
+
+  for (const code of Object.keys(LANGUAGE_CONFIG)) {
+    const check = document.getElementById(LANGUAGE_CONFIG[code].checkId);
+    if (check) check.classList.add("hidden");
   }
 
-  if (selectedLanguage) {
-    selectedLanguage.textContent = langName;
+  const activeCheck = document.getElementById(LANGUAGE_CONFIG[lang]?.checkId ?? "checkEn");
+  if (activeCheck) activeCheck.classList.remove("hidden");
+}
+
+function selectLanguage(lang) {
+  console.log("selectLanguage called with:", lang);
+  if (!LANGUAGE_CONFIG[lang]) lang = "en";
+
+  updateLanguageUI(lang);
+  const targetPath = buildTargetPath(lang);
+
+  if (targetPath === window.location.pathname) {
+    window.location.reload();
+    return;
   }
 
-  if (checkEn) checkEn.classList.add("hidden");
-  if (checkKo) checkKo.classList.add("hidden");
-
-  if (lang === "en") {
-    if (checkEn) checkEn.classList.remove("hidden");
-    console.log("Redirecting to English page");
-
-    if (window.location.pathname.includes("/language/ko/")) {
-      window.location.href = "../../index.html";
-    } else {
-      window.location.reload();
-    }
-  } else if (lang === "ko") {
-    if (checkKo) checkKo.classList.remove("hidden");
-    console.log("Redirecting to Korean page");
-
-    if (!window.location.pathname.includes("/language/ko/")) {
-      window.location.href = "./language/ko/index.html";
-    } else {
-      window.location.reload();
-    }
-  }
+  window.location.href = targetPath;
 }
 
 function toggleLanguageDropdown() {
@@ -69,27 +101,9 @@ document.addEventListener("click", function (event) {
 document.addEventListener("DOMContentLoaded", function () {
   console.log("DOM loaded, pathname:", window.location.pathname);
 
-  const selectedLanguage = document.getElementById("selectedLanguage");
-  const checkEn = document.getElementById("checkEn");
-  const checkKo = document.getElementById("checkKo");
-
-  if (selectedLanguage && checkEn && checkKo) {
-    if (window.location.pathname.includes("/language/ko/")) {
-      // Korean page
-      selectedLanguage.textContent = "한국어";
-      checkEn.classList.add("hidden");
-      checkKo.classList.remove("hidden");
-      console.log("Initialized as Korean page");
-    } else {
-      // English page
-      selectedLanguage.textContent = "English";
-      checkEn.classList.remove("hidden");
-      checkKo.classList.add("hidden");
-      console.log("Initialized as English page");
-    }
-  } else {
-    console.error("Language elements not found");
-  }
+  const currentLang = getCurrentLanguageFromPath(window.location.pathname);
+  updateLanguageUI(currentLang);
+  console.log("Initialized language:", currentLang);
 });
 
 // Make functions globally available

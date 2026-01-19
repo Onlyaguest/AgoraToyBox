@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <title>Firmware Update | Agora ConvoAI Device Kit</title>
+    <title>固件更新（烧录） | Agora ConvoAI Device Kit</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="language.js"></script>
-    <link rel="stylesheet" href="styles.css" />
+    <script src="../../language.js"></script>
+    <link rel="stylesheet" href="../../styles.css" />
   </head>
   <body class="bg-gray-50 text-gray-900 font-sans antialiased">
-    <!-- Language Switcher Header (same as home) -->
+    <!-- Language Switcher Header -->
     <header class="bg-white py-4 px-4 sm:px-6 lg:px-8 border-b border-gray-200 mb-8">
       <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-2">
         <div>
@@ -44,7 +44,7 @@
                 <div class="text-left">
                   <div class="font-medium">English</div>
                 </div>
-                <svg id="checkEn" class="w-4 h-4 text-blue-600 ml-auto" fill="currentColor" viewBox="0 0 24 24">
+                <svg id="checkEn" class="w-4 h-4 text-blue-600 ml-auto hidden" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
                 </svg>
               </button>
@@ -94,50 +94,50 @@
       <main class="container mx-auto px-4 py-12">
         <div class="mb-8 flex items-center justify-between gap-4 flex-wrap">
           <div>
-            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-2">Firmware Update (Burn Code)</h2>
-            <p class="text-gray-600">A practical guide for burning firmware with Armino and BKFIL.</p>
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-2">固件烧录（Burn Code）</h2>
+            <p class="text-gray-600">使用 Armino + BKFIL 进行固件烧录的实用步骤说明。</p>
           </div>
-          <a href="./index.html" class="text-blue-600 hover:text-blue-800 underline">Back to Home</a>
+          <a href="./index.html" class="text-blue-600 hover:text-blue-800 underline">返回首页</a>
         </div>
 
         <section class="bg-white p-8 rounded-lg border border-gray-100 mb-8">
-          <h3 class="text-xl font-semibold mb-3">Overview</h3>
+          <h3 class="text-xl font-semibold mb-3">概览</h3>
           <p class="text-gray-700 leading-relaxed">
-            Armino supports firmware burning on Windows and macOS. This page summarizes the key steps and files so you can burn firmware reliably.
+            Armino 支持在 Windows/macOS 平台进行固件烧录。本页把关键文件与操作步骤整理成更容易执行的清单。
           </p>
         </section>
 
         <section class="bg-white p-8 rounded-lg border border-gray-100 mb-8">
-          <h3 class="text-xl font-semibold mb-3">Burning Output Files</h3>
+          <h3 class="text-xl font-semibold mb-3">编译产物（.bin）</h3>
           <div class="space-y-4 text-gray-700">
             <p>
-              After building the app project, <span class="font-geist-mono">all-app.bin</span> is generated under
-              <span class="font-geist-mono">build/app/bk7258/</span>. This <span class="font-geist-mono">.bin</span> file can be burned.
+              编译完成后，会在 <span class="font-geist-mono">build/app/bk7258/</span> 目录生成
+              <span class="font-geist-mono">all-app.bin</span>，该文件可直接烧录。
             </p>
             <div class="bg-blue-50 border border-blue-200 rounded-lg p-4">
-              <p class="font-medium text-blue-900 mb-1">First-time burning for a security project</p>
+              <p class="font-medium text-blue-900 mb-1">安全项目首次烧录</p>
               <p class="text-blue-900">
-                Burn <span class="font-geist-mono">bootloader.bin</span> first, then burn <span class="font-geist-mono">all-app.bin</span>.
+                需要先烧录 <span class="font-geist-mono">bootloader.bin</span>，再烧录 <span class="font-geist-mono">all-app.bin</span>。
               </p>
             </div>
           </div>
         </section>
 
         <section class="bg-white p-8 rounded-lg border border-gray-100 mb-8">
-          <h3 class="text-xl font-semibold mb-3">Burn Through Serial Port</h3>
+          <h3 class="text-xl font-semibold mb-3">通过串口烧录（UART）</h3>
           <div class="space-y-5 text-gray-700">
             <div>
-              <h4 class="font-semibold mb-2">Remarks</h4>
+              <h4 class="font-semibold mb-2">备注</h4>
               <ul class="list-disc pl-6 space-y-2">
-                <li>Armino supports burning via <strong>Type C-Port 1</strong>.</li>
-                <li>It is recommended to use a <strong>CH340 serial tool board</strong> for download.</li>
-                <li>On Windows, Armino currently supports <strong>UART burning</strong>.</li>
+                <li>支持使用 <strong>Type C-Port 1</strong> 进行烧录。</li>
+                <li>建议使用 <strong>CH340 串口工具板</strong> 进行下载。</li>
+                <li>以 Windows 为例，目前支持 <strong>UART 烧录</strong>。</li>
               </ul>
             </div>
 
             <div class="bg-gray-50 border border-gray-200 rounded-lg p-4">
               <img
-                src="pic/hardware_components.png"
+                src="../../pic/hardware_components.png"
                 alt="Hardware components"
                 class="w-full rounded-lg"
                 onerror="this.classList.add('hidden'); this.nextElementSibling.classList.remove('hidden');"
@@ -148,17 +148,17 @@
         </section>
 
         <section class="bg-white p-8 rounded-lg border border-gray-100 mb-8">
-          <h3 class="text-xl font-semibold mb-3">Burning Tool (BKFIL)</h3>
+          <h3 class="text-xl font-semibold mb-3">烧录工具（BKFIL）</h3>
           <div class="space-y-4 text-gray-700">
-            <p>Download packages:</p>
+            <p>工具包获取：</p>
             <ul class="list-disc pl-6 space-y-2">
-              <li>Windows: <span class="font-geist-mono">BEKEN_BKFIL_V3.0.1.4_314_20240924.zip</span></li>
-              <li>macOS: <span class="font-geist-mono">BKFIL_macos_v4.0.1_25091001.zip</span></li>
+              <li>Windows：<span class="font-geist-mono">BEKEN_BKFIL_V3.0.1.4_314_20240924.zip</span></li>
+              <li>Mac：<span class="font-geist-mono">BKFIL_macos_v4.0.1_25091001.zip</span></li>
             </ul>
-            <p>The BKFIL.exe interface and configuration look like:</p>
+            <p>BKFIL.exe 的界面与相关配置如下图所示：</p>
             <div class="bg-gray-50 border border-gray-200 rounded-lg p-4">
               <img
-                src="pic/Burn_Code_App_UI.png"
+                src="../../pic/Burn_Code_App_UI.png"
                 alt="BKFIL tool UI"
                 class="w-full rounded-lg"
                 onerror="this.classList.add('hidden'); this.nextElementSibling.classList.remove('hidden');"
@@ -169,23 +169,18 @@
         </section>
 
         <section class="bg-white p-8 rounded-lg border border-gray-100 mb-8">
-          <h3 class="text-xl font-semibold mb-3">Step-by-Step Instructions</h3>
+          <h3 class="text-xl font-semibold mb-3">操作步骤</h3>
           <ol class="list-decimal pl-6 space-y-3 text-gray-700">
-            <li>Connect your laptop to <strong>Type C-Port 1</strong> using a cable.</li>
-            <li>Select the correct <strong>COM port</strong> in BKFIL and connect to the hardware.</li>
-            <li>Choose the required <strong>.bin</strong> file path (for example: <span class="font-geist-mono">all-app.bin</span>).</li>
-            <li>
-              Hold the button (<strong>Reset Switch Button</strong>) on the right side of R1, then click <strong>Burn</strong>.
-            </li>
+            <li>用数据线将电脑连接到 <strong>Type C-Port 1</strong>。</li>
+            <li>在 BKFIL 中选择正确的 <strong>COM 端口</strong> 并连接硬件。</li>
+            <li>选择需要烧录的 <strong>.bin</strong> 文件路径（例如 <span class="font-geist-mono">all-app.bin</span>）。</li>
+            <li>按住 R1 右侧的 <strong>Reset Switch Button</strong>，然后点击 <strong>Burn</strong>。</li>
           </ol>
         </section>
 
         <section class="bg-white p-8 rounded-lg border border-gray-100">
           <h3 class="text-xl font-semibold mb-3">Physical AI Doc</h3>
-          <p class="text-gray-700">
-            This page is a simplified version of the Physical AI Doc for firmware burning. If you have a team-specific workflow, keep the order of burning files consistent with your
-            security settings and build output.
-          </p>
+          <p class="text-gray-700">本页基于 Physical AI Doc 内容整理，便于快速理解与执行。</p>
         </section>
       </main>
 
@@ -199,6 +194,6 @@
       </footer>
     </div>
 
-    <script src="main.js"></script>
+    <script src="../../main.js"></script>
   </body>
 </html>

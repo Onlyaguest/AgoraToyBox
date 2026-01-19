@@ -50,6 +50,30 @@
               <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
             </svg>
           </button>
+
+          <button 
+            onclick="selectLanguage('zh', '中文')" 
+            class="flex items-center w-full px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-700 transition-colors duration-150"
+          >
+            <div class="text-left">
+              <div class="font-medium">中文</div>
+            </div>
+            <svg id="checkZh" class="w-4 h-4 text-blue-600 ml-auto hidden" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+            </svg>
+          </button>
+
+          <button 
+            onclick="selectLanguage('ja', '日本語')" 
+            class="flex items-center w-full px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-700 transition-colors duration-150"
+          >
+            <div class="text-left">
+              <div class="font-medium">日本語</div>
+            </div>
+            <svg id="checkJa" class="w-4 h-4 text-blue-600 ml-auto hidden" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+            </svg>
+          </button>
           
           <button 
             onclick="selectLanguage('ko', '한국어')" 
@@ -530,7 +554,7 @@
 	                            <h3 class="text-xl font-semibold mb-2">SDK Download</h3>
 	                            <p class="text-gray-600">
 	                                Get beginner-friendly graphical programming tools in the
-	                                <a href="https://docs.agora.io/en/convo-ai-device-kit/get-started/quickstart" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 underline">quickstart docs</a>.
+	                                <a href="https://docs.agora.io/en/convo-ai-device-kit/get-started/quickstart" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 underline font-semibold">quickstart docs</a>.
 	                            </p>
 	                        </div>
 	                    </div>
@@ -578,14 +602,14 @@
     </main>
 
     <footer>
-        <div class="container">
-            <p>© 2025 AGORA ConvoAI Device Kit Team</p>
-            <div class="support-links">
-                <a href="http://www.agora.io">Official Website</a>
-                <!-- <a href="http://tutorial.aikit.example.com">Video Tutorials</a> -->
-            </div>
-        </div>
-    </footer>
+	        <div class="container">
+	            <p>© 2025 AGORA ConvoAI Device Kit Team</p>
+	            <div class="support-links">
+	                <a href="http://www.agora.io" class="font-semibold">Official Website</a>
+	                <!-- <a href="http://tutorial.aikit.example.com">Video Tutorials</a> -->
+	            </div>
+	        </div>
+	    </footer>
 
     <script src="main.js"></script>
 </body>

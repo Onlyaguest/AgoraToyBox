@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <title>Firmware Update | Agora ConvoAI Device Kit</title>
+    <title>펌웨어 업데이트 | Agora ConvoAI Device Kit</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="language.js"></script>
-    <link rel="stylesheet" href="styles.css" />
+    <script src="../../language.js"></script>
+    <link rel="stylesheet" href="../../styles.css" />
   </head>
   <body class="bg-gray-50 text-gray-900 font-sans antialiased">
-    <!-- Language Switcher Header (same as home) -->
+    <!-- Language Switcher Header -->
     <header class="bg-white py-4 px-4 sm:px-6 lg:px-8 border-b border-gray-200 mb-8">
       <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-2">
         <div>
@@ -44,7 +44,7 @@
                 <div class="text-left">
                   <div class="font-medium">English</div>
                 </div>
-                <svg id="checkEn" class="w-4 h-4 text-blue-600 ml-auto" fill="currentColor" viewBox="0 0 24 24">
+                <svg id="checkEn" class="w-4 h-4 text-blue-600 ml-auto hidden" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
                 </svg>
               </button>
@@ -94,50 +94,50 @@
       <main class="container mx-auto px-4 py-12">
         <div class="mb-8 flex items-center justify-between gap-4 flex-wrap">
           <div>
-            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-2">Firmware Update (Burn Code)</h2>
-            <p class="text-gray-600">A practical guide for burning firmware with Armino and BKFIL.</p>
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-2">펌웨어 굽기(Burn Code)</h2>
+            <p class="text-gray-600">Armino + BKFIL로 펌웨어를 굽는 방법을 정리했습니다.</p>
           </div>
-          <a href="./index.html" class="text-blue-600 hover:text-blue-800 underline">Back to Home</a>
+          <a href="./index.html" class="text-blue-600 hover:text-blue-800 underline">홈으로</a>
         </div>
 
         <section class="bg-white p-8 rounded-lg border border-gray-100 mb-8">
-          <h3 class="text-xl font-semibold mb-3">Overview</h3>
+          <h3 class="text-xl font-semibold mb-3">개요</h3>
           <p class="text-gray-700 leading-relaxed">
-            Armino supports firmware burning on Windows and macOS. This page summarizes the key steps and files so you can burn firmware reliably.
+            Armino는 Windows/macOS에서 펌웨어 굽기를 지원합니다. 이 페이지는 필요한 파일과 절차를 한눈에 이해할 수 있도록 요약했습니다.
           </p>
         </section>
 
         <section class="bg-white p-8 rounded-lg border border-gray-100 mb-8">
-          <h3 class="text-xl font-semibold mb-3">Burning Output Files</h3>
+          <h3 class="text-xl font-semibold mb-3">빌드 산출물(.bin)</h3>
           <div class="space-y-4 text-gray-700">
             <p>
-              After building the app project, <span class="font-geist-mono">all-app.bin</span> is generated under
-              <span class="font-geist-mono">build/app/bk7258/</span>. This <span class="font-geist-mono">.bin</span> file can be burned.
+              앱 프로젝트를 빌드하면 <span class="font-geist-mono">build/app/bk7258/</span> 아래에
+              <span class="font-geist-mono">all-app.bin</span> 이 생성됩니다. 이 파일을 굽기(burn)할 수 있습니다.
             </p>
             <div class="bg-blue-50 border border-blue-200 rounded-lg p-4">
-              <p class="font-medium text-blue-900 mb-1">First-time burning for a security project</p>
+              <p class="font-medium text-blue-900 mb-1">보안 프로젝트를 처음 굽는 경우</p>
               <p class="text-blue-900">
-                Burn <span class="font-geist-mono">bootloader.bin</span> first, then burn <span class="font-geist-mono">all-app.bin</span>.
+                먼저 <span class="font-geist-mono">bootloader.bin</span> 을 굽고, 그 다음 <span class="font-geist-mono">all-app.bin</span> 을 굽습니다.
               </p>
             </div>
           </div>
         </section>
 
         <section class="bg-white p-8 rounded-lg border border-gray-100 mb-8">
-          <h3 class="text-xl font-semibold mb-3">Burn Through Serial Port</h3>
+          <h3 class="text-xl font-semibold mb-3">시리얼(UART)로 굽기</h3>
           <div class="space-y-5 text-gray-700">
             <div>
-              <h4 class="font-semibold mb-2">Remarks</h4>
+              <h4 class="font-semibold mb-2">참고</h4>
               <ul class="list-disc pl-6 space-y-2">
-                <li>Armino supports burning via <strong>Type C-Port 1</strong>.</li>
-                <li>It is recommended to use a <strong>CH340 serial tool board</strong> for download.</li>
-                <li>On Windows, Armino currently supports <strong>UART burning</strong>.</li>
+                <li>Armino는 <strong>Type C-Port 1</strong> 을 통한 굽기를 지원합니다.</li>
+                <li>다운로드용으로 <strong>CH340 시리얼 툴 보드</strong> 사용을 권장합니다.</li>
+                <li>Windows에서는 현재 <strong>UART 굽기</strong>를 지원합니다.</li>
               </ul>
             </div>
 
             <div class="bg-gray-50 border border-gray-200 rounded-lg p-4">
               <img
-                src="pic/hardware_components.png"
+                src="../../pic/hardware_components.png"
                 alt="Hardware components"
                 class="w-full rounded-lg"
                 onerror="this.classList.add('hidden'); this.nextElementSibling.classList.remove('hidden');"
@@ -148,17 +148,17 @@
         </section>
 
         <section class="bg-white p-8 rounded-lg border border-gray-100 mb-8">
-          <h3 class="text-xl font-semibold mb-3">Burning Tool (BKFIL)</h3>
+          <h3 class="text-xl font-semibold mb-3">굽기 도구(BKFIL)</h3>
           <div class="space-y-4 text-gray-700">
-            <p>Download packages:</p>
+            <p>다운로드 패키지:</p>
             <ul class="list-disc pl-6 space-y-2">
               <li>Windows: <span class="font-geist-mono">BEKEN_BKFIL_V3.0.1.4_314_20240924.zip</span></li>
               <li>macOS: <span class="font-geist-mono">BKFIL_macos_v4.0.1_25091001.zip</span></li>
             </ul>
-            <p>The BKFIL.exe interface and configuration look like:</p>
+            <p>BKFIL.exe 화면과 설정 예시는 아래와 같습니다:</p>
             <div class="bg-gray-50 border border-gray-200 rounded-lg p-4">
               <img
-                src="pic/Burn_Code_App_UI.png"
+                src="../../pic/Burn_Code_App_UI.png"
                 alt="BKFIL tool UI"
                 class="w-full rounded-lg"
                 onerror="this.classList.add('hidden'); this.nextElementSibling.classList.remove('hidden');"
@@ -169,22 +169,19 @@
         </section>
 
         <section class="bg-white p-8 rounded-lg border border-gray-100 mb-8">
-          <h3 class="text-xl font-semibold mb-3">Step-by-Step Instructions</h3>
+          <h3 class="text-xl font-semibold mb-3">절차</h3>
           <ol class="list-decimal pl-6 space-y-3 text-gray-700">
-            <li>Connect your laptop to <strong>Type C-Port 1</strong> using a cable.</li>
-            <li>Select the correct <strong>COM port</strong> in BKFIL and connect to the hardware.</li>
-            <li>Choose the required <strong>.bin</strong> file path (for example: <span class="font-geist-mono">all-app.bin</span>).</li>
-            <li>
-              Hold the button (<strong>Reset Switch Button</strong>) on the right side of R1, then click <strong>Burn</strong>.
-            </li>
+            <li>케이블로 노트북을 <strong>Type C-Port 1</strong> 에 연결합니다.</li>
+            <li>BKFIL에서 <strong>COM 포트</strong>를 선택하고 하드웨어에 연결합니다.</li>
+            <li>필요한 <strong>.bin</strong> 파일 경로를 선택합니다(예: <span class="font-geist-mono">all-app.bin</span>).</li>
+            <li><strong>Reset Switch Button</strong>(R1 오른쪽)을 누른 상태에서 <strong>Burn</strong> 을 클릭합니다.</li>
           </ol>
         </section>
 
         <section class="bg-white p-8 rounded-lg border border-gray-100">
           <h3 class="text-xl font-semibold mb-3">Physical AI Doc</h3>
           <p class="text-gray-700">
-            This page is a simplified version of the Physical AI Doc for firmware burning. If you have a team-specific workflow, keep the order of burning files consistent with your
-            security settings and build output.
+            본 문서는 Physical AI Doc의 내용을 기반으로, 실제 작업에 필요한 핵심만 쉽게 정리한 버전입니다.
           </p>
         </section>
       </main>
@@ -199,6 +196,6 @@
       </footer>
     </div>
 
-    <script src="main.js"></script>
+    <script src="../../main.js"></script>
   </body>
 </html>
