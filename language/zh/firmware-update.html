@@ -90,99 +90,172 @@
       </div>
     </header>
 
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <main class="container mx-auto px-4 py-12">
-        <div class="mb-8 flex items-center justify-between gap-4 flex-wrap">
-          <div>
-            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-2">固件烧录（Burn Code）</h2>
-            <p class="text-gray-600">使用 Armino + BKFIL 进行固件烧录的实用步骤说明。</p>
-          </div>
-          <a href="./index.html" class="text-blue-600 hover:text-blue-800 underline">返回首页</a>
-        </div>
+	    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+	      <main class="container mx-auto px-4 py-12">
+	        <div class="mb-8 flex items-center justify-between gap-4 flex-wrap">
+	          <div>
+	            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-2">固件烧录（Burn Code）</h2>
+	            <p class="text-gray-600">使用 Armino + BKFIL 进行固件烧录的实用步骤说明。</p>
+	          </div>
+	          <a href="./index.html" class="text-blue-600 hover:text-blue-800 underline">返回首页</a>
+	        </div>
 
-        <section class="bg-white p-8 rounded-lg border border-gray-100 mb-8">
-          <h3 class="text-xl font-semibold mb-3">概览</h3>
-          <p class="text-gray-700 leading-relaxed">
-            Armino 支持在 Windows/macOS 平台进行固件烧录。本页把关键文件与操作步骤整理成更容易执行的清单。
-          </p>
-        </section>
+	        <section class="bg-white p-8 rounded-lg border border-gray-100 mb-8">
+	          <div class="flex items-start">
+	            <div class="h-10 w-10 rounded-full bg-green-100 flex items-center justify-center mr-4 mt-1 flex-shrink-0">
+	              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+	                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m7 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+	              </svg>
+	            </div>
+	            <div class="flex-1">
+	              <h3 class="text-xl font-semibold mb-3">快速检查清单</h3>
+	              <ul class="list-disc pl-6 space-y-2 text-gray-700 leading-relaxed">
+	                <li>用数据线将电脑连接到 <strong>Type C-Port 1</strong>。</li>
+	                <li>建议使用 <strong>CH340 串口工具板</strong>。</li>
+	                <li>准备 BKFIL：Windows（<span class="font-geist-mono">BKFIL.exe</span>）/ macOS（BKFIL）。</li>
+	                <li>准备 <span class="font-geist-mono">all-app.bin</span>（安全项目首次需包含 <span class="font-geist-mono">bootloader.bin</span>）。</li>
+	              </ul>
+	            </div>
+	          </div>
+	        </section>
 
-        <section class="bg-white p-8 rounded-lg border border-gray-100 mb-8">
-          <h3 class="text-xl font-semibold mb-3">编译产物（.bin）</h3>
-          <div class="space-y-4 text-gray-700">
-            <p>
-              编译完成后，会在 <span class="font-geist-mono">build/app/bk7258/</span> 目录生成
-              <span class="font-geist-mono">all-app.bin</span>，该文件可直接烧录。
-            </p>
-            <div class="bg-blue-50 border border-blue-200 rounded-lg p-4">
-              <p class="font-medium text-blue-900 mb-1">安全项目首次烧录</p>
-              <p class="text-blue-900">
-                需要先烧录 <span class="font-geist-mono">bootloader.bin</span>，再烧录 <span class="font-geist-mono">all-app.bin</span>。
-              </p>
-            </div>
-          </div>
-        </section>
+	        <section class="bg-white p-8 rounded-lg border border-gray-100 mb-8">
+	          <div class="flex items-start">
+	            <div class="h-10 w-10 rounded-full bg-blue-100 flex items-center justify-center mr-4 mt-1 flex-shrink-0">
+	              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+	                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M12 20a8 8 0 100-16 8 8 0 000 16z" />
+	              </svg>
+	            </div>
+	            <div class="flex-1">
+	              <h3 class="text-xl font-semibold mb-3">概览</h3>
+	              <p class="text-gray-700 leading-relaxed">
+	                Armino 支持在 Windows/macOS 平台进行固件烧录。本页把关键文件与操作步骤整理成更容易执行的清单。
+	              </p>
+	            </div>
+	          </div>
+	        </section>
 
-        <section class="bg-white p-8 rounded-lg border border-gray-100 mb-8">
-          <h3 class="text-xl font-semibold mb-3">通过串口烧录（UART）</h3>
-          <div class="space-y-5 text-gray-700">
-            <div>
-              <h4 class="font-semibold mb-2">备注</h4>
-              <ul class="list-disc pl-6 space-y-2">
-                <li>支持使用 <strong>Type C-Port 1</strong> 进行烧录。</li>
-                <li>建议使用 <strong>CH340 串口工具板</strong> 进行下载。</li>
-                <li>以 Windows 为例，目前支持 <strong>UART 烧录</strong>。</li>
-              </ul>
-            </div>
+	        <section class="bg-white p-8 rounded-lg border border-gray-100 mb-8">
+	          <div class="flex items-start">
+	            <div class="h-10 w-10 rounded-full bg-indigo-100 flex items-center justify-center mr-4 mt-1 flex-shrink-0">
+	              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+	                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5l5 5v11a2 2 0 01-2 2z" />
+	              </svg>
+	            </div>
+	            <div class="flex-1">
+	              <h3 class="text-xl font-semibold mb-3">编译产物（.bin）</h3>
+	              <div class="space-y-4 text-gray-700 leading-relaxed">
+	                <p>
+	                  编译完成后，会在 <span class="font-geist-mono">build/app/bk7258/</span> 目录生成
+	                  <span class="font-geist-mono">all-app.bin</span>，该文件可直接烧录。
+	                </p>
+	                <div class="bg-blue-50 border border-blue-200 rounded-lg p-4">
+	                  <p class="font-medium text-blue-900 mb-1">安全项目首次烧录</p>
+	                  <p class="text-blue-900">
+	                    需要先烧录 <span class="font-geist-mono">bootloader.bin</span>，再烧录 <span class="font-geist-mono">all-app.bin</span>。
+	                  </p>
+	                </div>
+	              </div>
+	            </div>
+	          </div>
+	        </section>
 
-            <div class="bg-gray-50 border border-gray-200 rounded-lg p-4">
-              <img
-                src="../../pic/hardware_components.png"
-                alt="Hardware components"
-                class="w-full rounded-lg"
-                onerror="this.classList.add('hidden'); this.nextElementSibling.classList.remove('hidden');"
-              />
-              <div class="hidden text-center text-gray-500 py-6">[此处有个图]</div>
-            </div>
-          </div>
-        </section>
+	        <section class="bg-white p-8 rounded-lg border border-gray-100 mb-8">
+	          <div class="flex items-start">
+	            <div class="h-10 w-10 rounded-full bg-amber-100 flex items-center justify-center mr-4 mt-1 flex-shrink-0">
+	              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-amber-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+	                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h.01M12 7h.01M16 7h.01M9 11h6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h10a2 2 0 012 2v14a2 2 0 01-2 2z" />
+	              </svg>
+	            </div>
+	            <div class="flex-1">
+	              <h3 class="text-xl font-semibold mb-3">通过串口烧录（UART）</h3>
+	              <div class="space-y-5 text-gray-700 leading-relaxed">
+	                <div>
+	                  <h4 class="font-semibold mb-2">备注</h4>
+	                  <ul class="list-disc pl-6 space-y-2">
+	                    <li>支持使用 <strong>Type C-Port 1</strong> 进行烧录。</li>
+	                    <li>建议使用 <strong>CH340 串口工具板</strong> 进行下载。</li>
+	                    <li>以 Windows 为例，目前支持 <strong>UART 烧录</strong>。</li>
+	                  </ul>
+	                </div>
 
-        <section class="bg-white p-8 rounded-lg border border-gray-100 mb-8">
-          <h3 class="text-xl font-semibold mb-3">烧录工具（BKFIL）</h3>
-          <div class="space-y-4 text-gray-700">
-            <p>工具包获取：</p>
-            <ul class="list-disc pl-6 space-y-2">
-              <li>Windows：<span class="font-geist-mono">BEKEN_BKFIL_V3.0.1.4_314_20240924.zip</span></li>
-              <li>Mac：<span class="font-geist-mono">BKFIL_macos_v4.0.1_25091001.zip</span></li>
-            </ul>
-            <p>BKFIL.exe 的界面与相关配置如下图所示：</p>
-            <div class="bg-gray-50 border border-gray-200 rounded-lg p-4">
-              <img
-                src="../../pic/Burn_Code_App_UI.png"
-                alt="BKFIL tool UI"
-                class="w-full rounded-lg"
-                onerror="this.classList.add('hidden'); this.nextElementSibling.classList.remove('hidden');"
-              />
-              <div class="hidden text-center text-gray-500 py-6">[此处有个图]</div>
-            </div>
-          </div>
-        </section>
+	                <div class="bg-gray-50 border border-gray-200 rounded-lg p-4">
+	                  <img
+	                    src="../../pic/hardware_components.png"
+	                    alt="Hardware components"
+	                    class="w-full rounded-lg"
+	                    onerror="this.classList.add('hidden'); this.nextElementSibling.classList.remove('hidden');"
+	                  />
+	                  <div class="hidden text-center text-gray-500 py-6">[此处有个图]</div>
+	                </div>
+	              </div>
+	            </div>
+	          </div>
+	        </section>
 
-        <section class="bg-white p-8 rounded-lg border border-gray-100 mb-8">
-          <h3 class="text-xl font-semibold mb-3">操作步骤</h3>
-          <ol class="list-decimal pl-6 space-y-3 text-gray-700">
-            <li>用数据线将电脑连接到 <strong>Type C-Port 1</strong>。</li>
-            <li>在 BKFIL 中选择正确的 <strong>COM 端口</strong> 并连接硬件。</li>
-            <li>选择需要烧录的 <strong>.bin</strong> 文件路径（例如 <span class="font-geist-mono">all-app.bin</span>）。</li>
-            <li>按住 R1 右侧的 <strong>Reset Switch Button</strong>，然后点击 <strong>Burn</strong>。</li>
-          </ol>
-        </section>
+	        <section class="bg-white p-8 rounded-lg border border-gray-100 mb-8">
+	          <div class="flex items-start">
+	            <div class="h-10 w-10 rounded-full bg-purple-100 flex items-center justify-center mr-4 mt-1 flex-shrink-0">
+	              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-purple-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+	                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+	              </svg>
+	            </div>
+	            <div class="flex-1">
+	              <h3 class="text-xl font-semibold mb-3">烧录工具（BKFIL）</h3>
+	              <div class="space-y-4 text-gray-700 leading-relaxed">
+	                <p>工具包获取：</p>
+	                <ul class="list-disc pl-6 space-y-2">
+	                  <li>Windows：<span class="font-geist-mono">BEKEN_BKFIL_V3.0.1.4_314_20240924.zip</span></li>
+	                  <li>Mac：<span class="font-geist-mono">BKFIL_macos_v4.0.1_25091001.zip</span></li>
+	                </ul>
+	                <p>BKFIL.exe 的界面与相关配置如下图所示：</p>
+	                <div class="bg-gray-50 border border-gray-200 rounded-lg p-4">
+	                  <img
+	                    src="../../pic/Burn_Code_App_UI.png"
+	                    alt="BKFIL tool UI"
+	                    class="w-full rounded-lg"
+	                    onerror="this.classList.add('hidden'); this.nextElementSibling.classList.remove('hidden');"
+	                  />
+	                  <div class="hidden text-center text-gray-500 py-6">[此处有个图]</div>
+	                </div>
+	              </div>
+	            </div>
+	          </div>
+	        </section>
 
-        <section class="bg-white p-8 rounded-lg border border-gray-100">
-          <h3 class="text-xl font-semibold mb-3">Physical AI Doc</h3>
-          <p class="text-gray-700">本页基于 Physical AI Doc 内容整理，便于快速理解与执行。</p>
-        </section>
-      </main>
+	        <section class="bg-white p-8 rounded-lg border border-gray-100 mb-8">
+	          <div class="flex items-start">
+	            <div class="h-10 w-10 rounded-full bg-rose-100 flex items-center justify-center mr-4 mt-1 flex-shrink-0">
+	              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-rose-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+	                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01" />
+	              </svg>
+	            </div>
+	            <div class="flex-1">
+	              <h3 class="text-xl font-semibold mb-3">操作步骤</h3>
+	              <ol class="list-decimal pl-6 space-y-3 text-gray-700 leading-relaxed">
+	                <li>用数据线将电脑连接到 <strong>Type C-Port 1</strong>。</li>
+	                <li>在 BKFIL 中选择正确的 <strong>COM 端口</strong> 并连接硬件。</li>
+	                <li>选择需要烧录的 <strong>.bin</strong> 文件路径（例如 <span class="font-geist-mono">all-app.bin</span>）。</li>
+	                <li>按住 R1 右侧的 <strong>Reset Switch Button</strong>，然后点击 <strong>Burn</strong>。</li>
+	              </ol>
+	            </div>
+	          </div>
+	        </section>
+
+	        <section class="bg-white p-8 rounded-lg border border-gray-100">
+	          <div class="flex items-start">
+	            <div class="h-10 w-10 rounded-full bg-gray-100 flex items-center justify-center mr-4 mt-1 flex-shrink-0">
+	              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+	                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+	              </svg>
+	            </div>
+	            <div class="flex-1">
+	              <h3 class="text-xl font-semibold mb-3">Physical AI Doc</h3>
+	              <p class="text-gray-700 leading-relaxed">本页基于 Physical AI Doc 内容整理，便于快速理解与执行。</p>
+	            </div>
+	          </div>
+	        </section>
+	      </main>
 
       <footer>
         <div class="container">

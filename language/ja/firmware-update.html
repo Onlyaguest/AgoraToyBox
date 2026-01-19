@@ -90,99 +90,172 @@
       </div>
     </header>
 
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <main class="container mx-auto px-4 py-12">
-        <div class="mb-8 flex items-center justify-between gap-4 flex-wrap">
-          <div>
-            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-2">ファームウェア書き込み（Burn Code）</h2>
-            <p class="text-gray-600">Armino と BKFIL を使った書き込み手順をまとめました。</p>
-          </div>
-          <a href="./index.html" class="text-blue-600 hover:text-blue-800 underline">ホームへ</a>
-        </div>
+	    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+	      <main class="container mx-auto px-4 py-12">
+	        <div class="mb-8 flex items-center justify-between gap-4 flex-wrap">
+	          <div>
+	            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-2">ファームウェア書き込み（Burn Code）</h2>
+	            <p class="text-gray-600">Armino と BKFIL を使った書き込み手順をまとめました。</p>
+	          </div>
+	          <a href="./index.html" class="text-blue-600 hover:text-blue-800 underline">ホームへ</a>
+	        </div>
 
-        <section class="bg-white p-8 rounded-lg border border-gray-100 mb-8">
-          <h3 class="text-xl font-semibold mb-3">概要</h3>
-          <p class="text-gray-700 leading-relaxed">
-            Armino は Windows/macOS でのファームウェア書き込みに対応しています。このページでは、必要なファイルと操作を実行しやすい形に整理しています。
-          </p>
-        </section>
+	        <section class="bg-white p-8 rounded-lg border border-gray-100 mb-8">
+	          <div class="flex items-start">
+	            <div class="h-10 w-10 rounded-full bg-green-100 flex items-center justify-center mr-4 mt-1 flex-shrink-0">
+	              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+	                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m7 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+	              </svg>
+	            </div>
+	            <div class="flex-1">
+	              <h3 class="text-xl font-semibold mb-3">クイックチェックリスト</h3>
+	              <ul class="list-disc pl-6 space-y-2 text-gray-700 leading-relaxed">
+	                <li>USB ケーブルで PC を <strong>Type C-Port 1</strong> に接続します。</li>
+	                <li><strong>CH340 シリアルツールボード</strong> の使用を推奨します。</li>
+	                <li>BKFIL を準備: Windows（<span class="font-geist-mono">BKFIL.exe</span>）/ macOS（BKFIL）。</li>
+	                <li><span class="font-geist-mono">all-app.bin</span> を用意（セキュリティプロジェクト初回は <span class="font-geist-mono">bootloader.bin</span> も）。</li>
+	              </ul>
+	            </div>
+	          </div>
+	        </section>
 
-        <section class="bg-white p-8 rounded-lg border border-gray-100 mb-8">
-          <h3 class="text-xl font-semibold mb-3">ビルド生成物（.bin）</h3>
-          <div class="space-y-4 text-gray-700">
-            <p>
-              アプリをビルドすると、<span class="font-geist-mono">build/app/bk7258/</span> に
-              <span class="font-geist-mono">all-app.bin</span> が生成されます。このファイルを書き込みできます。
-            </p>
-            <div class="bg-blue-50 border border-blue-200 rounded-lg p-4">
-              <p class="font-medium text-blue-900 mb-1">セキュリティプロジェクトの初回書き込み</p>
-              <p class="text-blue-900">
-                まず <span class="font-geist-mono">bootloader.bin</span> を書き込み、その後 <span class="font-geist-mono">all-app.bin</span> を書き込みます。
-              </p>
-            </div>
-          </div>
-        </section>
+	        <section class="bg-white p-8 rounded-lg border border-gray-100 mb-8">
+	          <div class="flex items-start">
+	            <div class="h-10 w-10 rounded-full bg-blue-100 flex items-center justify-center mr-4 mt-1 flex-shrink-0">
+	              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+	                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M12 20a8 8 0 100-16 8 8 0 000 16z" />
+	              </svg>
+	            </div>
+	            <div class="flex-1">
+	              <h3 class="text-xl font-semibold mb-3">概要</h3>
+	              <p class="text-gray-700 leading-relaxed">
+	                Armino は Windows/macOS でのファームウェア書き込みに対応しています。このページでは、必要なファイルと操作を実行しやすい形に整理しています。
+	              </p>
+	            </div>
+	          </div>
+	        </section>
 
-        <section class="bg-white p-8 rounded-lg border border-gray-100 mb-8">
-          <h3 class="text-xl font-semibold mb-3">シリアル（UART）で書き込み</h3>
-          <div class="space-y-5 text-gray-700">
-            <div>
-              <h4 class="font-semibold mb-2">備考</h4>
-              <ul class="list-disc pl-6 space-y-2">
-                <li><strong>Type C-Port 1</strong> 経由の書き込みに対応しています。</li>
-                <li>ダウンロードには <strong>CH340 シリアルツールボード</strong> を推奨します。</li>
-                <li>Windows では現在 <strong>UART 書き込み</strong> をサポートしています。</li>
-              </ul>
-            </div>
+	        <section class="bg-white p-8 rounded-lg border border-gray-100 mb-8">
+	          <div class="flex items-start">
+	            <div class="h-10 w-10 rounded-full bg-indigo-100 flex items-center justify-center mr-4 mt-1 flex-shrink-0">
+	              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+	                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5l5 5v11a2 2 0 01-2 2z" />
+	              </svg>
+	            </div>
+	            <div class="flex-1">
+	              <h3 class="text-xl font-semibold mb-3">ビルド生成物（.bin）</h3>
+	              <div class="space-y-4 text-gray-700 leading-relaxed">
+	                <p>
+	                  アプリをビルドすると、<span class="font-geist-mono">build/app/bk7258/</span> に
+	                  <span class="font-geist-mono">all-app.bin</span> が生成されます。このファイルを書き込みできます。
+	                </p>
+	                <div class="bg-blue-50 border border-blue-200 rounded-lg p-4">
+	                  <p class="font-medium text-blue-900 mb-1">セキュリティプロジェクトの初回書き込み</p>
+	                  <p class="text-blue-900">
+	                    まず <span class="font-geist-mono">bootloader.bin</span> を書き込み、その後 <span class="font-geist-mono">all-app.bin</span> を書き込みます。
+	                  </p>
+	                </div>
+	              </div>
+	            </div>
+	          </div>
+	        </section>
 
-            <div class="bg-gray-50 border border-gray-200 rounded-lg p-4">
-              <img
-                src="../../pic/hardware_components.png"
-                alt="Hardware components"
-                class="w-full rounded-lg"
-                onerror="this.classList.add('hidden'); this.nextElementSibling.classList.remove('hidden');"
-              />
-              <div class="hidden text-center text-gray-500 py-6">[此处有个图]</div>
-            </div>
-          </div>
-        </section>
+	        <section class="bg-white p-8 rounded-lg border border-gray-100 mb-8">
+	          <div class="flex items-start">
+	            <div class="h-10 w-10 rounded-full bg-amber-100 flex items-center justify-center mr-4 mt-1 flex-shrink-0">
+	              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-amber-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+	                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h.01M12 7h.01M16 7h.01M9 11h6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h10a2 2 0 012 2v14a2 2 0 01-2 2z" />
+	              </svg>
+	            </div>
+	            <div class="flex-1">
+	              <h3 class="text-xl font-semibold mb-3">シリアル（UART）で書き込み</h3>
+	              <div class="space-y-5 text-gray-700 leading-relaxed">
+	                <div>
+	                  <h4 class="font-semibold mb-2">備考</h4>
+	                  <ul class="list-disc pl-6 space-y-2">
+	                    <li><strong>Type C-Port 1</strong> 経由の書き込みに対応しています。</li>
+	                    <li>ダウンロードには <strong>CH340 シリアルツールボード</strong> を推奨します。</li>
+	                    <li>Windows では現在 <strong>UART 書き込み</strong> をサポートしています。</li>
+	                  </ul>
+	                </div>
 
-        <section class="bg-white p-8 rounded-lg border border-gray-100 mb-8">
-          <h3 class="text-xl font-semibold mb-3">書き込みツール（BKFIL）</h3>
-          <div class="space-y-4 text-gray-700">
-            <p>ツールの入手:</p>
-            <ul class="list-disc pl-6 space-y-2">
-              <li>Windows: <span class="font-geist-mono">BEKEN_BKFIL_V3.0.1.4_314_20240924.zip</span></li>
-              <li>macOS: <span class="font-geist-mono">BKFIL_macos_v4.0.1_25091001.zip</span></li>
-            </ul>
-            <p>BKFIL.exe の画面と設定例:</p>
-            <div class="bg-gray-50 border border-gray-200 rounded-lg p-4">
-              <img
-                src="../../pic/Burn_Code_App_UI.png"
-                alt="BKFIL tool UI"
-                class="w-full rounded-lg"
-                onerror="this.classList.add('hidden'); this.nextElementSibling.classList.remove('hidden');"
-              />
-              <div class="hidden text-center text-gray-500 py-6">[此处有个图]</div>
-            </div>
-          </div>
-        </section>
+	                <div class="bg-gray-50 border border-gray-200 rounded-lg p-4">
+	                  <img
+	                    src="../../pic/hardware_components.png"
+	                    alt="Hardware components"
+	                    class="w-full rounded-lg"
+	                    onerror="this.classList.add('hidden'); this.nextElementSibling.classList.remove('hidden');"
+	                  />
+	                  <div class="hidden text-center text-gray-500 py-6">[此处有个图]</div>
+	                </div>
+	              </div>
+	            </div>
+	          </div>
+	        </section>
 
-        <section class="bg-white p-8 rounded-lg border border-gray-100 mb-8">
-          <h3 class="text-xl font-semibold mb-3">手順</h3>
-          <ol class="list-decimal pl-6 space-y-3 text-gray-700">
-            <li>ケーブルで PC を <strong>Type C-Port 1</strong> に接続します。</li>
-            <li>BKFIL で正しい <strong>COM ポート</strong> を選択し、ハードウェアに接続します。</li>
-            <li>書き込む <strong>.bin</strong> ファイルを選択します（例: <span class="font-geist-mono">all-app.bin</span>）。</li>
-            <li>R1 右側の <strong>Reset Switch Button</strong> を押したまま、<strong>Burn</strong> をクリックします。</li>
-          </ol>
-        </section>
+	        <section class="bg-white p-8 rounded-lg border border-gray-100 mb-8">
+	          <div class="flex items-start">
+	            <div class="h-10 w-10 rounded-full bg-purple-100 flex items-center justify-center mr-4 mt-1 flex-shrink-0">
+	              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-purple-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+	                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+	              </svg>
+	            </div>
+	            <div class="flex-1">
+	              <h3 class="text-xl font-semibold mb-3">書き込みツール（BKFIL）</h3>
+	              <div class="space-y-4 text-gray-700 leading-relaxed">
+	                <p>ツールの入手:</p>
+	                <ul class="list-disc pl-6 space-y-2">
+	                  <li>Windows: <span class="font-geist-mono">BEKEN_BKFIL_V3.0.1.4_314_20240924.zip</span></li>
+	                  <li>macOS: <span class="font-geist-mono">BKFIL_macos_v4.0.1_25091001.zip</span></li>
+	                </ul>
+	                <p>BKFIL.exe の画面と設定例:</p>
+	                <div class="bg-gray-50 border border-gray-200 rounded-lg p-4">
+	                  <img
+	                    src="../../pic/Burn_Code_App_UI.png"
+	                    alt="BKFIL tool UI"
+	                    class="w-full rounded-lg"
+	                    onerror="this.classList.add('hidden'); this.nextElementSibling.classList.remove('hidden');"
+	                  />
+	                  <div class="hidden text-center text-gray-500 py-6">[此处有个图]</div>
+	                </div>
+	              </div>
+	            </div>
+	          </div>
+	        </section>
 
-        <section class="bg-white p-8 rounded-lg border border-gray-100">
-          <h3 class="text-xl font-semibold mb-3">Physical AI Doc</h3>
-          <p class="text-gray-700">本ページは Physical AI Doc の内容をもとに、実行しやすい形で要点をまとめたものです。</p>
-        </section>
-      </main>
+	        <section class="bg-white p-8 rounded-lg border border-gray-100 mb-8">
+	          <div class="flex items-start">
+	            <div class="h-10 w-10 rounded-full bg-rose-100 flex items-center justify-center mr-4 mt-1 flex-shrink-0">
+	              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-rose-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+	                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01" />
+	              </svg>
+	            </div>
+	            <div class="flex-1">
+	              <h3 class="text-xl font-semibold mb-3">手順</h3>
+	              <ol class="list-decimal pl-6 space-y-3 text-gray-700 leading-relaxed">
+	                <li>ケーブルで PC を <strong>Type C-Port 1</strong> に接続します。</li>
+	                <li>BKFIL で正しい <strong>COM ポート</strong> を選択し、ハードウェアに接続します。</li>
+	                <li>書き込む <strong>.bin</strong> ファイルを選択します（例: <span class="font-geist-mono">all-app.bin</span>）。</li>
+	                <li>R1 右側の <strong>Reset Switch Button</strong> を押したまま、<strong>Burn</strong> をクリックします。</li>
+	              </ol>
+	            </div>
+	          </div>
+	        </section>
+
+	        <section class="bg-white p-8 rounded-lg border border-gray-100">
+	          <div class="flex items-start">
+	            <div class="h-10 w-10 rounded-full bg-gray-100 flex items-center justify-center mr-4 mt-1 flex-shrink-0">
+	              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+	                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+	              </svg>
+	            </div>
+	            <div class="flex-1">
+	              <h3 class="text-xl font-semibold mb-3">Physical AI Doc</h3>
+	              <p class="text-gray-700 leading-relaxed">本ページは Physical AI Doc の内容をもとに、実行しやすい形で要点をまとめたものです。</p>
+	            </div>
+	          </div>
+	        </section>
+	      </main>
 
       <footer>
         <div class="container">
