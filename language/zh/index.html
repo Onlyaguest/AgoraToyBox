@@ -1,551 +1,846 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Agora ConvoAI Device Kit | 快速开始</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Agora Convo AI Device Kit | 快速开始</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="../../language.js"></script>
-    <link rel="stylesheet" href="../../styles.css">
-</head>
-<body class="bg-gray-50 text-gray-900 font-sans antialiased">
-    
-<!-- Language Switcher Header -->
-<header class="bg-white py-4 px-4 sm:px-6 lg:px-8 border-b border-gray-200 mb-8">
-  <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-2">
-    <div>
-      <h1 class="text-2xl font-bold text-gray-800">Agora ConvoAI Device Kit</h1>
-    </div>        
-    <div class="relative">
-      <button 
-        id="languageButton" 
-        onclick="toggleLanguageDropdown()"
-        class="flex items-center space-x-2 px-4 py-2 bg-white border border-gray-300 rounded-lg shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 min-w-[120px]"
-      >
-        <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9v-9m0-9v9m0 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/>
-        </svg>
-        <span id="selectedLanguage" class="text-sm font-medium text-gray-700">English</span>
-        <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-        </svg>
-      </button>
-      
-      <div 
-        id="languageDropdown" 
-        class="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-gray-200 z-50 hidden"
-      >
-        <div class="py-2">
-          <button 
-            onclick="selectLanguage('en', 'English')" 
-            class="flex items-center w-full px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-700 transition-colors duration-150"
-          >
-            <div class="text-left">
-              <div class="font-medium">English</div>
-            </div>
-            <svg id="checkEn" class="w-4 h-4 text-blue-600 ml-auto hidden" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
-            </svg>
-          </button>
-
-          <button 
-            onclick="selectLanguage('zh', '中文')" 
-            class="flex items-center w-full px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-700 transition-colors duration-150"
-          >
-            <div class="text-left">
-              <div class="font-medium">中文</div>
-            </div>
-            <svg id="checkZh" class="w-4 h-4 text-blue-600 ml-auto hidden" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
-            </svg>
-          </button>
-
-          <button 
-            onclick="selectLanguage('ja', '日本語')" 
-            class="flex items-center w-full px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-700 transition-colors duration-150"
-          >
-            <div class="text-left">
-              <div class="font-medium">日本語</div>              
-            </div>
-            <svg id="checkJa" class="w-4 h-4 text-blue-600 ml-auto hidden" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
-            </svg>
-          </button>
-          
-          <button 
-            onclick="selectLanguage('ko', '한국어')" 
-            class="flex items-center w-full px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-700 transition-colors duration-150"
-          >
-            <div class="text-left">
-              <div class="font-medium">한국어</div>              
-            </div>
-            <svg id="checkKo" class="w-4 h-4 text-blue-600 ml-auto hidden" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
-            </svg>
-          </button>
+    <link rel="stylesheet" href="../../styles.css" />
+  </head>
+  <body class="bg-gray-50 text-gray-900 font-sans antialiased">
+    <!-- Language Switcher Header -->
+    <header
+      class="bg-white py-4 px-4 sm:px-6 lg:px-8 border-b border-gray-200 mb-8">
+      <div
+        class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-2">
+        <div>
+          <h1 class="text-2xl font-bold text-gray-800">
+            Agora Convo AI Device Kit
+          </h1>
         </div>
-      </div>
-    </div>
-  </div>
-</header>
+        <div class="relative">
+          <button
+            id="languageButton"
+            onclick="toggleLanguageDropdown()"
+            class="flex items-center space-x-2 px-4 py-2 bg-white border border-gray-300 rounded-lg shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 min-w-[120px]">
+            <svg
+              class="w-4 h-4 text-gray-500"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24">
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9v-9m0-9v9m0 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+            </svg>
+            <span
+              id="selectedLanguage"
+              class="text-sm font-medium text-gray-700"
+              >English</span
+            >
+            <svg
+              class="w-4 h-4 text-gray-400"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24">
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
 
-<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-  <!-- Hero Section -->
-  <section class="pt-16 pb-16">
-    <div class="grid md:grid-cols-2 gap-12 items-center">
-      <div>
-        <h1 class="font-geist-mono text-4xl sm:text-5xl font-bold leading-tight">
-          Agora ConvoAI Device Kit
-        </h1>
-        <p class="mt-6 text-xl text-gray-600 leading-relaxed">
-          双屏 AI 开发平台，让探索更快转化为企业价值。
-        </p>
-        <div class="mt-8 flex items-center">
-          <div class="flex -space-x-2">
-            <div class="h-8 w-8 rounded-full bg-gray-400"></div>
-            <div class="h-8 w-8 rounded-full bg-gray-500"></div>
-            <div class="h-8 w-8 rounded-full bg-gray-600"></div>
+          <div
+            id="languageDropdown"
+            class="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-gray-200 z-50 hidden">
+            <div class="py-2">
+              <button
+                onclick="selectLanguage('en', 'English')"
+                class="flex items-center w-full px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-700 transition-colors duration-150">
+                <div class="text-left">
+                  <div class="font-medium">English</div>
+                </div>
+                <svg
+                  id="checkEn"
+                  class="w-4 h-4 text-blue-600 ml-auto hidden"
+                  fill="currentColor"
+                  viewBox="0 0 24 24">
+                  <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
+                </svg>
+              </button>
+
+              <button
+                onclick="selectLanguage('zh', '中文')"
+                class="flex items-center w-full px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-700 transition-colors duration-150">
+                <div class="text-left">
+                  <div class="font-medium">中文</div>
+                </div>
+                <svg
+                  id="checkZh"
+                  class="w-4 h-4 text-blue-600 ml-auto hidden"
+                  fill="currentColor"
+                  viewBox="0 0 24 24">
+                  <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
+                </svg>
+              </button>
+
+              <button
+                onclick="selectLanguage('ja', '日本語')"
+                class="flex items-center w-full px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-700 transition-colors duration-150">
+                <div class="text-left">
+                  <div class="font-medium">日本語</div>
+                </div>
+                <svg
+                  id="checkJa"
+                  class="w-4 h-4 text-blue-600 ml-auto hidden"
+                  fill="currentColor"
+                  viewBox="0 0 24 24">
+                  <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
+                </svg>
+              </button>
+
+              <button
+                onclick="selectLanguage('ko', '한국어')"
+                class="flex items-center w-full px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-700 transition-colors duration-150">
+                <div class="text-left">
+                  <div class="font-medium">한국어</div>
+                </div>
+                <svg
+                  id="checkKo"
+                  class="w-4 h-4 text-blue-600 ml-auto hidden"
+                  fill="currentColor"
+                  viewBox="0 0 24 24">
+                  <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
+                </svg>
+              </button>
+            </div>
           </div>
-          <p class="ml-4 text-sm text-gray-500">已被 200+ 企业团队信赖</p>
         </div>
       </div>
-      <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
-        <img src="../../pic/hardware_components.png" alt="Agora ConvoAI Device Kit 硬件组件" class="w-full">
-      </div>
-    </div>
-  </section>
+    </header>
 
-  <main class="container mx-auto px-4 py-12">
-    <section class="quick-experience mb-16">
-      <h2 class="text-4xl font-bold mb-12 pb-4 border-b-2 border-gray-200 flex items-center">
-        <span class="text-black">快速开始指南</span>
-        <div class="ml-4 flex-1 border-b border-gray-200"></div>
-      </h2>
-
-      <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 mb-8 rounded-r-lg">
-        <p class="text-sm text-gray-700">
-          如需更详细的网络配置说明（包括连接到当前 Wi‑Fi），请查看下方
-          <a href="#getting-started" class="text-blue-600 font-semibold hover:text-blue-800 underline transition-colors">入门设置</a>
-          部分。
-        </p>
-      </div>
-
-      <div class="bg-white p-8 rounded-lg border border-gray-100">
-        <div class="space-y-6">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Hero Section -->
+      <section class="pt-16 pb-16">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
           <div>
-            <h3 class="text-xl font-semibold mb-2">开机</h3>
-            <p class="text-gray-600">将电池插入连接器，然后长按 “Middle Switch” 直到震动完全停止。</p>
+            <h1
+              class="font-geist-mono text-4xl sm:text-5xl font-bold leading-tight">
+              Agora Convo AI Device Kit
+            </h1>
+            <p class="mt-6 text-xl text-gray-600 leading-relaxed">
+              双屏 AI 开发平台，让探索更快转化为企业价值。
+            </p>
+            <div class="mt-8 flex items-center">
+              <div class="flex -space-x-2">
+                <div class="h-8 w-8 rounded-full bg-gray-400"></div>
+                <div class="h-8 w-8 rounded-full bg-gray-500"></div>
+                <div class="h-8 w-8 rounded-full bg-gray-600"></div>
+              </div>
+              <p class="ml-4 text-sm text-gray-500">已被 200+ 企业团队信赖</p>
+            </div>
           </div>
-
-          <div>
-            <h3 class="text-xl font-semibold mb-2">开始对话</h3>
-            <ol class="text-gray-600 ml-4 space-y-2">
-              <li>1. 说 “Hi, AGORA”</li>
-              <li>2. 等待 3–5 秒，眼睛屏幕点亮（红色 LED 停止闪烁）</li>
-              <li>3. 你可以尝试这些对话：
-                <ul class="ml-4 mt-1 space-y-1">
-                  <li>• “Introuce me about Agora ConvoAl Device Kit”</li>
-                  <li>• “Introduce AGORA company”</li>
-                  <li>• “Who is Bill Gates?”</li>
-                  <li>• “What's 15% off a $328 dress?”</li>
-                </ul>
-              </li>
-            </ol>
+          <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
+            <img
+              src="../../pic/hardware_components.png"
+              alt="Agora ConvoAI Device Kit 硬件组件"
+              class="w-full" />
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section class="quick-start mb-16" id="getting-started">
-      <h2 class="text-4xl font-bold mb-12 pb-4 border-b-2 border-gray-200 flex items-center">
-        <span class="text-black">入门设置</span>
-        <div class="ml-4 flex-1 border-b border-gray-200"></div>
-      </h2>
+      <main class="container mx-auto px-4 py-12">
+        <section class="quick-experience mb-16">
+          <h2
+            class="text-4xl font-bold mb-12 pb-4 border-b-2 border-gray-200 flex items-center">
+            <span class="text-black">快速开始指南</span>
+            <div class="ml-4 flex-1 border-b border-gray-200"></div>
+          </h2>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <div class="space-y-8">
-          <div class="bg-white p-8 rounded-lg border border-gray-100">
-            <div class="flex items-start">
-              <div class="h-8 w-8 rounded-full bg-blue-100 flex items-center justify-center mr-4 mt-1">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
-                </svg>
-              </div>
-              <div>
-                <h3 class="text-xl font-semibold mb-2">步骤 1：开机</h3>
-                <ul class="text-gray-600 space-y-1">
-                  <li>将电池线插入连接器</li>
-                  <li>长按 “Middle Switch” 直到震动完全停止</li>
-                  <li>松开后红色 LED 闪烁，并会听到语音提示 “the network connection is failed, please check your network”</li>
-                </ul>
-              </div>
-            </div>
+          <div
+            class="bg-yellow-50 border-l-4 border-yellow-400 p-4 mb-8 rounded-r-lg">
+            <p class="text-sm text-gray-700">
+              如需更详细的网络配置说明（包括连接到当前 Wi‑Fi），请查看下方
+              <a
+                href="#getting-started"
+                class="text-blue-600 font-semibold hover:text-blue-800 underline transition-colors"
+                >入门设置</a
+              >
+              部分。
+            </p>
           </div>
 
           <div class="bg-white p-8 rounded-lg border border-gray-100">
-            <div class="flex items-start">
-              <div class="h-8 w-8 rounded-full bg-green-100 flex items-center justify-center mr-4 mt-1">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.14 0M1.394 9.393c5.857-5.857 15.355-5.857 21.213 0" />
-                </svg>
-              </div>
+            <div class="space-y-6">
               <div>
-                <h3 class="text-xl font-semibold mb-2">步骤 2：进入配网模式</h3>
-                <ul class="text-gray-600 space-y-1">
-                  <li>长按 “Left Switch” 3 秒以上</li>
-                  <li>会听到语音提示 “Please use bluetooth for network provisioning”</li>
-                </ul>
+                <h3 class="text-xl font-semibold mb-2">开机</h3>
+                <p class="text-gray-600">
+                  将电池插入连接器，然后长按 “Middle Switch” 直到震动完全停止。
+                </p>
               </div>
-            </div>
-          </div>
 
-          <div class="bg-white p-8 rounded-lg border border-gray-100">
-            <div class="flex items-start">
-              <div class="h-8 w-8 rounded-full bg-purple-100 flex items-center justify-center mr-4 mt-1">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-purple-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
-                </svg>
-              </div>
               <div>
-                <h3 class="text-xl font-semibold mb-2">步骤 3：安装并登录 ConvoAI App</h3>
-                <ol class="text-gray-600 space-y-1 list-decimal list-inside">
-                  <li>扫描右侧二维码下载并安装 ConvoAI App</li>
-                  <li>打开 ConvoAI App</li>
-                  <li>点击 “Call AI Engine” 进入登录界面</li>
-                  <li>按提示授权并完成登录</li>
-                </ol>
-              </div>
-            </div>
-          </div>
-
-          <div class="bg-white p-8 rounded-lg border border-gray-100">
-            <div class="flex items-start">
-              <div class="h-8 w-8 rounded-full bg-indigo-100 flex items-center justify-center mr-4 mt-1">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
-                </svg>
-              </div>
-              <div>
-                <h3 class="text-xl font-semibold mb-2">步骤 4：配置网络</h3>
-                <ol class="text-gray-600 space-y-1 list-decimal list-inside">
-                  <li>点击左上角菜单按钮</li>
-                  <li>在 “Conversational AI Devices” 下点击 “+”</li>
-                  <li>点击右上角 “+” 添加新设备</li>
-                  <li>点击 “Next” 进入下一步</li>
-                  <li>当目标设备出现在 App 中时，点击设备名称</li>
-                  <li>确认 Wi‑Fi 名称</li>
-                  <li>输入 Wi‑Fi 密码并点击 “Next”</li>
-                  <li>等待 3–5 秒，出现 “Device Added” 提示</li>
-                </ol>
-              </div>
-            </div>
-          </div>
-
-          <div class="bg-white p-8 rounded-lg border border-gray-100">
-            <div class="flex items-start">
-              <div class="h-8 w-8 rounded-full bg-amber-100 flex items-center justify-center mr-4 mt-1">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-amber-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
-                </svg>
-              </div>
-              <div>
-                <h3 class="text-xl font-semibold mb-2">步骤 5：开始对话</h3>
-                <ul class="text-gray-600 space-y-1">
-                  <li>唤醒词：“Hi, AGORA”（等待 3–5 秒，眼睛屏点亮，红色 LED 停止闪烁）</li>
-                  <li>你可以尝试这些指令：
+                <h3 class="text-xl font-semibold mb-2">开始对话</h3>
+                <ol class="text-gray-600 ml-4 space-y-2">
+                  <li>1. 说 “Hi, AGORA”</li>
+                  <li>2. 等待 3–5 秒，眼睛屏幕点亮（红色 LED 停止闪烁）</li>
+                  <li>
+                    3. 你可以尝试这些对话：
                     <ul class="ml-4 mt-1 space-y-1">
-                      <li>“Introduce AGORA company”</li>
-                      <li>“Who is Bill Gates”</li>
-                      <li>“What's 15% off a $328 dress?”</li>
+                      <li>• “Introuce me about Agora Convo Al Device Kit”</li>
+                      <li>• “Introduce AGORA company”</li>
+                      <li>• “Who is Bill Gates?”</li>
+                      <li>• “What's 15% off a $328 dress?”</li>
                     </ul>
+                  </li>
+                </ol>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="quick-start mb-16" id="getting-started">
+          <h2
+            class="text-4xl font-bold mb-12 pb-4 border-b-2 border-gray-200 flex items-center">
+            <span class="text-black">入门设置</span>
+            <div class="ml-4 flex-1 border-b border-gray-200"></div>
+          </h2>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="space-y-8">
+              <div class="bg-white p-8 rounded-lg border border-gray-100">
+                <div class="flex items-start">
+                  <div
+                    class="h-8 w-8 rounded-full bg-blue-100 flex items-center justify-center mr-4 mt-1">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-4 w-4 text-blue-600"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor">
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 class="text-xl font-semibold mb-2">步骤 1：开机</h3>
+                    <ul class="text-gray-600 space-y-1">
+                      <li>将电池线插入连接器</li>
+                      <li>长按 “Middle Switch” 直到震动完全停止</li>
+                      <li>
+                        松开后红色 LED 闪烁，并会听到语音提示 “the network
+                        connection is failed, please check your network”
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div class="bg-white p-8 rounded-lg border border-gray-100">
+                <div class="flex items-start">
+                  <div
+                    class="h-8 w-8 rounded-full bg-green-100 flex items-center justify-center mr-4 mt-1">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-4 w-4 text-green-600"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor">
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.14 0M1.394 9.393c5.857-5.857 15.355-5.857 21.213 0" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 class="text-xl font-semibold mb-2">
+                      步骤 2：进入配网模式
+                    </h3>
+                    <ul class="text-gray-600 space-y-1">
+                      <li>长按 “Left Switch” 3 秒以上</li>
+                      <li>
+                        会听到语音提示 “Please use bluetooth for network
+                        provisioning”
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div class="bg-white p-8 rounded-lg border border-gray-100">
+                <div class="flex items-start">
+                  <div
+                    class="h-8 w-8 rounded-full bg-purple-100 flex items-center justify-center mr-4 mt-1">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-4 w-4 text-purple-600"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor">
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 class="text-xl font-semibold mb-2">
+                      步骤 3：安装并登录 Convo AI App
+                    </h3>
+                    <ol
+                      class="text-gray-600 space-y-1 list-decimal list-inside">
+                      <li>扫描右侧二维码下载并安装 Convo AI App</li>
+                      <li>打开 Convo AI App</li>
+                      <li>点击 “Call AI Engine” 进入登录界面</li>
+                      <li>按提示授权并完成登录</li>
+                    </ol>
+                  </div>
+                </div>
+              </div>
+
+              <div class="bg-white p-8 rounded-lg border border-gray-100">
+                <div class="flex items-start">
+                  <div
+                    class="h-8 w-8 rounded-full bg-indigo-100 flex items-center justify-center mr-4 mt-1">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-4 w-4 text-indigo-600"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor">
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 class="text-xl font-semibold mb-2">步骤 4：配置网络</h3>
+                    <ol
+                      class="text-gray-600 space-y-1 list-decimal list-inside">
+                      <li>点击左上角菜单按钮</li>
+                      <li>在 “Conversational AI Devices” 下点击 “+”</li>
+                      <li>点击右上角 “+” 添加新设备</li>
+                      <li>点击 “Next” 进入下一步</li>
+                      <li>当目标设备出现在 App 中时，点击设备名称</li>
+                      <li>确认 Wi‑Fi 名称</li>
+                      <li>输入 Wi‑Fi 密码并点击 “Next”</li>
+                      <li>等待 3–5 秒，出现 “Device Added” 提示</li>
+                    </ol>
+                  </div>
+                </div>
+              </div>
+
+              <div class="bg-white p-8 rounded-lg border border-gray-100">
+                <div class="flex items-start">
+                  <div
+                    class="h-8 w-8 rounded-full bg-amber-100 flex items-center justify-center mr-4 mt-1">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-4 w-4 text-amber-600"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor">
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 class="text-xl font-semibold mb-2">步骤 5：开始对话</h3>
+                    <ul class="text-gray-600 space-y-1">
+                      <li>
+                        唤醒词：“Hi, AGORA”（等待 3–5 秒，眼睛屏点亮，红色 LED
+                        停止闪烁）
+                      </li>
+                      <li>
+                        你可以尝试这些指令：
+                        <ul class="ml-4 mt-1 space-y-1">
+                          <li>“Introduce AGORA company”</li>
+                          <li>“Who is Bill Gates”</li>
+                          <li>“What's 15% off a $328 dress?”</li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div class="bg-white p-8 rounded-lg border border-gray-100">
+                <div class="flex items-start">
+                  <div
+                    class="h-8 w-8 rounded-full bg-rose-100 flex items-center justify-center mr-4 mt-1">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-4 w-4 text-rose-600"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor">
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M5.636 5.636a9 9 0 1012.728 0M12 3v9" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 class="text-xl font-semibold mb-2">
+                      步骤 6：关机/休眠
+                    </h3>
+                    <ul class="text-gray-600 space-y-1">
+                      <li>
+                        3 分钟无操作自动休眠（语音提示：“AI Agent
+                        Disconnected”）
+                      </li>
+                      <li>
+                        休眠：长按 “Middle Switch” 直到红色 LED 熄灭并停止震动
+                      </li>
+                      <li>完全关机：断开电池连接器</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="space-y-8">
+              <div class="bg-white p-8 rounded-lg border border-gray-100">
+                <h3 class="text-xl font-semibold mb-4">硬件组件</h3>
+                <div class="text-center mb-4">
+                  <div class="relative inline-block">
+                    <img
+                      src="../../pic/battery_connector.png"
+                      alt="电池连接器"
+                      class="w-full mx-auto mb-2" />
+                    <img
+                      src="../../pic/switch_img.png"
+                      alt="按键示意图"
+                      class="w-full mx-auto mb-2" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="bg-white p-8 rounded-lg border border-gray-100">
+                <h3 class="text-xl font-semibold mb-4">下载 App</h3>
+                <div class="grid grid-cols-2 gap-4">
+                  <div class="text-center">
+                    <img
+                      src="../../pic/android_download.png"
+                      alt="Android 下载二维码"
+                      class="w-32 h-32 mx-auto mb-2" />
+                    <p class="text-gray-600">Android</p>
+                  </div>
+                  <div class="text-center">
+                    <img
+                      src="../../pic/ios_download.png"
+                      alt="iOS 下载二维码"
+                      class="w-32 h-32 mx-auto mb-2" />
+                    <p class="text-gray-600">iOS</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="bg-white p-8 rounded-lg border border-gray-100">
+                <h3 class="text-xl font-semibold mb-4">教程视频</h3>
+                <div class="bg-gray-100 rounded-lg">
+                  <video class="w-full h-[475px] rounded-lg" controls>
+                    <source
+                      src="../../pic/how_to_set_network.mp4"
+                      type="video/mp4" />
+                    你的浏览器不支持视频播放。
+                  </video>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="faq mb-16">
+          <h2
+            class="text-4xl font-bold mb-12 pb-4 border-b-2 border-gray-200 flex items-center">
+            <span class="text-black">常见问题</span>
+            <div class="ml-4 flex-1 border-b border-gray-200"></div>
+          </h2>
+
+          <div class="bg-white p-8 rounded-lg border border-gray-100 space-y-8">
+            <div class="flex items-start">
+              <div
+                class="h-8 w-8 rounded-full bg-blue-100 flex items-center justify-center mr-4 mt-1">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-4 w-4 text-blue-600"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor">
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                </svg>
+              </div>
+              <div>
+                <h3 class="text-xl font-semibold mb-2">电源操作</h3>
+                <ul class="text-gray-600 space-y-1">
+                  <li>开机：长按中键开关（S2）3 秒以上</li>
+                  <li>关机：开机状态下，长按中键开关（S2）3 秒以上</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="flex items-start">
+              <div
+                class="h-8 w-8 rounded-full bg-green-100 flex items-center justify-center mr-4 mt-1">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-4 w-4 text-green-600"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor">
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.14 0M1.394 9.393c5.857-5.857 15.355-5.857 21.213 0" />
+                </svg>
+              </div>
+              <div>
+                <h3 class="text-xl font-semibold mb-2">网络配置</h3>
+                <ul class="text-gray-600 space-y-1">
+                  <li>进入配网模式：开机状态下，长按左键开关（S1）3 秒以上</li>
+                  <li>设备将进入等待配网状态</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="flex items-start">
+              <div
+                class="h-8 w-8 rounded-full bg-amber-100 flex items-center justify-center mr-4 mt-1">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-4 w-4 text-amber-600"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor">
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M15.536 8.464a5 5 0 010 7.072M12 18a6 6 0 100-12 6 6 0 000 12z" />
+                </svg>
+              </div>
+              <div>
+                <h3 class="text-xl font-semibold mb-2">音量控制</h3>
+                <ul class="text-gray-600 space-y-1">
+                  <li>音量加：单击左键开关（S1）</li>
+                  <li>音量减：单击右键开关（S3）</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="flex items-start">
+              <div
+                class="h-8 w-8 rounded-full bg-indigo-100 flex items-center justify-center mr-4 mt-1">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-4 w-4 text-indigo-600"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor">
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                </svg>
+              </div>
+              <div>
+                <h3 class="text-xl font-semibold mb-2">角色切换</h3>
+                <ul class="text-gray-600 space-y-1">
+                  <li>1：通过 App 执行角色切换</li>
+                  <li>2：使用设备右侧的 Reset Switch（K1）</li>
+                  <li>提示：切换后再次唤醒设备以完成流程</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="flex items-start">
+              <div
+                class="h-8 w-8 rounded-full bg-green-100 flex items-center justify-center mr-4 mt-1">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-4 w-4 text-green-600"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor">
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+              </div>
+              <div>
+                <h3 class="text-xl font-semibold mb-2">充电</h3>
+                <ul class="text-gray-600 space-y-1">
+                  <li>任意 Type‑C 口均可用于充电</li>
+                  <li>提示：不接电池也可直接用 Type‑C 线供电并使用</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="flex items-start">
+              <div
+                class="h-8 w-8 rounded-full bg-purple-100 flex items-center justify-center mr-4 mt-1">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-4 w-4 text-purple-600"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor">
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.14 0M1.394 9.393c5.857-5.857 15.355-5.857 21.213 0" />
+                </svg>
+              </div>
+              <div>
+                <h3 class="text-xl font-semibold mb-2">仅热点模式</h3>
+                <ul class="text-gray-600 space-y-1">
+                  <li>预先配置手机热点可跳过配网：</li>
+                  <li>名称：AGORA_AI_KIT</li>
+                  <li>密码：1234567890</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="flex items-start">
+              <div
+                class="h-8 w-8 rounded-full bg-amber-100 flex items-center justify-center mr-4 mt-1">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-4 w-4 text-amber-600"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor">
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                </svg>
+              </div>
+              <div>
+                <h3 class="text-xl font-semibold mb-2">LED 状态指示</h3>
+                <ul class="text-gray-600 space-y-1">
+                  <li><strong>红绿交替闪烁</strong>：等待配网</li>
+                  <li><strong>红灯闪烁</strong>：等待网络连接</li>
+                  <li>
+                    <strong>绿灯闪烁</strong>：网络已连接，AI Agent
+                    未连接，等待唤醒
                   </li>
                 </ul>
               </div>
             </div>
-          </div>
 
-          <div class="bg-white p-8 rounded-lg border border-gray-100">
             <div class="flex items-start">
-              <div class="h-8 w-8 rounded-full bg-rose-100 flex items-center justify-center mr-4 mt-1">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-rose-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.636 5.636a9 9 0 1012.728 0M12 3v9" />
+              <div
+                class="h-8 w-8 rounded-full bg-rose-100 flex items-center justify-center mr-4 mt-1">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-4 w-4 text-rose-600"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor">
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
                 </svg>
               </div>
               <div>
-                <h3 class="text-xl font-semibold mb-2">步骤 6：关机/休眠</h3>
+                <h3 class="text-xl font-semibold mb-2">唤醒</h3>
                 <ul class="text-gray-600 space-y-1">
-                  <li>3 分钟无操作自动休眠（语音提示：“AI Agent Disconnected”）</li>
-                  <li>休眠：长按 “Middle Switch” 直到红色 LED 熄灭并停止震动</li>
-                  <li>完全关机：断开电池连接器</li>
+                  <li>唤醒词：“Hi, AGORA”</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="flex items-start">
+              <div
+                class="h-8 w-8 rounded-full bg-indigo-100 flex items-center justify-center mr-4 mt-1">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-4 w-4 text-indigo-600"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor">
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <div>
+                <h3 class="text-xl font-semibold mb-2">唤醒超时</h3>
+                <ul class="text-gray-600 space-y-1">
+                  <li>AI Agent Disconnected：3 分钟</li>
                 </ul>
               </div>
             </div>
           </div>
-        </div>
+        </section>
 
-        <div class="space-y-8">
+        <section class="developer mb-16">
+          <h2
+            class="text-4xl font-bold mb-12 pb-4 border-b-2 border-gray-200 flex items-center">
+            <span class="text-black">开发者指南</span>
+            <div class="ml-4 flex-1 border-b border-gray-200"></div>
+          </h2>
           <div class="bg-white p-8 rounded-lg border border-gray-100">
-            <h3 class="text-xl font-semibold mb-4">硬件组件</h3>                    
-            <div class="text-center mb-4">
-              <div class="relative inline-block">
-                <img src="../../pic/battery_connector.png" alt="电池连接器" class="w-full mx-auto mb-2">
-                <img src="../../pic/switch_img.png" alt="按键示意图" class="w-full mx-auto mb-2"/>
+            <p class="text-lg text-gray-700 mb-6">使用开发者工具自定义功能：</p>
+            <div class="space-y-6">
+              <div class="flex items-start">
+                <div
+                  class="h-8 w-8 rounded-full bg-blue-100 flex items-center justify-center mr-4 mt-1">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-4 w-4 text-blue-600"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="text-xl font-semibold mb-2">SDK 下载</h3>
+                  <p class="text-gray-600">
+                    在
+                    <a
+                      href="https://docs.agora.io/en/convo-ai-device-kit/get-started/quickstart"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="text-blue-600 hover:text-blue-800 underline font-semibold"
+                      >快速入门文档</a
+                    >
+                    中获取适合初学者的图形化编程工具。
+                  </p>
+                </div>
+              </div>
+
+              <div class="flex items-start">
+                <div
+                  class="h-8 w-8 rounded-full bg-green-100 flex items-center justify-center mr-4 mt-1">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-4 w-4 text-green-600"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="text-xl font-semibold mb-2">教程</h3>
+                  <p class="text-gray-600">
+                    如需更多教程与学习资源，请联系我们。
+                  </p>
+                </div>
+              </div>
+
+              <div class="flex items-start">
+                <div
+                  class="h-8 w-8 rounded-full bg-purple-100 flex items-center justify-center mr-4 mt-1">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-4 w-4 text-purple-600"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="text-xl font-semibold mb-2">固件更新</h3>
+                  <p class="text-gray-600">Type‑C 端口 1：调试模式</p>
+                  <p class="text-gray-600">Type‑C 端口 2：USB 存储模式</p>
+                  <p class="text-gray-600 mt-2">
+                    <a
+                      href="./firmware-update.html"
+                      class="text-blue-600 hover:text-blue-800 underline font-semibold"
+                      >查看固件烧录指南</a
+                    >
+                  </p>
+                </div>
+              </div>
+
+              <div class="flex items-start">
+                <div
+                  class="h-8 w-8 rounded-full bg-amber-100 flex items-center justify-center mr-4 mt-1">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-4 w-4 text-amber-600"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="text-xl font-semibold mb-2">社区</h3>
+                  <p class="text-gray-600">在开发者论坛分享你的作品。</p>
+                </div>
               </div>
             </div>
-          </div>
 
-          <div class="bg-white p-8 rounded-lg border border-gray-100">
-            <h3 class="text-xl font-semibold mb-4">下载 App</h3>
-            <div class="grid grid-cols-2 gap-4">
-              <div class="text-center">
-                <img src="../../pic/android_download.png" alt="Android 下载二维码" class="w-32 h-32 mx-auto mb-2">
-                <p class="text-gray-600">Android</p>
-              </div>
-              <div class="text-center">
-                <img src="../../pic/ios_download.png" alt="iOS 下载二维码" class="w-32 h-32 mx-auto mb-2">
-                <p class="text-gray-600">iOS</p>
-              </div>
-            </div>
+            <p class="mt-8 text-lg text-gray-700 font-medium">
+              无需编程经验，也可以开始 AI 开发！
+            </p>
           </div>
+        </section>
+      </main>
 
-          <div class="bg-white p-8 rounded-lg border border-gray-100">
-            <h3 class="text-xl font-semibold mb-4">教程视频</h3>
-            <div class="bg-gray-100 rounded-lg">
-              <video class="w-full h-[475px] rounded-lg" controls>
-                <source src="../../pic/how_to_set_network.mp4" type="video/mp4">
-                你的浏览器不支持视频播放。
-              </video>
-            </div>
+      <footer>
+        <div class="container">
+          <p>© 2025 AGORA Convo AI Device Kit 团队</p>
+          <div class="support-links">
+            <a href="http://www.agora.io" class="font-semibold">官网</a>
           </div>
         </div>
-      </div>
-    </section>
-
-    <section class="faq mb-16">
-      <h2 class="text-4xl font-bold mb-12 pb-4 border-b-2 border-gray-200 flex items-center">
-        <span class="text-black">常见问题</span>
-        <div class="ml-4 flex-1 border-b border-gray-200"></div>
-      </h2>
-
-      <div class="bg-white p-8 rounded-lg border border-gray-100 space-y-8">
-        <div class="flex items-start">
-          <div class="h-8 w-8 rounded-full bg-blue-100 flex items-center justify-center mr-4 mt-1">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
-            </svg>
-          </div>
-          <div>
-            <h3 class="text-xl font-semibold mb-2">电源操作</h3>
-            <ul class="text-gray-600 space-y-1">
-              <li>开机：长按中键开关（S2）3 秒以上</li>
-              <li>关机：开机状态下，长按中键开关（S2）3 秒以上</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="flex items-start">
-          <div class="h-8 w-8 rounded-full bg-green-100 flex items-center justify-center mr-4 mt-1">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.14 0M1.394 9.393c5.857-5.857 15.355-5.857 21.213 0" />
-            </svg>
-          </div>
-          <div>
-            <h3 class="text-xl font-semibold mb-2">网络配置</h3>
-            <ul class="text-gray-600 space-y-1">
-              <li>进入配网模式：开机状态下，长按左键开关（S1）3 秒以上</li>
-              <li>设备将进入等待配网状态</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="flex items-start">
-          <div class="h-8 w-8 rounded-full bg-amber-100 flex items-center justify-center mr-4 mt-1">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-amber-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072M12 18a6 6 0 100-12 6 6 0 000 12z" />
-            </svg>
-          </div>
-          <div>
-            <h3 class="text-xl font-semibold mb-2">音量控制</h3>
-            <ul class="text-gray-600 space-y-1">
-              <li>音量加：单击左键开关（S1）</li>
-              <li>音量减：单击右键开关（S3）</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="flex items-start">
-          <div class="h-8 w-8 rounded-full bg-indigo-100 flex items-center justify-center mr-4 mt-1">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-            </svg>
-          </div>
-          <div>
-            <h3 class="text-xl font-semibold mb-2">角色切换</h3>
-            <ul class="text-gray-600 space-y-1">
-              <li>1：通过 App 执行角色切换</li>
-              <li>2：使用设备右侧的 Reset Switch（K1）</li>
-              <li>提示：切换后再次唤醒设备以完成流程</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="flex items-start">
-          <div class="h-8 w-8 rounded-full bg-green-100 flex items-center justify-center mr-4 mt-1">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-            </svg>
-          </div>
-          <div>
-            <h3 class="text-xl font-semibold mb-2">充电</h3>
-            <ul class="text-gray-600 space-y-1">
-              <li>任意 Type‑C 口均可用于充电</li>
-              <li>提示：不接电池也可直接用 Type‑C 线供电并使用</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="flex items-start">
-          <div class="h-8 w-8 rounded-full bg-purple-100 flex items-center justify-center mr-4 mt-1">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-purple-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.14 0M1.394 9.393c5.857-5.857 15.355-5.857 21.213 0" />
-            </svg>
-          </div>
-          <div>
-            <h3 class="text-xl font-semibold mb-2">仅热点模式</h3>
-            <ul class="text-gray-600 space-y-1">
-              <li>预先配置手机热点可跳过配网：</li>
-              <li>名称：AGORA_AI_KIT</li>
-              <li>密码：1234567890</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="flex items-start">
-          <div class="h-8 w-8 rounded-full bg-amber-100 flex items-center justify-center mr-4 mt-1">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-amber-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-            </svg>
-          </div>
-          <div>
-            <h3 class="text-xl font-semibold mb-2">LED 状态指示</h3>
-            <ul class="text-gray-600 space-y-1">
-              <li><strong>红绿交替闪烁</strong>：等待配网</li>
-              <li><strong>红灯闪烁</strong>：等待网络连接</li>
-              <li><strong>绿灯闪烁</strong>：网络已连接，AI Agent 未连接，等待唤醒</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="flex items-start">
-          <div class="h-8 w-8 rounded-full bg-rose-100 flex items-center justify-center mr-4 mt-1">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-rose-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
-            </svg>
-          </div>
-          <div>
-            <h3 class="text-xl font-semibold mb-2">唤醒</h3>
-            <ul class="text-gray-600 space-y-1">
-              <li>唤醒词：“Hi, AGORA”</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="flex items-start">
-          <div class="h-8 w-8 rounded-full bg-indigo-100 flex items-center justify-center mr-4 mt-1">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-            </svg>
-          </div>
-          <div>
-            <h3 class="text-xl font-semibold mb-2">唤醒超时</h3>
-            <ul class="text-gray-600 space-y-1">
-              <li>AI Agent Disconnected：3 分钟</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="developer mb-16">
-      <h2 class="text-4xl font-bold mb-12 pb-4 border-b-2 border-gray-200 flex items-center">
-        <span class="text-black">开发者指南</span>
-        <div class="ml-4 flex-1 border-b border-gray-200"></div>
-      </h2>
-      <div class="bg-white p-8 rounded-lg border border-gray-100">
-        <p class="text-lg text-gray-700 mb-6">使用开发者工具自定义功能：</p>
-        <div class="space-y-6">
-          <div class="flex items-start">
-            <div class="h-8 w-8 rounded-full bg-blue-100 flex items-center justify-center mr-4 mt-1">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-              </svg>
-            </div>
-            <div>
-              <h3 class="text-xl font-semibold mb-2">SDK 下载</h3>
-              <p class="text-gray-600">
-                在
-                <a href="https://docs.agora.io/en/convo-ai-device-kit/get-started/quickstart" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 underline font-semibold">快速入门文档</a>
-                中获取适合初学者的图形化编程工具。
-              </p>
-            </div>
-          </div>
-
-          <div class="flex items-start">
-            <div class="h-8 w-8 rounded-full bg-green-100 flex items-center justify-center mr-4 mt-1">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
-              </svg>
-            </div>
-            <div>
-              <h3 class="text-xl font-semibold mb-2">教程</h3>
-              <p class="text-gray-600">如需更多教程与学习资源，请联系我们。</p>
-            </div>
-          </div>
-
-          <div class="flex items-start">
-            <div class="h-8 w-8 rounded-full bg-purple-100 flex items-center justify-center mr-4 mt-1">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-purple-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-              </svg>
-            </div>
-            <div>
-              <h3 class="text-xl font-semibold mb-2">固件更新</h3>
-              <p class="text-gray-600">Type‑C 端口 1：调试模式</p>
-              <p class="text-gray-600">Type‑C 端口 2：USB 存储模式</p>
-              <p class="text-gray-600 mt-2">
-                <a href="./firmware-update.html" class="text-blue-600 hover:text-blue-800 underline font-semibold">查看固件烧录指南</a>
-              </p>
-            </div>
-          </div>
-
-          <div class="flex items-start">
-            <div class="h-8 w-8 rounded-full bg-amber-100 flex items-center justify-center mr-4 mt-1">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-amber-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-              </svg>
-            </div>
-            <div>
-              <h3 class="text-xl font-semibold mb-2">社区</h3>
-              <p class="text-gray-600">在开发者论坛分享你的作品。</p>
-            </div>
-          </div>
-        </div>
-
-        <p class="mt-8 text-lg text-gray-700 font-medium">无需编程经验，也可以开始 AI 开发！</p>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="container">
-      <p>© 2025 AGORA ConvoAI Device Kit 团队</p>
-      <div class="support-links">
-        <a href="http://www.agora.io" class="font-semibold">官网</a>
-      </div>
+      </footer>
     </div>
-  </footer>
-</div>
 
-<script src="../../main.js"></script>
-</body>
+    <script src="../../main.js"></script>
+  </body>
 </html>

@@ -1,551 +1,886 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Agora ConvoAI Device Kit | クイックスタート</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Agora Convo AI Device Kit | クイックスタート</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="../../language.js"></script>
-    <link rel="stylesheet" href="../../styles.css">
-</head>
-<body class="bg-gray-50 text-gray-900 font-sans antialiased">
-    
-<!-- Language Switcher Header -->
-<header class="bg-white py-4 px-4 sm:px-6 lg:px-8 border-b border-gray-200 mb-8">
-  <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-2">
-    <div>
-      <h1 class="text-2xl font-bold text-gray-800">Agora ConvoAI Device Kit</h1>
-    </div>        
-    <div class="relative">
-      <button 
-        id="languageButton" 
-        onclick="toggleLanguageDropdown()"
-        class="flex items-center space-x-2 px-4 py-2 bg-white border border-gray-300 rounded-lg shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 min-w-[120px]"
-      >
-        <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9v-9m0-9v9m0 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/>
-        </svg>
-        <span id="selectedLanguage" class="text-sm font-medium text-gray-700">English</span>
-        <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-        </svg>
-      </button>
-      
-      <div 
-        id="languageDropdown" 
-        class="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-gray-200 z-50 hidden"
-      >
-        <div class="py-2">
-          <button 
-            onclick="selectLanguage('en', 'English')" 
-            class="flex items-center w-full px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-700 transition-colors duration-150"
-          >
-            <div class="text-left">
-              <div class="font-medium">English</div>
-            </div>
-            <svg id="checkEn" class="w-4 h-4 text-blue-600 ml-auto hidden" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
-            </svg>
-          </button>
-
-          <button 
-            onclick="selectLanguage('zh', '中文')" 
-            class="flex items-center w-full px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-700 transition-colors duration-150"
-          >
-            <div class="text-left">
-              <div class="font-medium">中文</div>
-            </div>
-            <svg id="checkZh" class="w-4 h-4 text-blue-600 ml-auto hidden" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
-            </svg>
-          </button>
-
-          <button 
-            onclick="selectLanguage('ja', '日本語')" 
-            class="flex items-center w-full px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-700 transition-colors duration-150"
-          >
-            <div class="text-left">
-              <div class="font-medium">日本語</div>              
-            </div>
-            <svg id="checkJa" class="w-4 h-4 text-blue-600 ml-auto hidden" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
-            </svg>
-          </button>
-          
-          <button 
-            onclick="selectLanguage('ko', '한국어')" 
-            class="flex items-center w-full px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-700 transition-colors duration-150"
-          >
-            <div class="text-left">
-              <div class="font-medium">한국어</div>              
-            </div>
-            <svg id="checkKo" class="w-4 h-4 text-blue-600 ml-auto hidden" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
-            </svg>
-          </button>
+    <link rel="stylesheet" href="../../styles.css" />
+  </head>
+  <body class="bg-gray-50 text-gray-900 font-sans antialiased">
+    <!-- Language Switcher Header -->
+    <header
+      class="bg-white py-4 px-4 sm:px-6 lg:px-8 border-b border-gray-200 mb-8">
+      <div
+        class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-2">
+        <div>
+          <h1 class="text-2xl font-bold text-gray-800">
+            Agora Convo AI Device Kit
+          </h1>
         </div>
-      </div>
-    </div>
-  </div>
-</header>
+        <div class="relative">
+          <button
+            id="languageButton"
+            onclick="toggleLanguageDropdown()"
+            class="flex items-center space-x-2 px-4 py-2 bg-white border border-gray-300 rounded-lg shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 min-w-[120px]">
+            <svg
+              class="w-4 h-4 text-gray-500"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24">
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9v-9m0-9v9m0 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+            </svg>
+            <span
+              id="selectedLanguage"
+              class="text-sm font-medium text-gray-700"
+              >English</span
+            >
+            <svg
+              class="w-4 h-4 text-gray-400"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24">
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
 
-<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-  <!-- Hero Section -->
-  <section class="pt-16 pb-16">
-    <div class="grid md:grid-cols-2 gap-12 items-center">
-      <div>
-        <h1 class="font-geist-mono text-4xl sm:text-5xl font-bold leading-tight">
-          Agora ConvoAI Device Kit
-        </h1>
-        <p class="mt-6 text-xl text-gray-600 leading-relaxed">
-          2画面の AI 開発プラットフォームで、試行錯誤を企業価値へつなげます。
-        </p>
-        <div class="mt-8 flex items-center">
-          <div class="flex -space-x-2">
-            <div class="h-8 w-8 rounded-full bg-gray-400"></div>
-            <div class="h-8 w-8 rounded-full bg-gray-500"></div>
-            <div class="h-8 w-8 rounded-full bg-gray-600"></div>
+          <div
+            id="languageDropdown"
+            class="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-gray-200 z-50 hidden">
+            <div class="py-2">
+              <button
+                onclick="selectLanguage('en', 'English')"
+                class="flex items-center w-full px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-700 transition-colors duration-150">
+                <div class="text-left">
+                  <div class="font-medium">English</div>
+                </div>
+                <svg
+                  id="checkEn"
+                  class="w-4 h-4 text-blue-600 ml-auto hidden"
+                  fill="currentColor"
+                  viewBox="0 0 24 24">
+                  <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
+                </svg>
+              </button>
+
+              <button
+                onclick="selectLanguage('zh', '中文')"
+                class="flex items-center w-full px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-700 transition-colors duration-150">
+                <div class="text-left">
+                  <div class="font-medium">中文</div>
+                </div>
+                <svg
+                  id="checkZh"
+                  class="w-4 h-4 text-blue-600 ml-auto hidden"
+                  fill="currentColor"
+                  viewBox="0 0 24 24">
+                  <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
+                </svg>
+              </button>
+
+              <button
+                onclick="selectLanguage('ja', '日本語')"
+                class="flex items-center w-full px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-700 transition-colors duration-150">
+                <div class="text-left">
+                  <div class="font-medium">日本語</div>
+                </div>
+                <svg
+                  id="checkJa"
+                  class="w-4 h-4 text-blue-600 ml-auto hidden"
+                  fill="currentColor"
+                  viewBox="0 0 24 24">
+                  <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
+                </svg>
+              </button>
+
+              <button
+                onclick="selectLanguage('ko', '한국어')"
+                class="flex items-center w-full px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-700 transition-colors duration-150">
+                <div class="text-left">
+                  <div class="font-medium">한국어</div>
+                </div>
+                <svg
+                  id="checkKo"
+                  class="w-4 h-4 text-blue-600 ml-auto hidden"
+                  fill="currentColor"
+                  viewBox="0 0 24 24">
+                  <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
+                </svg>
+              </button>
+            </div>
           </div>
-          <p class="ml-4 text-sm text-gray-500">200+ の企業チームに信頼されています</p>
         </div>
       </div>
-      <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
-        <img src="../../pic/hardware_components.png" alt="Agora ConvoAI Device Kit ハードウェア構成" class="w-full">
-      </div>
-    </div>
-  </section>
+    </header>
 
-  <main class="container mx-auto px-4 py-12">
-    <section class="quick-experience mb-16">
-      <h2 class="text-4xl font-bold mb-12 pb-4 border-b-2 border-gray-200 flex items-center">
-        <span class="text-black">クイックスタートガイド</span>
-        <div class="ml-4 flex-1 border-b border-gray-200"></div>
-      </h2>
-
-      <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 mb-8 rounded-r-lg">
-        <p class="text-sm text-gray-700">
-          既存の Wi‑Fi への接続を含む詳細なネットワーク設定は、下の
-          <a href="#getting-started" class="text-blue-600 font-semibold hover:text-blue-800 underline transition-colors">はじめに</a>
-          を参照してください。
-        </p>
-      </div>
-
-      <div class="bg-white p-8 rounded-lg border border-gray-100">
-        <div class="space-y-6">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Hero Section -->
+      <section class="pt-16 pb-16">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
           <div>
-            <h3 class="text-xl font-semibold mb-2">電源オン</h3>
-            <p class="text-gray-600">バッテリーをコネクタに接続し、振動が止まるまで “Middle Switch” を長押しします。</p>
+            <h1
+              class="font-geist-mono text-4xl sm:text-5xl font-bold leading-tight">
+              Agora Convo AI Device Kit
+            </h1>
+            <p class="mt-6 text-xl text-gray-600 leading-relaxed">
+              2画面の AI
+              開発プラットフォームで、試行錯誤を企業価値へつなげます。
+            </p>
+            <div class="mt-8 flex items-center">
+              <div class="flex -space-x-2">
+                <div class="h-8 w-8 rounded-full bg-gray-400"></div>
+                <div class="h-8 w-8 rounded-full bg-gray-500"></div>
+                <div class="h-8 w-8 rounded-full bg-gray-600"></div>
+              </div>
+              <p class="ml-4 text-sm text-gray-500">
+                200+ の企業チームに信頼されています
+              </p>
+            </div>
           </div>
-
-          <div>
-            <h3 class="text-xl font-semibold mb-2">会話を開始</h3>
-            <ol class="text-gray-600 ml-4 space-y-2">
-              <li>1. “Hi, AGORA” と話しかけます</li>
-              <li>2. 3〜5 秒待つと目の画面が点灯します（赤い LED の点滅が止まります）</li>
-              <li>3. 例えば次のように話してみてください：
-                <ul class="ml-4 mt-1 space-y-1">
-                  <li>• “Introuce me about Agora ConvoAl Device Kit”</li>
-                  <li>• “Introduce AGORA company”</li>
-                  <li>• “Who is Bill Gates?”</li>
-                  <li>• “What's 15% off a $328 dress?”</li>
-                </ul>
-              </li>
-            </ol>
+          <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
+            <img
+              src="../../pic/hardware_components.png"
+              alt="Agora ConvoAI Device Kit ハードウェア構成"
+              class="w-full" />
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section class="quick-start mb-16" id="getting-started">
-      <h2 class="text-4xl font-bold mb-12 pb-4 border-b-2 border-gray-200 flex items-center">
-        <span class="text-black">はじめに</span>
-        <div class="ml-4 flex-1 border-b border-gray-200"></div>
-      </h2>
+      <main class="container mx-auto px-4 py-12">
+        <section class="quick-experience mb-16">
+          <h2
+            class="text-4xl font-bold mb-12 pb-4 border-b-2 border-gray-200 flex items-center">
+            <span class="text-black">クイックスタートガイド</span>
+            <div class="ml-4 flex-1 border-b border-gray-200"></div>
+          </h2>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <div class="space-y-8">
-          <div class="bg-white p-8 rounded-lg border border-gray-100">
-            <div class="flex items-start">
-              <div class="h-8 w-8 rounded-full bg-blue-100 flex items-center justify-center mr-4 mt-1">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
-                </svg>
-              </div>
-              <div>
-                <h3 class="text-xl font-semibold mb-2">手順 1：電源オン</h3>
-                <ul class="text-gray-600 space-y-1">
-                  <li>バッテリーケーブルをコネクタに接続します</li>
-                  <li>振動が止まるまで “Middle Switch” を長押しします</li>
-                  <li>離すと赤い LED が点滅し、音声で “the network connection is failed, please check your network” と案内されます</li>
-                </ul>
-              </div>
-            </div>
+          <div
+            class="bg-yellow-50 border-l-4 border-yellow-400 p-4 mb-8 rounded-r-lg">
+            <p class="text-sm text-gray-700">
+              既存の Wi‑Fi への接続を含む詳細なネットワーク設定は、下の
+              <a
+                href="#getting-started"
+                class="text-blue-600 font-semibold hover:text-blue-800 underline transition-colors"
+                >はじめに</a
+              >
+              を参照してください。
+            </p>
           </div>
 
           <div class="bg-white p-8 rounded-lg border border-gray-100">
-            <div class="flex items-start">
-              <div class="h-8 w-8 rounded-full bg-green-100 flex items-center justify-center mr-4 mt-1">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.14 0M1.394 9.393c5.857-5.857 15.355-5.857 21.213 0" />
-                </svg>
-              </div>
+            <div class="space-y-6">
               <div>
-                <h3 class="text-xl font-semibold mb-2">手順 2：ネットワーク設定モード</h3>
-                <ul class="text-gray-600 space-y-1">
-                  <li>“Left Switch” を 3 秒以上長押しします</li>
-                  <li>音声で “Please use bluetooth for network provisioning” と案内されます</li>
-                </ul>
+                <h3 class="text-xl font-semibold mb-2">電源オン</h3>
+                <p class="text-gray-600">
+                  バッテリーをコネクタに接続し、振動が止まるまで “Middle Switch”
+                  を長押しします。
+                </p>
               </div>
-            </div>
-          </div>
 
-          <div class="bg-white p-8 rounded-lg border border-gray-100">
-            <div class="flex items-start">
-              <div class="h-8 w-8 rounded-full bg-purple-100 flex items-center justify-center mr-4 mt-1">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-purple-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
-                </svg>
-              </div>
               <div>
-                <h3 class="text-xl font-semibold mb-2">手順 3：ConvoAI App をインストールしてログイン</h3>
-                <ol class="text-gray-600 space-y-1 list-decimal list-inside">
-                  <li>右の QR コードから ConvoAI App をダウンロードしてインストールします</li>
-                  <li>ConvoAI App を起動します</li>
-                  <li>“Call AI Engine” をタップしてログイン画面へ進みます</li>
-                  <li>権限の許可を行い、ログインを完了します</li>
-                </ol>
-              </div>
-            </div>
-          </div>
-
-          <div class="bg-white p-8 rounded-lg border border-gray-100">
-            <div class="flex items-start">
-              <div class="h-8 w-8 rounded-full bg-indigo-100 flex items-center justify-center mr-4 mt-1">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
-                </svg>
-              </div>
-              <div>
-                <h3 class="text-xl font-semibold mb-2">手順 4：ネットワーク設定</h3>
-                <ol class="text-gray-600 space-y-1 list-decimal list-inside">
-                  <li>左上のメニューボタンをタップします</li>
-                  <li>“Conversational AI Devices” の “+” をタップします</li>
-                  <li>右上の “+” をタップして新しいデバイスを追加します</li>
-                  <li>“Next” をタップして次へ進みます</li>
-                  <li>対象デバイスが表示されたら、デバイス名をタップします</li>
-                  <li>Wi‑Fi 名を確認します</li>
-                  <li>Wi‑Fi パスワードを入力し “Next” をタップします</li>
-                  <li>3〜5 秒待ち “Device Added” が表示されれば完了です</li>
-                </ol>
-              </div>
-            </div>
-          </div>
-
-          <div class="bg-white p-8 rounded-lg border border-gray-100">
-            <div class="flex items-start">
-              <div class="h-8 w-8 rounded-full bg-amber-100 flex items-center justify-center mr-4 mt-1">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-amber-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
-                </svg>
-              </div>
-              <div>
-                <h3 class="text-xl font-semibold mb-2">手順 5：会話を開始</h3>
-                <ul class="text-gray-600 space-y-1">
-                  <li>ウェイクワード：“Hi, AGORA”（3〜5 秒待つと目の画面が点灯し、赤い LED の点滅が止まります）</li>
-                  <li>次のコマンドも試せます：
+                <h3 class="text-xl font-semibold mb-2">会話を開始</h3>
+                <ol class="text-gray-600 ml-4 space-y-2">
+                  <li>1. “Hi, AGORA” と話しかけます</li>
+                  <li>
+                    2. 3〜5 秒待つと目の画面が点灯します（赤い LED
+                    の点滅が止まります）
+                  </li>
+                  <li>
+                    3. 例えば次のように話してみてください：
                     <ul class="ml-4 mt-1 space-y-1">
-                      <li>“Introduce AGORA company”</li>
-                      <li>“Who is Bill Gates”</li>
-                      <li>“What's 15% off a $328 dress?”</li>
+                      <li>• “Introuce me about Agora Convo Al Device Kit”</li>
+                      <li>• “Introduce AGORA company”</li>
+                      <li>• “Who is Bill Gates?”</li>
+                      <li>• “What's 15% off a $328 dress?”</li>
                     </ul>
+                  </li>
+                </ol>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="quick-start mb-16" id="getting-started">
+          <h2
+            class="text-4xl font-bold mb-12 pb-4 border-b-2 border-gray-200 flex items-center">
+            <span class="text-black">はじめに</span>
+            <div class="ml-4 flex-1 border-b border-gray-200"></div>
+          </h2>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="space-y-8">
+              <div class="bg-white p-8 rounded-lg border border-gray-100">
+                <div class="flex items-start">
+                  <div
+                    class="h-8 w-8 rounded-full bg-blue-100 flex items-center justify-center mr-4 mt-1">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-4 w-4 text-blue-600"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor">
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 class="text-xl font-semibold mb-2">手順 1：電源オン</h3>
+                    <ul class="text-gray-600 space-y-1">
+                      <li>バッテリーケーブルをコネクタに接続します</li>
+                      <li>振動が止まるまで “Middle Switch” を長押しします</li>
+                      <li>
+                        離すと赤い LED が点滅し、音声で “the network connection
+                        is failed, please check your network” と案内されます
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div class="bg-white p-8 rounded-lg border border-gray-100">
+                <div class="flex items-start">
+                  <div
+                    class="h-8 w-8 rounded-full bg-green-100 flex items-center justify-center mr-4 mt-1">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-4 w-4 text-green-600"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor">
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.14 0M1.394 9.393c5.857-5.857 15.355-5.857 21.213 0" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 class="text-xl font-semibold mb-2">
+                      手順 2：ネットワーク設定モード
+                    </h3>
+                    <ul class="text-gray-600 space-y-1">
+                      <li>“Left Switch” を 3 秒以上長押しします</li>
+                      <li>
+                        音声で “Please use bluetooth for network provisioning”
+                        と案内されます
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div class="bg-white p-8 rounded-lg border border-gray-100">
+                <div class="flex items-start">
+                  <div
+                    class="h-8 w-8 rounded-full bg-purple-100 flex items-center justify-center mr-4 mt-1">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-4 w-4 text-purple-600"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor">
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 class="text-xl font-semibold mb-2">
+                      手順 3：ConvoAI App をインストールしてログイン
+                    </h3>
+                    <ol
+                      class="text-gray-600 space-y-1 list-decimal list-inside">
+                      <li>
+                        右の QR コードから ConvoAI App
+                        をダウンロードしてインストールします
+                      </li>
+                      <li>ConvoAI App を起動します</li>
+                      <li>
+                        “Call AI Engine” をタップしてログイン画面へ進みます
+                      </li>
+                      <li>権限の許可を行い、ログインを完了します</li>
+                    </ol>
+                  </div>
+                </div>
+              </div>
+
+              <div class="bg-white p-8 rounded-lg border border-gray-100">
+                <div class="flex items-start">
+                  <div
+                    class="h-8 w-8 rounded-full bg-indigo-100 flex items-center justify-center mr-4 mt-1">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-4 w-4 text-indigo-600"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor">
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 class="text-xl font-semibold mb-2">
+                      手順 4：ネットワーク設定
+                    </h3>
+                    <ol
+                      class="text-gray-600 space-y-1 list-decimal list-inside">
+                      <li>左上のメニューボタンをタップします</li>
+                      <li>“Conversational AI Devices” の “+” をタップします</li>
+                      <li>右上の “+” をタップして新しいデバイスを追加します</li>
+                      <li>“Next” をタップして次へ進みます</li>
+                      <li>
+                        対象デバイスが表示されたら、デバイス名をタップします
+                      </li>
+                      <li>Wi‑Fi 名を確認します</li>
+                      <li>Wi‑Fi パスワードを入力し “Next” をタップします</li>
+                      <li>3〜5 秒待ち “Device Added” が表示されれば完了です</li>
+                    </ol>
+                  </div>
+                </div>
+              </div>
+
+              <div class="bg-white p-8 rounded-lg border border-gray-100">
+                <div class="flex items-start">
+                  <div
+                    class="h-8 w-8 rounded-full bg-amber-100 flex items-center justify-center mr-4 mt-1">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-4 w-4 text-amber-600"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor">
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 class="text-xl font-semibold mb-2">
+                      手順 5：会話を開始
+                    </h3>
+                    <ul class="text-gray-600 space-y-1">
+                      <li>
+                        ウェイクワード：“Hi, AGORA”（3〜5
+                        秒待つと目の画面が点灯し、赤い LED の点滅が止まります）
+                      </li>
+                      <li>
+                        次のコマンドも試せます：
+                        <ul class="ml-4 mt-1 space-y-1">
+                          <li>“Introduce AGORA company”</li>
+                          <li>“Who is Bill Gates”</li>
+                          <li>“What's 15% off a $328 dress?”</li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div class="bg-white p-8 rounded-lg border border-gray-100">
+                <div class="flex items-start">
+                  <div
+                    class="h-8 w-8 rounded-full bg-rose-100 flex items-center justify-center mr-4 mt-1">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-4 w-4 text-rose-600"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor">
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M5.636 5.636a9 9 0 1012.728 0M12 3v9" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 class="text-xl font-semibold mb-2">
+                      手順 6：電源オフ／スリープ
+                    </h3>
+                    <ul class="text-gray-600 space-y-1">
+                      <li>
+                        3 分間操作がないと自動でスリープ（音声：“AI Agent
+                        Disconnected”）
+                      </li>
+                      <li>
+                        スリープ：赤い LED が消灯し振動が止まるまで “Middle
+                        Switch” を長押しします
+                      </li>
+                      <li>完全に電源を切る：バッテリーコネクタを外します</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="space-y-8">
+              <div class="bg-white p-8 rounded-lg border border-gray-100">
+                <h3 class="text-xl font-semibold mb-4">ハードウェア</h3>
+                <div class="text-center mb-4">
+                  <div class="relative inline-block">
+                    <img
+                      src="../../pic/battery_connector.png"
+                      alt="バッテリーコネクタ"
+                      class="w-full mx-auto mb-2" />
+                    <img
+                      src="../../pic/switch_img.png"
+                      alt="スイッチ画像"
+                      class="w-full mx-auto mb-2" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="bg-white p-8 rounded-lg border border-gray-100">
+                <h3 class="text-xl font-semibold mb-4">アプリをダウンロード</h3>
+                <div class="grid grid-cols-2 gap-4">
+                  <div class="text-center">
+                    <img
+                      src="../../pic/android_download.png"
+                      alt="Android QR コード"
+                      class="w-32 h-32 mx-auto mb-2" />
+                    <p class="text-gray-600">Android</p>
+                  </div>
+                  <div class="text-center">
+                    <img
+                      src="../../pic/ios_download.png"
+                      alt="iOS QR コード"
+                      class="w-32 h-32 mx-auto mb-2" />
+                    <p class="text-gray-600">iOS</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="bg-white p-8 rounded-lg border border-gray-100">
+                <h3 class="text-xl font-semibold mb-4">チュートリアル動画</h3>
+                <div class="bg-gray-100 rounded-lg">
+                  <video class="w-full h-[475px] rounded-lg" controls>
+                    <source
+                      src="../../pic/how_to_set_network.mp4"
+                      type="video/mp4" />
+                    お使いのブラウザは動画の再生に対応していません。
+                  </video>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="faq mb-16">
+          <h2
+            class="text-4xl font-bold mb-12 pb-4 border-b-2 border-gray-200 flex items-center">
+            <span class="text-black">FAQ</span>
+            <div class="ml-4 flex-1 border-b border-gray-200"></div>
+          </h2>
+
+          <div class="bg-white p-8 rounded-lg border border-gray-100 space-y-8">
+            <div class="flex items-start">
+              <div
+                class="h-8 w-8 rounded-full bg-blue-100 flex items-center justify-center mr-4 mt-1">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-4 w-4 text-blue-600"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor">
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                </svg>
+              </div>
+              <div>
+                <h3 class="text-xl font-semibold mb-2">電源操作</h3>
+                <ul class="text-gray-600 space-y-1">
+                  <li>電源オン：Middle Switch（S2）を 3 秒以上長押し</li>
+                  <li>
+                    電源オフ：起動中に Middle Switch（S2）を 3 秒以上長押し
                   </li>
                 </ul>
               </div>
             </div>
-          </div>
 
-          <div class="bg-white p-8 rounded-lg border border-gray-100">
             <div class="flex items-start">
-              <div class="h-8 w-8 rounded-full bg-rose-100 flex items-center justify-center mr-4 mt-1">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-rose-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.636 5.636a9 9 0 1012.728 0M12 3v9" />
+              <div
+                class="h-8 w-8 rounded-full bg-green-100 flex items-center justify-center mr-4 mt-1">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-4 w-4 text-green-600"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor">
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.14 0M1.394 9.393c5.857-5.857 15.355-5.857 21.213 0" />
                 </svg>
               </div>
               <div>
-                <h3 class="text-xl font-semibold mb-2">手順 6：電源オフ／スリープ</h3>
+                <h3 class="text-xl font-semibold mb-2">ネットワーク設定</h3>
                 <ul class="text-gray-600 space-y-1">
-                  <li>3 分間操作がないと自動でスリープ（音声：“AI Agent Disconnected”）</li>
-                  <li>スリープ：赤い LED が消灯し振動が止まるまで “Middle Switch” を長押しします</li>
-                  <li>完全に電源を切る：バッテリーコネクタを外します</li>
+                  <li>
+                    設定モード：起動中に Left Switch（S1）を 3 秒以上長押し
+                  </li>
+                  <li>デバイスはネットワーク設定待機状態になります</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="flex items-start">
+              <div
+                class="h-8 w-8 rounded-full bg-amber-100 flex items-center justify-center mr-4 mt-1">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-4 w-4 text-amber-600"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor">
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M15.536 8.464a5 5 0 010 7.072M12 18a6 6 0 100-12 6 6 0 000 12z" />
+                </svg>
+              </div>
+              <div>
+                <h3 class="text-xl font-semibold mb-2">音量</h3>
+                <ul class="text-gray-600 space-y-1">
+                  <li>音量アップ：Left Switch（S1）を 1 回押す</li>
+                  <li>音量ダウン：Right Switch（S3）を 1 回押す</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="flex items-start">
+              <div
+                class="h-8 w-8 rounded-full bg-indigo-100 flex items-center justify-center mr-4 mt-1">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-4 w-4 text-indigo-600"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor">
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                </svg>
+              </div>
+              <div>
+                <h3 class="text-xl font-semibold mb-2">ロール切り替え</h3>
+                <ul class="text-gray-600 space-y-1">
+                  <li>1：アプリからロールを切り替えます</li>
+                  <li>2：本体右側の Reset Switch（K1）でも切り替え可能です</li>
+                  <li>注意：切り替え後、再度ウェイクして完了させてください</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="flex items-start">
+              <div
+                class="h-8 w-8 rounded-full bg-green-100 flex items-center justify-center mr-4 mt-1">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-4 w-4 text-green-600"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor">
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+              </div>
+              <div>
+                <h3 class="text-xl font-semibold mb-2">充電</h3>
+                <ul class="text-gray-600 space-y-1">
+                  <li>どの Type‑C ポートでも充電できます</li>
+                  <li>
+                    注：バッテリーなしでも Type‑C
+                    ケーブル直結で電源供給・使用できます
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="flex items-start">
+              <div
+                class="h-8 w-8 rounded-full bg-purple-100 flex items-center justify-center mr-4 mt-1">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-4 w-4 text-purple-600"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor">
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.14 0M1.394 9.393c5.857-5.857 15.355-5.857 21.213 0" />
+                </svg>
+              </div>
+              <div>
+                <h3 class="text-xl font-semibold mb-2">
+                  ホットスポットのみで設定
+                </h3>
+                <ul class="text-gray-600 space-y-1">
+                  <li>
+                    事前にホットスポットを設定しておくとネットワーク設定を省略できます：
+                  </li>
+                  <li>名前：AGORA_AI_KIT</li>
+                  <li>パスワード：1234567890</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="flex items-start">
+              <div
+                class="h-8 w-8 rounded-full bg-amber-100 flex items-center justify-center mr-4 mt-1">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-4 w-4 text-amber-600"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor">
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                </svg>
+              </div>
+              <div>
+                <h3 class="text-xl font-semibold mb-2">LED ステータス</h3>
+                <ul class="text-gray-600 space-y-1">
+                  <li>
+                    <strong>赤/緑が交互に点滅</strong>：ネットワーク設定待ち
+                  </li>
+                  <li><strong>赤が点滅</strong>：ネットワーク接続待ち</li>
+                  <li>
+                    <strong>緑が点滅</strong>：ネットワーク接続済み／AI Agent
+                    未接続／ウェイク待ち
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="flex items-start">
+              <div
+                class="h-8 w-8 rounded-full bg-rose-100 flex items-center justify-center mr-4 mt-1">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-4 w-4 text-rose-600"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor">
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
+                </svg>
+              </div>
+              <div>
+                <h3 class="text-xl font-semibold mb-2">ウェイクアップ</h3>
+                <ul class="text-gray-600 space-y-1">
+                  <li>ウェイクワード：“Hi, AGORA”</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="flex items-start">
+              <div
+                class="h-8 w-8 rounded-full bg-indigo-100 flex items-center justify-center mr-4 mt-1">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-4 w-4 text-indigo-600"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor">
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <div>
+                <h3 class="text-xl font-semibold mb-2">
+                  ウェイクのタイムアウト
+                </h3>
+                <ul class="text-gray-600 space-y-1">
+                  <li>AI Agent Disconnected：3 分</li>
                 </ul>
               </div>
             </div>
           </div>
-        </div>
+        </section>
 
-        <div class="space-y-8">
+        <section class="developer mb-16">
+          <h2
+            class="text-4xl font-bold mb-12 pb-4 border-b-2 border-gray-200 flex items-center">
+            <span class="text-black">開発者ガイド</span>
+            <div class="ml-4 flex-1 border-b border-gray-200"></div>
+          </h2>
           <div class="bg-white p-8 rounded-lg border border-gray-100">
-            <h3 class="text-xl font-semibold mb-4">ハードウェア</h3>                    
-            <div class="text-center mb-4">
-              <div class="relative inline-block">
-                <img src="../../pic/battery_connector.png" alt="バッテリーコネクタ" class="w-full mx-auto mb-2">
-                <img src="../../pic/switch_img.png" alt="スイッチ画像" class="w-full mx-auto mb-2"/>
+            <p class="text-lg text-gray-700 mb-6">
+              開発者向けツールで機能をカスタマイズできます：
+            </p>
+            <div class="space-y-6">
+              <div class="flex items-start">
+                <div
+                  class="h-8 w-8 rounded-full bg-blue-100 flex items-center justify-center mr-4 mt-1">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-4 w-4 text-blue-600"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="text-xl font-semibold mb-2">SDK ダウンロード</h3>
+                  <p class="text-gray-600">
+                    初心者向けのグラフィカルな開発ツールは
+                    <a
+                      href="https://docs.agora.io/en/convo-ai-device-kit/get-started/quickstart"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="text-blue-600 hover:text-blue-800 underline font-semibold"
+                      >クイックスタートドキュメント</a
+                    >
+                    を参照してください。
+                  </p>
+                </div>
+              </div>
+
+              <div class="flex items-start">
+                <div
+                  class="h-8 w-8 rounded-full bg-green-100 flex items-center justify-center mr-4 mt-1">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-4 w-4 text-green-600"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="text-xl font-semibold mb-2">チュートリアル</h3>
+                  <p class="text-gray-600">
+                    追加のチュートリアルや学習リソースについてはお問い合わせください。
+                  </p>
+                </div>
+              </div>
+
+              <div class="flex items-start">
+                <div
+                  class="h-8 w-8 rounded-full bg-purple-100 flex items-center justify-center mr-4 mt-1">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-4 w-4 text-purple-600"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="text-xl font-semibold mb-2">ファームウェア更新</h3>
+                  <p class="text-gray-600">Type‑C ポート 1：デバッグモード</p>
+                  <p class="text-gray-600">
+                    Type‑C ポート 2：USB ストレージモード
+                  </p>
+                  <p class="text-gray-600 mt-2">
+                    <a
+                      href="./firmware-update.html"
+                      class="text-blue-600 hover:text-blue-800 underline font-semibold"
+                      >ファームウェア書き込みガイド</a
+                    >
+                  </p>
+                </div>
+              </div>
+
+              <div class="flex items-start">
+                <div
+                  class="h-8 w-8 rounded-full bg-amber-100 flex items-center justify-center mr-4 mt-1">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-4 w-4 text-amber-600"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="text-xl font-semibold mb-2">コミュニティ</h3>
+                  <p class="text-gray-600">
+                    開発者フォーラムで作品を共有できます。
+                  </p>
+                </div>
               </div>
             </div>
-          </div>
 
-          <div class="bg-white p-8 rounded-lg border border-gray-100">
-            <h3 class="text-xl font-semibold mb-4">アプリをダウンロード</h3>
-            <div class="grid grid-cols-2 gap-4">
-              <div class="text-center">
-                <img src="../../pic/android_download.png" alt="Android QR コード" class="w-32 h-32 mx-auto mb-2">
-                <p class="text-gray-600">Android</p>
-              </div>
-              <div class="text-center">
-                <img src="../../pic/ios_download.png" alt="iOS QR コード" class="w-32 h-32 mx-auto mb-2">
-                <p class="text-gray-600">iOS</p>
-              </div>
-            </div>
+            <p class="mt-8 text-lg text-gray-700 font-medium">
+              プログラミング経験がなくても AI 開発を始められます。
+            </p>
           </div>
+        </section>
+      </main>
 
-          <div class="bg-white p-8 rounded-lg border border-gray-100">
-            <h3 class="text-xl font-semibold mb-4">チュートリアル動画</h3>
-            <div class="bg-gray-100 rounded-lg">
-              <video class="w-full h-[475px] rounded-lg" controls>
-                <source src="../../pic/how_to_set_network.mp4" type="video/mp4">
-                お使いのブラウザは動画の再生に対応していません。
-              </video>
-            </div>
+      <footer>
+        <div class="container">
+          <p>© 2025 AGORA ConvoAI Device Kit チーム</p>
+          <div class="support-links">
+            <a href="http://www.agora.io" class="font-semibold">公式サイト</a>
           </div>
         </div>
-      </div>
-    </section>
-
-    <section class="faq mb-16">
-      <h2 class="text-4xl font-bold mb-12 pb-4 border-b-2 border-gray-200 flex items-center">
-        <span class="text-black">FAQ</span>
-        <div class="ml-4 flex-1 border-b border-gray-200"></div>
-      </h2>
-
-      <div class="bg-white p-8 rounded-lg border border-gray-100 space-y-8">
-        <div class="flex items-start">
-          <div class="h-8 w-8 rounded-full bg-blue-100 flex items-center justify-center mr-4 mt-1">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
-            </svg>
-          </div>
-          <div>
-            <h3 class="text-xl font-semibold mb-2">電源操作</h3>
-            <ul class="text-gray-600 space-y-1">
-              <li>電源オン：Middle Switch（S2）を 3 秒以上長押し</li>
-              <li>電源オフ：起動中に Middle Switch（S2）を 3 秒以上長押し</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="flex items-start">
-          <div class="h-8 w-8 rounded-full bg-green-100 flex items-center justify-center mr-4 mt-1">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.14 0M1.394 9.393c5.857-5.857 15.355-5.857 21.213 0" />
-            </svg>
-          </div>
-          <div>
-            <h3 class="text-xl font-semibold mb-2">ネットワーク設定</h3>
-            <ul class="text-gray-600 space-y-1">
-              <li>設定モード：起動中に Left Switch（S1）を 3 秒以上長押し</li>
-              <li>デバイスはネットワーク設定待機状態になります</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="flex items-start">
-          <div class="h-8 w-8 rounded-full bg-amber-100 flex items-center justify-center mr-4 mt-1">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-amber-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072M12 18a6 6 0 100-12 6 6 0 000 12z" />
-            </svg>
-          </div>
-          <div>
-            <h3 class="text-xl font-semibold mb-2">音量</h3>
-            <ul class="text-gray-600 space-y-1">
-              <li>音量アップ：Left Switch（S1）を 1 回押す</li>
-              <li>音量ダウン：Right Switch（S3）を 1 回押す</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="flex items-start">
-          <div class="h-8 w-8 rounded-full bg-indigo-100 flex items-center justify-center mr-4 mt-1">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-            </svg>
-          </div>
-          <div>
-            <h3 class="text-xl font-semibold mb-2">ロール切り替え</h3>
-            <ul class="text-gray-600 space-y-1">
-              <li>1：アプリからロールを切り替えます</li>
-              <li>2：本体右側の Reset Switch（K1）でも切り替え可能です</li>
-              <li>注意：切り替え後、再度ウェイクして完了させてください</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="flex items-start">
-          <div class="h-8 w-8 rounded-full bg-green-100 flex items-center justify-center mr-4 mt-1">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-            </svg>
-          </div>
-          <div>
-            <h3 class="text-xl font-semibold mb-2">充電</h3>
-            <ul class="text-gray-600 space-y-1">
-              <li>どの Type‑C ポートでも充電できます</li>
-              <li>注：バッテリーなしでも Type‑C ケーブル直結で電源供給・使用できます</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="flex items-start">
-          <div class="h-8 w-8 rounded-full bg-purple-100 flex items-center justify-center mr-4 mt-1">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-purple-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.14 0M1.394 9.393c5.857-5.857 15.355-5.857 21.213 0" />
-            </svg>
-          </div>
-          <div>
-            <h3 class="text-xl font-semibold mb-2">ホットスポットのみで設定</h3>
-            <ul class="text-gray-600 space-y-1">
-              <li>事前にホットスポットを設定しておくとネットワーク設定を省略できます：</li>
-              <li>名前：AGORA_AI_KIT</li>
-              <li>パスワード：1234567890</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="flex items-start">
-          <div class="h-8 w-8 rounded-full bg-amber-100 flex items-center justify-center mr-4 mt-1">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-amber-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-            </svg>
-          </div>
-          <div>
-            <h3 class="text-xl font-semibold mb-2">LED ステータス</h3>
-            <ul class="text-gray-600 space-y-1">
-              <li><strong>赤/緑が交互に点滅</strong>：ネットワーク設定待ち</li>
-              <li><strong>赤が点滅</strong>：ネットワーク接続待ち</li>
-              <li><strong>緑が点滅</strong>：ネットワーク接続済み／AI Agent 未接続／ウェイク待ち</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="flex items-start">
-          <div class="h-8 w-8 rounded-full bg-rose-100 flex items-center justify-center mr-4 mt-1">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-rose-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
-            </svg>
-          </div>
-          <div>
-            <h3 class="text-xl font-semibold mb-2">ウェイクアップ</h3>
-            <ul class="text-gray-600 space-y-1">
-              <li>ウェイクワード：“Hi, AGORA”</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="flex items-start">
-          <div class="h-8 w-8 rounded-full bg-indigo-100 flex items-center justify-center mr-4 mt-1">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-            </svg>
-          </div>
-          <div>
-            <h3 class="text-xl font-semibold mb-2">ウェイクのタイムアウト</h3>
-            <ul class="text-gray-600 space-y-1">
-              <li>AI Agent Disconnected：3 分</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="developer mb-16">
-      <h2 class="text-4xl font-bold mb-12 pb-4 border-b-2 border-gray-200 flex items-center">
-        <span class="text-black">開発者ガイド</span>
-        <div class="ml-4 flex-1 border-b border-gray-200"></div>
-      </h2>
-      <div class="bg-white p-8 rounded-lg border border-gray-100">
-        <p class="text-lg text-gray-700 mb-6">開発者向けツールで機能をカスタマイズできます：</p>
-        <div class="space-y-6">
-          <div class="flex items-start">
-            <div class="h-8 w-8 rounded-full bg-blue-100 flex items-center justify-center mr-4 mt-1">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-              </svg>
-            </div>
-            <div>
-              <h3 class="text-xl font-semibold mb-2">SDK ダウンロード</h3>
-              <p class="text-gray-600">
-                初心者向けのグラフィカルな開発ツールは
-                <a href="https://docs.agora.io/en/convo-ai-device-kit/get-started/quickstart" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 underline font-semibold">クイックスタートドキュメント</a>
-                を参照してください。
-              </p>
-            </div>
-          </div>
-
-          <div class="flex items-start">
-            <div class="h-8 w-8 rounded-full bg-green-100 flex items-center justify-center mr-4 mt-1">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
-              </svg>
-            </div>
-            <div>
-              <h3 class="text-xl font-semibold mb-2">チュートリアル</h3>
-              <p class="text-gray-600">追加のチュートリアルや学習リソースについてはお問い合わせください。</p>
-            </div>
-          </div>
-
-          <div class="flex items-start">
-            <div class="h-8 w-8 rounded-full bg-purple-100 flex items-center justify-center mr-4 mt-1">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-purple-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-              </svg>
-            </div>
-            <div>
-              <h3 class="text-xl font-semibold mb-2">ファームウェア更新</h3>
-              <p class="text-gray-600">Type‑C ポート 1：デバッグモード</p>
-              <p class="text-gray-600">Type‑C ポート 2：USB ストレージモード</p>
-              <p class="text-gray-600 mt-2">
-                <a href="./firmware-update.html" class="text-blue-600 hover:text-blue-800 underline font-semibold">ファームウェア書き込みガイド</a>
-              </p>
-            </div>
-          </div>
-
-          <div class="flex items-start">
-            <div class="h-8 w-8 rounded-full bg-amber-100 flex items-center justify-center mr-4 mt-1">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-amber-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-              </svg>
-            </div>
-            <div>
-              <h3 class="text-xl font-semibold mb-2">コミュニティ</h3>
-              <p class="text-gray-600">開発者フォーラムで作品を共有できます。</p>
-            </div>
-          </div>
-        </div>
-
-        <p class="mt-8 text-lg text-gray-700 font-medium">プログラミング経験がなくても AI 開発を始められます。</p>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="container">
-      <p>© 2025 AGORA ConvoAI Device Kit チーム</p>
-      <div class="support-links">
-        <a href="http://www.agora.io" class="font-semibold">公式サイト</a>
-      </div>
+      </footer>
     </div>
-  </footer>
-</div>
 
-<script src="../../main.js"></script>
-</body>
+    <script src="../../main.js"></script>
+  </body>
 </html>
