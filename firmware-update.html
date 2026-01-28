@@ -1,86 +1,120 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <title>Firmware Update | Agora ConvoAI Device Kit</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Firmware Update | Agora Convo AI Device Kit</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="language.js"></script>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body class="bg-gray-50 text-gray-900 font-sans antialiased">
     <!-- Language Switcher Header (same as home) -->
-    <header class="bg-white py-4 px-4 sm:px-6 lg:px-8 border-b border-gray-200 mb-8">
-      <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-2">
+    <header
+      class="bg-white py-4 px-4 sm:px-6 lg:px-8 border-b border-gray-200 mb-8">
+      <div
+        class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-2">
         <div>
-          <h1 class="text-2xl font-bold text-gray-800">Agora ConvoAI Device Kit</h1>
+          <h1 class="text-2xl font-bold text-gray-800">
+            Agora Convo AI Device Kit
+          </h1>
         </div>
         <div class="relative">
           <button
             id="languageButton"
             onclick="toggleLanguageDropdown()"
-            class="flex items-center space-x-2 px-4 py-2 bg-white border border-gray-300 rounded-lg shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 min-w-[120px]"
-          >
-            <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            class="flex items-center space-x-2 px-4 py-2 bg-white border border-gray-300 rounded-lg shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 min-w-[120px]">
+            <svg
+              class="w-4 h-4 text-gray-500"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24">
               <path
                 stroke-linecap="round"
                 stroke-linejoin="round"
                 stroke-width="2"
-                d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9v-9m0-9v9m0 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"
-              />
+                d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9v-9m0-9v9m0 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
             </svg>
-            <span id="selectedLanguage" class="text-sm font-medium text-gray-700">English</span>
-            <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            <span
+              id="selectedLanguage"
+              class="text-sm font-medium text-gray-700"
+              >English</span
+            >
+            <svg
+              class="w-4 h-4 text-gray-400"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24">
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M19 9l-7 7-7-7" />
             </svg>
           </button>
 
-          <div id="languageDropdown" class="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-gray-200 z-50 hidden">
+          <div
+            id="languageDropdown"
+            class="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-gray-200 z-50 hidden">
             <div class="py-2">
               <button
                 onclick="selectLanguage('en', 'English')"
-                class="flex items-center w-full px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-700 transition-colors duration-150"
-              >
+                class="flex items-center w-full px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-700 transition-colors duration-150">
                 <div class="text-left">
                   <div class="font-medium">English</div>
                 </div>
-                <svg id="checkEn" class="w-4 h-4 text-blue-600 ml-auto" fill="currentColor" viewBox="0 0 24 24">
+                <svg
+                  id="checkEn"
+                  class="w-4 h-4 text-blue-600 ml-auto"
+                  fill="currentColor"
+                  viewBox="0 0 24 24">
                   <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
                 </svg>
               </button>
 
               <button
                 onclick="selectLanguage('zh', '中文')"
-                class="flex items-center w-full px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-700 transition-colors duration-150"
-              >
+                class="flex items-center w-full px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-700 transition-colors duration-150">
                 <div class="text-left">
                   <div class="font-medium">中文</div>
                 </div>
-                <svg id="checkZh" class="w-4 h-4 text-blue-600 ml-auto hidden" fill="currentColor" viewBox="0 0 24 24">
+                <svg
+                  id="checkZh"
+                  class="w-4 h-4 text-blue-600 ml-auto hidden"
+                  fill="currentColor"
+                  viewBox="0 0 24 24">
                   <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
                 </svg>
               </button>
 
               <button
                 onclick="selectLanguage('ja', '日本語')"
-                class="flex items-center w-full px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-700 transition-colors duration-150"
-              >
+                class="flex items-center w-full px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-700 transition-colors duration-150">
                 <div class="text-left">
                   <div class="font-medium">日本語</div>
                 </div>
-                <svg id="checkJa" class="w-4 h-4 text-blue-600 ml-auto hidden" fill="currentColor" viewBox="0 0 24 24">
+                <svg
+                  id="checkJa"
+                  class="w-4 h-4 text-blue-600 ml-auto hidden"
+                  fill="currentColor"
+                  viewBox="0 0 24 24">
                   <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
                 </svg>
               </button>
 
               <button
                 onclick="selectLanguage('ko', '한국어')"
-                class="flex items-center w-full px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-700 transition-colors duration-150"
-              >
+                class="flex items-center w-full px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-700 transition-colors duration-150">
                 <div class="text-left">
                   <div class="font-medium">한국어</div>
                 </div>
-                <svg id="checkKo" class="w-4 h-4 text-blue-600 ml-auto hidden" fill="currentColor" viewBox="0 0 24 24">
+                <svg
+                  id="checkKo"
+                  class="w-4 h-4 text-blue-600 ml-auto hidden"
+                  fill="currentColor"
+                  viewBox="0 0 24 24">
                   <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
                 </svg>
               </button>
@@ -90,183 +124,331 @@
       </div>
     </header>
 
-	    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-	      <main class="container mx-auto px-4 py-12">
-	        <div class="mb-8 flex items-center justify-between gap-4 flex-wrap">
-	          <div>
-	            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-2">Firmware Update (Burn Code)</h2>
-	            <p class="text-gray-600">A practical guide for burning firmware with Armino and BKFIL.</p>
-	          </div>
-	          <a href="./index.html" class="text-blue-600 hover:text-blue-800 underline">Back to Home</a>
-	        </div>
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <main class="container mx-auto px-4 py-12">
+        <div class="mb-8 flex items-center justify-between gap-4 flex-wrap">
+          <div>
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-2">
+              Firmware Update (Burn Code)
+            </h2>
+            <p class="text-gray-600">
+              A practical guide for burning firmware with Armino and BKFIL.
+            </p>
+          </div>
+          <a
+            href="./index.html"
+            class="text-blue-600 hover:text-blue-800 underline"
+            >Back to Home</a
+          >
+        </div>
 
-	        <section class="bg-white p-8 rounded-lg border border-gray-100 mb-8">
-	          <div class="flex items-start">
-	            <div class="h-10 w-10 rounded-full bg-green-100 flex items-center justify-center mr-4 mt-1 flex-shrink-0">
-	              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-	                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m7 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-	              </svg>
-	            </div>
-	            <div class="flex-1">
-	              <h3 class="text-xl font-semibold mb-3">Quick Checklist</h3>
-	              <ul class="list-disc pl-6 space-y-2 text-gray-700 leading-relaxed">
-	                <li>Connect your laptop to <strong>Type C-Port 1</strong> with a USB cable.</li>
-	                <li>Use a <strong>CH340 serial tool board</strong> (recommended) with baud rate <strong>1500000</strong>.</li>
-	                <li>Have BKFIL ready: <span class="font-geist-mono">BKFIL.exe</span> (Windows) / BKFIL (macOS).</li>
-	                <li>Prepare <span class="font-geist-mono">all-app.bin</span> (and <span class="font-geist-mono">bootloader.bin</span> for first-time security projects).</li>
-	              </ul>
-	            </div>
-	          </div>
-	        </section>
+        <section class="bg-white p-8 rounded-lg border border-gray-100 mb-8">
+          <div class="flex items-start">
+            <div
+              class="h-10 w-10 rounded-full bg-green-100 flex items-center justify-center mr-4 mt-1 flex-shrink-0">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-5 w-5 text-green-600"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 12l2 2 4-4m7 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <div class="flex-1">
+              <h3 class="text-xl font-semibold mb-3">Quick Checklist</h3>
+              <ul
+                class="list-disc pl-6 space-y-2 text-gray-700 leading-relaxed">
+                <li>
+                  Connect your laptop to <strong>Type C-Port 1</strong> with a
+                  USB cable.
+                </li>
+                <li>
+                  Use a <strong>CH340 serial tool board</strong> (recommended)
+                  with baud rate <strong>1500000</strong>.
+                </li>
+                <li>
+                  Have BKFIL ready:
+                  <span class="font-geist-mono">BKFIL.exe</span> (Windows) /
+                  BKFIL (macOS).
+                </li>
+                <li>
+                  Prepare <span class="font-geist-mono">all-app.bin</span> (and
+                  <span class="font-geist-mono">bootloader.bin</span> for
+                  first-time security projects).
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
 
-	        <section class="bg-white p-8 rounded-lg border border-gray-100 mb-8">
-	          <div class="flex items-start">
-	            <div class="h-10 w-10 rounded-full bg-blue-100 flex items-center justify-center mr-4 mt-1 flex-shrink-0">
-	              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-	                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M12 20a8 8 0 100-16 8 8 0 000 16z" />
-	              </svg>
-	            </div>
-	            <div class="flex-1">
-	              <h3 class="text-xl font-semibold mb-3">Overview</h3>
-	              <p class="text-gray-700 leading-relaxed">
-	                Armino supports firmware burning on Windows and macOS. This page summarizes the key steps and files so you can burn firmware reliably.
-	              </p>
-	            </div>
-	          </div>
-	        </section>
+        <section class="bg-white p-8 rounded-lg border border-gray-100 mb-8">
+          <div class="flex items-start">
+            <div
+              class="h-10 w-10 rounded-full bg-blue-100 flex items-center justify-center mr-4 mt-1 flex-shrink-0">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-5 w-5 text-blue-600"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M13 16h-1v-4h-1m1-4h.01M12 20a8 8 0 100-16 8 8 0 000 16z" />
+              </svg>
+            </div>
+            <div class="flex-1">
+              <h3 class="text-xl font-semibold mb-3">Overview</h3>
+              <p class="text-gray-700 leading-relaxed">
+                Armino supports firmware burning on Windows and macOS. This page
+                summarizes the key steps and files so you can burn firmware
+                reliably.
+              </p>
+            </div>
+          </div>
+        </section>
 
-	        <section class="bg-white p-8 rounded-lg border border-gray-100 mb-8">
-	          <div class="flex items-start">
-	            <div class="h-10 w-10 rounded-full bg-indigo-100 flex items-center justify-center mr-4 mt-1 flex-shrink-0">
-	              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-	                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5l5 5v11a2 2 0 01-2 2z" />
-	              </svg>
-	            </div>
-	            <div class="flex-1">
-	              <h3 class="text-xl font-semibold mb-3">Burning Output Files</h3>
-	              <div class="space-y-4 text-gray-700 leading-relaxed">
-	                <p>
-	                  After building the app project, <span class="font-geist-mono">all-app.bin</span> is generated under
-	                  <span class="font-geist-mono">build/app/bk7258/</span>. This <span class="font-geist-mono">.bin</span> file can be burned.
-	                </p>
-	                <div class="bg-blue-50 border border-blue-200 rounded-lg p-4">
-	                  <p class="font-medium text-blue-900 mb-1">First-time burning for a security project</p>
-	                  <p class="text-blue-900">
-	                    Burn <span class="font-geist-mono">bootloader.bin</span> first, then burn <span class="font-geist-mono">all-app.bin</span>.
-	                  </p>
-	                </div>
-	              </div>
-	            </div>
-	          </div>
-	        </section>
+        <section class="bg-white p-8 rounded-lg border border-gray-100 mb-8">
+          <div class="flex items-start">
+            <div
+              class="h-10 w-10 rounded-full bg-indigo-100 flex items-center justify-center mr-4 mt-1 flex-shrink-0">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-5 w-5 text-indigo-600"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5l5 5v11a2 2 0 01-2 2z" />
+              </svg>
+            </div>
+            <div class="flex-1">
+              <h3 class="text-xl font-semibold mb-3">Burning Output Files</h3>
+              <div class="space-y-4 text-gray-700 leading-relaxed">
+                <p>
+                  After building the app project,
+                  <span class="font-geist-mono">all-app.bin</span> is generated
+                  under <span class="font-geist-mono">build/app/bk7258/</span>.
+                  This <span class="font-geist-mono">.bin</span> file can be
+                  burned.
+                </p>
+                <div class="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                  <p class="font-medium text-blue-900 mb-1">
+                    First-time burning for a security project
+                  </p>
+                  <p class="text-blue-900">
+                    Burn
+                    <span class="font-geist-mono">bootloader.bin</span> first,
+                    then burn <span class="font-geist-mono">all-app.bin</span>.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
 
-	        <section class="bg-white p-8 rounded-lg border border-gray-100 mb-8">
-	          <div class="flex items-start">
-	            <div class="h-10 w-10 rounded-full bg-amber-100 flex items-center justify-center mr-4 mt-1 flex-shrink-0">
-	              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-amber-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-	                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h.01M12 7h.01M16 7h.01M9 11h6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h10a2 2 0 012 2v14a2 2 0 01-2 2z" />
-	              </svg>
-	            </div>
-	            <div class="flex-1">
-	              <h3 class="text-xl font-semibold mb-3">Burn Through Serial Port</h3>
-	              <div class="space-y-5 text-gray-700 leading-relaxed">
-	                <div>
-	                  <h4 class="font-semibold mb-2">Remarks</h4>
-	                  <ul class="list-disc pl-6 space-y-2">
-	                    <li>Armino supports burning via <strong>Type C-Port 1</strong>.</li>
-	                    <li>It is recommended to use a <strong>CH340 serial tool board</strong> for download.</li>
-	                    <li>On Windows, Armino currently supports <strong>UART burning</strong>.</li>
-	                  </ul>
-	                </div>
+        <section class="bg-white p-8 rounded-lg border border-gray-100 mb-8">
+          <div class="flex items-start">
+            <div
+              class="h-10 w-10 rounded-full bg-amber-100 flex items-center justify-center mr-4 mt-1 flex-shrink-0">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-5 w-5 text-amber-600"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M8 7h.01M12 7h.01M16 7h.01M9 11h6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h10a2 2 0 012 2v14a2 2 0 01-2 2z" />
+              </svg>
+            </div>
+            <div class="flex-1">
+              <h3 class="text-xl font-semibold mb-3">
+                Burn Through Serial Port
+              </h3>
+              <div class="space-y-5 text-gray-700 leading-relaxed">
+                <div>
+                  <h4 class="font-semibold mb-2">Remarks</h4>
+                  <ul class="list-disc pl-6 space-y-2">
+                    <li>
+                      Armino supports burning via
+                      <strong>Type C-Port 1</strong>.
+                    </li>
+                    <li>
+                      It is recommended to use a
+                      <strong>CH340 serial tool board</strong> for download.
+                    </li>
+                    <li>
+                      On Windows, Armino currently supports
+                      <strong>UART burning</strong>.
+                    </li>
+                  </ul>
+                </div>
 
-	                <div class="bg-gray-50 border border-gray-200 rounded-lg p-4">
-	                  <img
-	                    src="pic/hardware_components.png"
-	                    alt="Hardware components"
-	                    class="w-full rounded-lg"
-	                    onerror="this.classList.add('hidden'); this.nextElementSibling.classList.remove('hidden');"
-	                  />
-	                  <div class="hidden text-center text-gray-500 py-6">[此处有个图]</div>
-	                </div>
-	              </div>
-	            </div>
-	          </div>
-	        </section>
+                <div class="bg-gray-50 border border-gray-200 rounded-lg p-4">
+                  <img
+                    src="pic/hardware_components.png"
+                    alt="Hardware components"
+                    class="w-full rounded-lg"
+                    onerror="
+                      this.classList.add('hidden');
+                      this.nextElementSibling.classList.remove('hidden');
+                    " />
+                  <div class="hidden text-center text-gray-500 py-6">
+                    [此处有个图]
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
 
-	        <section class="bg-white p-8 rounded-lg border border-gray-100 mb-8">
-	          <div class="flex items-start">
-	            <div class="h-10 w-10 rounded-full bg-purple-100 flex items-center justify-center mr-4 mt-1 flex-shrink-0">
-	              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-purple-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-	                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-	              </svg>
-	            </div>
-	            <div class="flex-1">
-	              <h3 class="text-xl font-semibold mb-3">Burning Tool (BKFIL)</h3>
-	              <div class="space-y-4 text-gray-700 leading-relaxed">
-	                <p>Download packages:</p>
-	                <ul class="list-disc pl-6 space-y-2">
-	                  <li>Windows: <span class="font-geist-mono">BEKEN_BKFIL_V3.0.1.4_314_20240924.zip</span></li>
-	                  <li>macOS: <span class="font-geist-mono">BKFIL_macos_v4.0.1_25091001.zip</span></li>
-	                </ul>
-	                <p>The BKFIL.exe interface and configuration look like:</p>
-	                <div class="bg-gray-50 border border-gray-200 rounded-lg p-4">
-	                  <img
-	                    src="pic/download_app_and_burn_code.png"
-	                    alt="BKFIL tool UI"
-	                    class="w-full rounded-lg"
-	                    onerror="this.classList.add('hidden'); this.nextElementSibling.classList.remove('hidden');"
-	                  />
-	                  <div class="hidden text-center text-gray-500 py-6">[此处有个图]</div>
-	                </div>
-	              </div>
-	            </div>
-	          </div>
-	        </section>
+        <section class="bg-white p-8 rounded-lg border border-gray-100 mb-8">
+          <div class="flex items-start">
+            <div
+              class="h-10 w-10 rounded-full bg-purple-100 flex items-center justify-center mr-4 mt-1 flex-shrink-0">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-5 w-5 text-purple-600"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+              </svg>
+            </div>
+            <div class="flex-1">
+              <h3 class="text-xl font-semibold mb-3">Burning Tool (BKFIL)</h3>
+              <div class="space-y-4 text-gray-700 leading-relaxed">
+                <p>Download packages:</p>
+                <ul class="list-disc pl-6 space-y-2">
+                  <li>
+                    Windows:
+                    <span class="font-geist-mono"
+                      >BEKEN_BKFIL_V3.0.1.4_314_20240924.zip</span
+                    >
+                  </li>
+                  <li>
+                    macOS:
+                    <span class="font-geist-mono"
+                      >BKFIL_macos_v4.0.1_25091001.zip</span
+                    >
+                  </li>
+                </ul>
+                <p>The BKFIL.exe interface and configuration look like:</p>
+                <div class="bg-gray-50 border border-gray-200 rounded-lg p-4">
+                  <img
+                    src="pic/download_app_and_burn_code.png"
+                    alt="BKFIL tool UI"
+                    class="w-full rounded-lg"
+                    onerror="
+                      this.classList.add('hidden');
+                      this.nextElementSibling.classList.remove('hidden');
+                    " />
+                  <div class="hidden text-center text-gray-500 py-6">
+                    [此处有个图]
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
 
-	        <section class="bg-white p-8 rounded-lg border border-gray-100 mb-8">
-	          <div class="flex items-start">
-	            <div class="h-10 w-10 rounded-full bg-rose-100 flex items-center justify-center mr-4 mt-1 flex-shrink-0">
-	              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-rose-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-	                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01" />
-	              </svg>
-	            </div>
-	            <div class="flex-1">
-	              <h3 class="text-xl font-semibold mb-3">Step-by-Step Instructions</h3>
-	              <ol class="list-decimal pl-6 space-y-3 text-gray-700 leading-relaxed">
-	                <li>Connect your laptop to <strong>Type C-Port 1</strong> using a cable.</li>
-	                <li>Select the correct <strong>COM port</strong> in BKFIL and connect to the hardware.</li>
-	                <li>Choose the required <strong>.bin</strong> file path (for example: <span class="font-geist-mono">all-app.bin</span>).</li>
-	                <li>
-	                  Hold the button (<strong>Reset Switch Button</strong>) on the right side of R1, then click <strong>Burn</strong>.
-	                </li>
-	              </ol>
-	            </div>
-	          </div>
-	        </section>
+        <section class="bg-white p-8 rounded-lg border border-gray-100 mb-8">
+          <div class="flex items-start">
+            <div
+              class="h-10 w-10 rounded-full bg-rose-100 flex items-center justify-center mr-4 mt-1 flex-shrink-0">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-5 w-5 text-rose-600"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01" />
+              </svg>
+            </div>
+            <div class="flex-1">
+              <h3 class="text-xl font-semibold mb-3">
+                Step-by-Step Instructions
+              </h3>
+              <ol
+                class="list-decimal pl-6 space-y-3 text-gray-700 leading-relaxed">
+                <li>
+                  Connect your laptop to <strong>Type C-Port 1</strong> using a
+                  cable.
+                </li>
+                <li>
+                  Select the correct <strong>COM port</strong> in BKFIL and
+                  connect to the hardware.
+                </li>
+                <li>
+                  Choose the required <strong>.bin</strong> file path (for
+                  example: <span class="font-geist-mono">all-app.bin</span>).
+                </li>
+                <li>
+                  Hold the button (<strong>Reset Switch Button</strong>) on the
+                  right side of R1, then click <strong>Burn</strong>.
+                </li>
+              </ol>
+            </div>
+          </div>
+        </section>
 
-	        <section class="bg-white p-8 rounded-lg border border-gray-100">
-	          <div class="flex items-start">
-	            <div class="h-10 w-10 rounded-full bg-gray-100 flex items-center justify-center mr-4 mt-1 flex-shrink-0">
-	              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-	                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-	              </svg>
-	            </div>
-	            <div class="flex-1">
-	              <h3 class="text-xl font-semibold mb-3">Physical AI Doc</h3>
-	              <p class="text-gray-700 leading-relaxed">
-	                This page is a simplified version of the Physical AI Doc for firmware burning. If you have a team-specific workflow, keep the order of burning files consistent with your
-	                security settings and build output.
-	              </p>
-	            </div>
-	          </div>
-	        </section>
-	      </main>
+        <section class="bg-white p-8 rounded-lg border border-gray-100">
+          <div class="flex items-start">
+            <div
+              class="h-10 w-10 rounded-full bg-gray-100 flex items-center justify-center mr-4 mt-1 flex-shrink-0">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-5 w-5 text-gray-700"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+              </svg>
+            </div>
+            <div class="flex-1">
+              <h3 class="text-xl font-semibold mb-3">Physical AI Doc</h3>
+              <p class="text-gray-700 leading-relaxed">
+                This page is a simplified version of the Physical AI Doc for
+                firmware burning. If you have a team-specific workflow, keep the
+                order of burning files consistent with your security settings
+                and build output.
+              </p>
+            </div>
+          </div>
+        </section>
+      </main>
 
       <footer>
         <div class="container">
-          <p>© 2025 AGORA ConvoAI Device Kit Team</p>
+          <p>© 2025 AGORA Convo AI Device Kit Team</p>
           <div class="support-links">
-            <a href="http://www.agora.io" class="font-semibold">Official Website</a>
+            <a href="http://www.agora.io" class="font-semibold"
+              >Official Website</a
+            >
           </div>
         </div>
       </footer>
